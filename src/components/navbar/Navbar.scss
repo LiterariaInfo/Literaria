@@ -1,0 +1,17 @@
+.nav-bar {
+    width: 100vw;
+    display: flex;
+    gap: 2rem;
+    padding: 1rem 0 .8rem 2rem;
+    box-sizing: border-box;
+    align-items: center;
+
+    label {
+        font-weight: 600;
+
+        &:hover {
+            cursor: pointer;
+            text-decoration: underline;
+        }
+    }
+}

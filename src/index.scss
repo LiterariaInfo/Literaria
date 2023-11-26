@@ -2,22 +2,14 @@ html,
 body {
 	padding: 0;
 	margin: 0;
+  overflow-x: hidden;
 }
 
 body {
-	background: #000000;
+	background: #FFFFFF;
 	display: flex;
 	align-items: center;
 	justify-content: center;
-}
-
-svg {
-  width: 500px;
-  height: 300px;
-}
-
-tspan {
-  fill: white;
 }
 
 * {
@@ -27,6 +19,22 @@ tspan {
 iframe {
   border: none;
   
+}
+
+.title {
+  font-style: italic;
+  font-weight: 700;
+  font-size: 4rem;
+}
+
+.center {
+  text-align: center;
+}
+
+.scrollable-vertical-list {
+  display: flex;
+  gap: 2rem;
+  margin-left: 2rem;
 }
 
 @font-face {
