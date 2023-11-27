@@ -3,19 +3,21 @@ const BorderedText = (props: {
 	borderRadius: number;
 	textAnchor: 'start' | 'middle' | 'end';
 	padding: number | string;
+	lineGap: number;
+	fontSize: number;
 }) => {
-	const { borderRadius, content, textAnchor, padding } = props;
+	const { borderRadius, content, textAnchor, padding, lineGap, fontSize } = props;
 
 	return (
 		<>
 			<iframe
 				src={`./borderedText/borderedText.html?border=${encodeURIComponent(
 					borderRadius
-				)}&anchor=${encodeURIComponent(
-					textAnchor
-				)}&content=${encodeURIComponent(
+				)}&anchor=${encodeURIComponent(textAnchor)}&content=${encodeURIComponent(
 					JSON.stringify(content)
-				)}&padding=${encodeURIComponent(padding)}`}
+				)}&padding=${encodeURIComponent(padding)}&gap=${encodeURIComponent(
+					lineGap
+				)}&font=${encodeURIComponent(fontSize)}`}
 			></iframe>
 		</>
 	);
