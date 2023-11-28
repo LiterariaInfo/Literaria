@@ -7,7 +7,14 @@ const lineGap = +searchParams.get('gap');
 const fontSize = +searchParams.get('font');
 const padding = searchParams.get('padding').trim().split(' ');
 
-const x = 4;
+function drawLimits(box, color) {
+	svg.innerHTML += `<circle cx='${box.x}' cy='${box.y}' r='1' fill='${color}' />`;
+	svg.innerHTML += `<circle cx='${box.x + box.width}' cy='${box.y}' r='1' fill='${color}' />`;
+	svg.innerHTML += `<circle cx='${box.x}' cy='${box.y + box.height}' r='1' fill='${color}' />`;
+	svg.innerHTML += `<circle cx='${box.x + box.width}' cy='${
+		box.y + box.height
+	}' r='1' fill='${color}' />`;
+}
 
 let paddingTop, paddingRight, paddingBottom, paddingLeft;
 
@@ -30,7 +37,7 @@ const text = document.getElementById('text');
 
 content.forEach((value) => {
 	const ts = document.createElementNS(xmlns, 'tspan');
-	console.log(ts.getBBox().height)
+	console.log(ts.getBBox().height);
 	ts.setAttributeNS(null, 'font-size', fontSize);
 	ts.setAttributeNS(null, 'x', '50%');
 	ts.setAttributeNS(null, 'text-anchor', textAnchor);
@@ -48,34 +55,29 @@ for (let tspan of document.getElementsByTagNameNS(xmlns, 'tspan')) {
 	tspan.setAttributeNS(null, 'dy', String(rect.height + lineGap / 2));
 
 	rect.y += rect.height;
-	//rect.height += lineGap / 2;
 
 	console.log(rect);
-
-	//rect.x -= paddingLeft;
-	//rect.width += paddingLeft + paddingRight;
-	//rect.y -= paddingTop;
-	//rect.height += paddingTop + paddingBottom;
 
 	boxes.push(rect);
 }
 
-for (let i = 0; i < boxes.length - 1; i++) {
-	// let m = (boxes[i].y + boxes[i].height + boxes[i + 1].y) / 2;
+for (let i = 0; i < boxes.length; i++) {
+	// drawLimits(boxes[i], 'red');
 
-	//boxes[i + 1].height += boxes[i + 1].y - boxes[i].y - boxes[i].height;
-	//boxes[i + 1].y = boxes[i].y + boxes[i].height;
+	boxes[i].x -= paddingLeft;
+	boxes[i].width += paddingLeft + paddingRight;
+	boxes[i].y -= paddingTop;
+	boxes[i].height += paddingTop + paddingBottom;
 
-	//svg.innerHTML += `<circle cx="${boxes[i].x}" cy="${boxes[i].y}" r="1" fill="red" />`;
-	//svg.innerHTML += `<circle cx="${boxes[i].x + boxes[i].width}" cy="${
-	//	boxes[i].y
-	//}" r="1" fill="red" />`;
-	//svg.innerHTML += `<circle cx="${boxes[i].x}" cy="${
-	//	boxes[i].y + boxes[i].height
-	//}" r="1" fill="red" />`;
-	//svg.innerHTML += `<circle cx="${boxes[i].x + boxes[i].width}" cy="${
-	//	boxes[i].y + boxes[i].height
-	//}" r="1" fill="red" />`;
+	//drawLimits(boxes[i], 'blue');
+}
+
+for (let i = 0; i < boxes.length; i++) {
+	if (boxes[i + 1]) {
+		boxes[i + 1].height -= boxes[i].y + boxes[i].height - boxes[i + 1].y;
+		boxes[i + 1].y = boxes[i].y + boxes[i].height;
+		//boxes[i + 1].height -= 4
+	}
 }
 
 let d = '';
@@ -160,7 +162,7 @@ for (let i = boxes.length - 1; i >= 0; i--) {
     ${
 			boxes[i].x +
 			(boxes[i].width > (boxes[i - 1] === undefined ? 0 : boxes[i - 1].width) ? m2 : -m2)
-		}
+		} 
     ${boxes[i].y}
     `;
 }

@@ -27,14 +27,18 @@ const BorderedText = (props: {
 Example usage:
 
 	<BorderedText
-		content={[
-			'O viziune modernă asupra',
-			'schițelor lui Caragiale'
-		]}
-		textAnchor="middle"
-		borderRadius={10}
-		padding={'2 4 1.1 4'}
-	/>
+				content={[
+					'O vițfune Â|modernă asupra',
+					'schițflor Â|i Caragiale',
+					"seoițfewuiÂ|iesofwa",
+					'w3rrțff3wrÂ|wwww'
+				]}
+				textAnchor="middle"
+				borderRadius={16}
+				padding={'2 4 2 4'}
+				lineGap={0}
+				fontSize={10}
+			/>
 
 */
 
