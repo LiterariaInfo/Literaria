@@ -1,19 +1,17 @@
 import './card.scss';
-import { Link } from 'react-router-dom';
+import { baseURL } from '../../api.ts';
 
 const SmallArticleCard = (props: { label: string; title: string; url: string; image: string }) => {
-	const { label, title, url, image } = props;
+	const { label, title, image } = props;
 
 	return (
-		<Link to={url}>
-			<div className="small-article-card">
-				<div className="small-article-card-image">
-					<img src={image} alt={title} />
-				</div>
-				<label>{label}</label>
-				<h3>{title}</h3>
+		<div className="small-article-card">
+			<div className="small-article-card-image">
+				<img src={`${baseURL}/image/${image}`} alt={title} />
 			</div>
-		</Link>
+			<label className="title-label">{label}</label>
+			<h3 className="small-title">{title}</h3>
+		</div>
 	);
 };
 

@@ -1,43 +1,123 @@
-html,
-body {
-	padding: 0;
-	margin: 0;
-  overflow-x: hidden;
+@import "style/text";
+
+body, html {
+  margin: 0;
+  padding: 0;
 }
 
-body {
-	background: #000000;
-	display: flex;
-	align-items: center;
-	justify-content: center;
+#root {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  overflow: auto;
 }
 
 * {
-  font-family: 'Jakarta', serif;
+  scrollbar-width: auto;
+  scrollbar-color: #c7c7c7 #ffffff;
 }
 
-iframe {
-  border: none;
-  
+*::-webkit-scrollbar {
+  width: 13px;
 }
 
-.title {
-  font-style: italic;
-  font-weight: 700;
-  font-size: 4rem;
+*::-webkit-scrollbar-track {
+  background: transparent;
 }
 
-.center {
-  text-align: center;
-}
-
-.scrollable-vertical-list {
-  display: flex;
-  gap: 2rem;
-  margin-left: 2rem;
+*::-webkit-scrollbar-thumb {
+  background-color: #c7c7c7;
+  border-radius: 20px;
+  border: 3px solid #ffffff;
 }
 
 @font-face {
   font-family: 'Jakarta';
-  src: url('./assets/PlusJakartaSans-Regular.ttf');
+  src: url('./assets/fonts/PlusJakartaSans-ExtraLight.ttf');
+  font-weight: 200;
+}
+
+@font-face {
+  font-family: 'Jakarta';
+  src: url('./assets/fonts/PlusJakartaSans-ExtraLightItalic.ttf');
+  font-weight: 200;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'Jakarta';
+  src: url('./assets/fonts/PlusJakartaSans-Light.ttf');
+  font-weight: 300;
+}
+
+@font-face {
+  font-family: 'Jakarta';
+  src: url('./assets/fonts/PlusJakartaSans-LightItalic.ttf');
+  font-weight: 300;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'Jakarta';
+  src: url('./assets/fonts/PlusJakartaSans-Regular.ttf');
+  font-weight: 400;
+}
+
+@font-face {
+  font-family: 'Jakarta';
+  src: url('./assets/fonts/PlusJakartaSans-Italic.ttf');
+  font-weight: 400;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'Jakarta';
+  src: url('./assets/fonts/PlusJakartaSans-Medium.ttf');
+  font-weight: 500;
+}
+
+@font-face {
+  font-family: 'Jakarta';
+  src: url('./assets/fonts/PlusJakartaSans-MediumItalic.ttf');
+  font-weight: 500;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'Jakarta';
+  src: url('./assets/fonts/PlusJakartaSans-SemiBold.ttf');
+  font-weight: 600;
+}
+
+@font-face {
+  font-family: 'Jakarta';
+  src: url('./assets/fonts/PlusJakartaSans-SemiBoldItalic.ttf');
+  font-weight: 600;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'Jakarta';
+  src: url('./assets/fonts/PlusJakartaSans-Bold.ttf');
+  font-weight: 700;
+}
+
+@font-face {
+  font-family: 'Jakarta';
+  src: url('./assets/fonts/PlusJakartaSans-BoldItalic.ttf');
+  font-weight: 700;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'Jakarta';
+  src: url('./assets/fonts/PlusJakartaSans-ExtraBold.ttf');
+  font-weight: 800;
+}
+
+@font-face {
+  font-family: 'Jakarta';
+  src: url('./assets/fonts/PlusJakartaSans-ExtraLightItalic.ttf');
+  font-weight: 800;
+  font-style: italic;
 }

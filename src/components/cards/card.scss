@@ -1,14 +1,21 @@
 .small-article-card {
-    label {
-        font-size: 1rem;
-    }
+    scroll-snap-align: start;
 
     h3 {
-        font-size: 2rem;
         margin: 1rem 0 0 0;
     }
 
     img {
-        width: 30rem;
+        height: 30rem;
+        border-radius: 3rem;
+    }
+}
+
+.large-article-card {
+    scroll-snap-align: start;
+
+    img {
+        height: 40rem;
+        border-radius: 3rem;
     }
 }

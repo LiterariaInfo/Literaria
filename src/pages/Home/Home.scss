@@ -1,0 +1,151 @@
+.home {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  scroll-snap-type: y mandatory;
+  -webkit-scroll-snap-type: y mandatory;
+  overflow: auto;
+}
+
+.slider {
+  border-radius: 3.5rem;
+  width: 92vw;
+  height: 73vh;
+  background-size: cover;
+  background-position: center;
+  box-sizing: border-box;
+  position: relative;
+}
+
+.outer-slider {
+  min-height: 100vh;
+  max-height: 100vh;
+  scroll-snap-align: start;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.slider-indicator {
+  display: flex;
+  gap: 1rem;
+  position: absolute;
+  left: 50%;
+  bottom: 1rem;
+  transform: translateX(-50%);
+}
+
+.slider-indicator-container {
+  background: rgba(255, 255, 255, 0.8);
+  border-radius: 5rem;
+  padding: 1rem;
+  display: flex;
+  gap: .65rem;
+}
+
+.slider-indicator-progress {
+  height: .5rem;
+  border-radius: 2rem;
+}
+
+.category-label {
+  background: #FFFFFF;
+  border-radius: 2rem;
+  padding: 1rem;
+  display: flex;
+  align-items: center;
+  gap: .8rem;
+  overflow: hidden;
+  position: absolute;
+  left: 3.5rem;
+  top: 3.5rem;
+
+  label {
+    font-size: 2.2rem;
+    font-weight: 600;
+  }
+}
+
+.slider-image {
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+  border-radius: 3.5rem;
+  filter: brightness(.7);
+}
+
+.slider-next {
+  background: white;
+  opacity: 80%;
+  border-radius: 5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 2.5rem;
+  width: 2.5rem;
+
+  img {
+    height: 50%;
+  }
+
+  &:hover {
+    opacity: 1;
+    cursor: pointer;
+
+  }
+}
+
+.see-more {
+  display: flex;
+  justify-content: center;
+
+  label {
+    font-weight: 600;
+    font-size: 1.2rem;
+    color: rgba(black, .8);
+  }
+}
+
+.recommended {
+  min-height: 100vh;
+  max-height: 100vh;
+  scroll-snap-align: start;
+  width: 100%;
+
+  .main-title {
+    text-align: center;
+  }
+}
+
+.latest {
+  min-height: 100vw;
+  max-height: 100vh;
+  scroll-snap-align: start;
+  display: flex;
+}
+
+.article-list {
+  position: relative;
+  display: flex;
+  width: 100%;
+  flex-shrink: 1;
+  padding-left: 2rem;
+  gap: 2rem;
+  overflow: auto;
+  scroll-snap-type: x mandatory;
+}
+
+.next-article {
+  position: absolute;
+  right: 1rem;
+  top: 50%;
+  transform: translateY(50%);
+  background: #FFFFFF;
+}
+
+@media (width <= 600px) {
+  .category-label {
+    left: 50%;
+    transform: translateX(-50%);
+  }
+}

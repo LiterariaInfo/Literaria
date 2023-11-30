@@ -7,7 +7,10 @@ const NavbarCategory = (props: {
 }) => {
     const { name } = props;
 
-    return <label>{name}</label>
+    return <label style={{
+        fontWeight: '700',
+        fontSize: '1.05rem'
+    }}>{name}</label>
 }
 
 export default NavbarCategory;

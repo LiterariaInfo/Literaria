@@ -1,5 +1,6 @@
-import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
+import { createAsyncThunk, createSelector, createSlice } from '@reduxjs/toolkit';
 import articleController from '../controllers/articleController.ts';
+import { RootState } from '../store.ts';
 
 interface Directory {
 	id: number;
@@ -10,10 +11,11 @@ interface Directory {
 
 interface Article {
 	id: number;
+	image: string;
 	parentID: number;
 	name: string;
-	author?: string;
-	date?: Date;
+	author: string;
+	createdAt: Date;
 	body?: string;
 }
 
@@ -31,12 +33,12 @@ const initialState: ArticleStateModel = {
 	latest: []
 };
 
-export const getRecommended = createAsyncThunk('article/fetchRecommended', async () => {
+export const fetchRecommended = createAsyncThunk('article/fetchRecommended', async () => {
 	const response = await articleController.getRecommendedArticles();
 	return response.data;
 });
 
-export const getLatest = createAsyncThunk('article/fetchRecommended', async () => {
+export const fetchLatest = createAsyncThunk('article/fetchRecommended', async () => {
 	const response = await articleController.getLatestArticles();
 	return response.data;
 });
@@ -45,9 +47,28 @@ const articleSlice = createSlice({
 	name: 'account',
 	initialState,
 	reducers: {},
-	extraReducers: {}
+	extraReducers: (builder) =>
+		builder.addCase(fetchRecommended.fulfilled, (state, action) => {
+			state.recommended = action.payload.map((article: any) => article.id);
+
+			for (const article of action.payload) {
+				const index = state.articles.findIndex((art) => art.id === article.id);
+
+				if (index != -1) {
+					state.articles[index] = article;
+				} else {
+					state.articles.push(article);
+				}
+			}
+		})
 });
 
 export const {} = articleSlice.actions;
 
 export default articleSlice.reducer;
+
+const selectArticles = (state: RootState) => state.article;
+
+export const selectRecommended = createSelector([selectArticles], (article) => {
+	return article.articles.filter((art) => article.recommended.includes(art.id));
+});

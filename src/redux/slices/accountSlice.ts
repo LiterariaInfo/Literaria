@@ -13,7 +13,7 @@ const accountSlice = createSlice({
   name: 'account',
   initialState,
   reducers: {},
-  extraReducers: {
+  extraReducers: () => {
 
   }
 });
