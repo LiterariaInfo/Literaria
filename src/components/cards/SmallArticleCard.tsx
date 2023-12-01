@@ -1,16 +1,19 @@
 import './card.scss';
 import { baseURL } from '../../api.ts';
+import { Article } from '../../redux/slices/articleSlice.ts';
+import OpenLinkButton from '../buttons/OpenLinkButton.tsx';
 
-const SmallArticleCard = (props: { label: string; title: string; url: string; image: string }) => {
-	const { label, title, image } = props;
+const SmallArticleCard = (props: { article: Article }) => {
+	const { author, name, image } = props.article;
 
 	return (
-		<div className="small-article-card">
-			<div className="small-article-card-image">
-				<img src={`${baseURL}/image/${image}`} alt={title} />
+		<div className='small-article-card'>
+			<div className='small-article-card-image'>
+				<img src={`${baseURL}/image/${image}`} alt={name} />
+				<OpenLinkButton className='outer-open-link-button' />
 			</div>
-			<label className="title-label">{label}</label>
-			<h3 className="small-title">{title}</h3>
+			<label className='title-label'>{author}</label>
+			<h3 className='small-title'>{name}</h3>
 		</div>
 	);
 };

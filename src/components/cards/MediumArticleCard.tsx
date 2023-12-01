@@ -1,17 +1,23 @@
 import './card.scss';
+import { Article } from '../../redux/slices/articleSlice.ts';
+import { baseURL } from '../../api.ts';
+import Timestamp from '../timestamp/Timestamp.tsx';
+import OpenLinkButton from '../buttons/OpenLinkButton.tsx';
 
-const MediumArticleCard = (props: { label: string; title: string; url: string; image: string }) => {
-  const { label, title, image } = props;
+const MediumArticleCard = (props: { article: Article }) => {
+	const { author, name, image, createdAt } = props.article;
 
-  return (
-    <div className="small-article-card">
-      <div className="small-article-card-image">
-        <img src={image} alt={title} />
-      </div>
-      <label>{label}</label>
-      <h3>{title}</h3>
-    </div>
-  );
+	return (
+		<div className='medium-article-card'>
+			<div className='medium-article-card-image'>
+				<img src={`${baseURL}/image/${image}`} alt={name} />
+				<Timestamp className='outer-time-stamp' time={createdAt} />
+				<OpenLinkButton className='outer-open-link-button' />
+			</div>
+			<label className='title-label'>{author}</label>
+			<h3 className='small-title'>{name}</h3>
+		</div>
+	);
 };
 
 export default MediumArticleCard;

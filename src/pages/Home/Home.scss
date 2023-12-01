@@ -1,12 +1,3 @@
-.home {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  scroll-snap-type: y mandatory;
-  -webkit-scroll-snap-type: y mandatory;
-  overflow: auto;
-}
-
 .slider {
   border-radius: 3.5rem;
   width: 92vw;
@@ -18,9 +9,6 @@
 }
 
 .outer-slider {
-  min-height: 100vh;
-  max-height: 100vh;
-  scroll-snap-align: start;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -40,11 +28,11 @@
   border-radius: 5rem;
   padding: 1rem;
   display: flex;
-  gap: .65rem;
+  gap: 0.65rem;
 }
 
 .slider-indicator-progress {
-  height: .5rem;
+  height: 0.5rem;
   border-radius: 2rem;
 }
 
@@ -54,7 +42,7 @@
   padding: 1rem;
   display: flex;
   align-items: center;
-  gap: .8rem;
+  gap: 0.8rem;
   overflow: hidden;
   position: absolute;
   left: 3.5rem;
@@ -71,28 +59,7 @@
   width: 100%;
   height: 100%;
   border-radius: 3.5rem;
-  filter: brightness(.7);
-}
-
-.slider-next {
-  background: white;
-  opacity: 80%;
-  border-radius: 5rem;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 2.5rem;
-  width: 2.5rem;
-
-  img {
-    height: 50%;
-  }
-
-  &:hover {
-    opacity: 1;
-    cursor: pointer;
-
-  }
+  filter: brightness(0.7);
 }
 
 .see-more {
@@ -102,48 +69,24 @@
   label {
     font-weight: 600;
     font-size: 1.2rem;
-    color: rgba(black, .8);
+    color: rgba(black, 0.8);
   }
 }
 
 .recommended {
-  min-height: 100vh;
-  max-height: 100vh;
-  scroll-snap-align: start;
-  width: 100%;
-
   .main-title {
     text-align: center;
   }
 }
 
 .latest {
-  min-height: 100vw;
-  max-height: 100vh;
-  scroll-snap-align: start;
-  display: flex;
+  .main-title {
+    text-align: left;
+    padding-left: 2rem;
+  }
 }
 
-.article-list {
-  position: relative;
-  display: flex;
-  width: 100%;
-  flex-shrink: 1;
-  padding-left: 2rem;
-  gap: 2rem;
-  overflow: auto;
-  scroll-snap-type: x mandatory;
-}
-
-.next-article {
-  position: absolute;
-  right: 1rem;
-  top: 50%;
-  transform: translateY(50%);
-  background: #FFFFFF;
-}
-
-@media (width <= 600px) {
+@media (max-width: 600px) {
   .category-label {
     left: 50%;
     transform: translateX(-50%);

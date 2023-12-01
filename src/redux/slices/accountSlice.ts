@@ -2,20 +2,18 @@ import { createSlice } from '@reduxjs/toolkit';
 import { RootState } from '../store.ts';
 
 interface AccountStateModel {
-  logged: boolean
+	logged: boolean;
 }
 
 const initialState: AccountStateModel = {
-  logged: false
-}
+	logged: false
+};
 
 const accountSlice = createSlice({
-  name: 'account',
-  initialState,
-  reducers: {},
-  extraReducers: () => {
-
-  }
+	name: 'account',
+	initialState,
+	reducers: {},
+	extraReducers: () => {}
 });
 
 export const {} = accountSlice.actions;

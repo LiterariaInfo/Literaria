@@ -9,7 +9,7 @@ interface Directory {
 	imageUrl: string;
 }
 
-interface Article {
+export interface Article {
 	id: number;
 	image: string;
 	parentID: number;

@@ -1,5 +1,5 @@
 const Description = () => {
-  return <></>;
+	return <></>;
 };
 
 export default Description;

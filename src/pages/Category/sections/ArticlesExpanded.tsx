@@ -1,5 +1,5 @@
 const ArticlesExpanded = () => {
-  return <></>;
+	return <></>;
 };
 
 export default ArticlesExpanded;

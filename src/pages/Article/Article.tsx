@@ -1,5 +1,5 @@
 const Article = () => {
-  return <></>;
+	return <></>;
 };
 
 export default Article;
