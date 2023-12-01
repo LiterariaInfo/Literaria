@@ -43,6 +43,11 @@ export const fetchLatest = createAsyncThunk('article/fetchRecommended', async ()
 	return response.data;
 });
 
+export const fetchDirectory = createAsyncThunk('article/fetchDirectory', async (directoryID: number) => {
+	const response = await articleController.getDirectory(directoryID);
+	return response.data;
+})
+
 const articleSlice = createSlice({
 	name: 'account',
 	initialState,

@@ -16,11 +16,11 @@ const Home = () => {
 	}, [dispatch]);
 
 	return (
-		<div className='category-slide'>
+		<>
 			<Landing />
 			<Recommended />
 			<Latest />
-		</div>
+		</>
 	);
 };
 

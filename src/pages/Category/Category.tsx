@@ -6,9 +6,9 @@ import Description from './sections/Description.tsx';
 import SubCategories from './sections/SubCategories.tsx';
 import Articles from './sections/Articles.tsx';
 import ArticlesExpanded from './sections/ArticlesExpanded.tsx';
-import { fetchLatest, fetchRecommended } from '../../redux/slices/articleSlice.ts';
 import { useDispatch } from 'react-redux';
 import store from '../../redux/store.ts';
+import { fetchDirectory } from '../../redux/slices/articleSlice.ts';
 
 const Category = () => {
 	let { categoryID } = useParams();
@@ -16,8 +16,7 @@ const Category = () => {
 	const dispatch = useDispatch<typeof store.dispatch>();
 
 	useEffect(() => {
-		dispatch(fetchRecommended());
-		dispatch(fetchLatest());
+		dispatch(fetchDirectory(+categoryID!));
 	}, [dispatch]);
 
 	return (

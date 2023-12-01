@@ -1,5 +1,5 @@
 import { Route, Routes } from 'react-router-dom';
-import { lazy } from 'react';
+import { lazy, useRef } from 'react';
 import './App.scss';
 import NavBar from './components/navbar/NavBar.tsx';
 
@@ -10,16 +10,20 @@ const Article = lazy(() => import('./pages/Article/Article.tsx'));
 const Admin = lazy(() => import('./pages/Admin/Admin.tsx'));
 
 function App() {
+	const scrollRef = useRef<HTMLDivElement>(null);
+
 	return (
 		<>
-			<NavBar />
-			<Routes>
-				<Route index path='/' element={<Home />} />
-				<Route path='/about' element={<About />} />
-				<Route path='/category/:categoryID' element={<Category />} />
-				<Route path='/article/:articleID' element={<Article />} />
-				<Route path='/admin' element={<Admin />} />
-			</Routes>
+			<NavBar scrollRef={scrollRef} />
+			<div ref={scrollRef} className='category-slide'>
+				<Routes>
+					<Route index path='/' element={<Home />} />
+					<Route path='/about' element={<About />} />
+					<Route path='/category/:categoryID' element={<Category />} />
+					<Route path='/article/:articleID' element={<Article />} />
+					<Route path='/admin' element={<Admin />} />
+				</Routes>
+			</div>
 		</>
 	);
 }

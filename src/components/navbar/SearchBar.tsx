@@ -8,7 +8,8 @@ const SearchBar = () => {
 	const searchBar = useRef<HTMLInputElement>(null);
 
 	return (
-		<div
+		<motion.div
+			layout
 			className='outer-search'
 			style={{
 				borderWidth: isExtended ? '1px' : 0
@@ -37,7 +38,7 @@ const SearchBar = () => {
 					}
 				}}
 			/>
-		</div>
+		</motion.div>
 	);
 };
 

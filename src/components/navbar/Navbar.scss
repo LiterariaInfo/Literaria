@@ -1,9 +1,9 @@
 .main-nav-bar {
   width: 100vw;
   display: flex;
-  gap: 2rem;
   box-sizing: border-box;
   align-items: center;
+  gap: 2rem;
 
   label {
     font-weight: 600;
@@ -27,6 +27,7 @@
   background: #FFFFFFA0;
   box-sizing: border-box;
   width: 100vw;
+  gap: 2rem;
 }
 
 .search {
@@ -57,4 +58,9 @@
     padding-left: 1rem;
     background: transparent;
   }
+}
+
+.nav-bar-categories {
+  display: flex;
+  gap: 2rem;
 }
