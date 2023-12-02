@@ -11,9 +11,6 @@ const SearchBar = () => {
 		<motion.div
 			layout
 			className='outer-search'
-			style={{
-				borderWidth: isExtended ? '1px' : 0
-			}}
 			onMouseEnter={() => {
 				setIsExtended(true);
 				searchBar.current!.focus();
@@ -24,13 +21,10 @@ const SearchBar = () => {
 				}
 			}}
 		>
-			<div className='search'>
-				<img src={search} alt='search' />
-			</div>
 			<motion.input
 				placeholder='Căutați...'
 				initial={{ width: 0 }}
-				animate={{ width: isExtended ? 300 : 0, fontSize: isExtended ? '1rem' : 0 }}
+				animate={{ width: isExtended ? 300 : 0, fontSize: isExtended ? '1rem' : 0, padding: isExtended ? '0 0 0 1rem' : 0 }}
 				ref={searchBar}
 				onBlur={() => {
 					if (searchBar.current!.value === '') {
@@ -38,6 +32,9 @@ const SearchBar = () => {
 					}
 				}}
 			/>
+			<div className='search'>
+				<img src={search} alt='search' />
+			</div>
 		</motion.div>
 	);
 };

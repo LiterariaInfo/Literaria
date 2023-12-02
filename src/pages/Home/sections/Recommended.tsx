@@ -8,7 +8,7 @@ import NextSectionButton from '../../../components/buttons/NextSectionButton.tsx
 const Recommended = () => {
 	const recommendedArticles = useSelector(selectRecommended);
 
-	const handleNextSectionClick = () => {}
+	const handleNextSectionClick = () => {};
 
 	return (
 		<div className='recommended section'>

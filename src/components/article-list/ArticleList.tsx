@@ -1,22 +1,27 @@
 import './ArticleList.scss';
 import NextItemButton from '../buttons/NextItemButton.tsx';
-import { FC, ReactNode, useRef } from 'react';
+import { FC, ReactNode, useRef, useState } from 'react';
+import { motion, useMotionValueEvent, useScroll } from 'framer-motion';
 
 const ArticleList: FC<{ children: ReactNode }> = ({ children }) => {
 	const scrollRef = useRef<HTMLDivElement>(null);
 
+	const [scroll, setScroll] = useState<number>(0);
+
+	const { scrollXProgress } = useScroll({
+		container: scrollRef
+	});
+
+	useMotionValueEvent(scrollXProgress, 'change', (value) => {
+		setScroll(value);
+	});
+
 	const handleNextClick = () => {
-		scrollRef.current!.scrollBy({
-			left: 10,
-			behavior: 'smooth'
-		});
+		console.log(scrollXProgress.get());
 	};
 
 	const handlePreviousClick = () => {
-		scrollRef.current!.scrollBy({
-			left: -10,
-			behavior: 'smooth'
-		});
+		console.log(scrollXProgress.get());
 	};
 
 	return (
@@ -24,12 +29,28 @@ const ArticleList: FC<{ children: ReactNode }> = ({ children }) => {
 			<div ref={scrollRef} className='article-list'>
 				{children}
 			</div>
-			<div className='next-article'>
+			<motion.div
+				style={{
+					opacity: 0
+				}}
+				animate={{
+					opacity: +(scroll !== 1)
+				}}
+				className='next-article'
+			>
 				<NextItemButton onClick={handleNextClick} />
-			</div>
-			<div className='previous-article'>
+			</motion.div>
+			<motion.div
+				style={{
+					opacity: 0
+				}}
+				animate={{
+					opacity: +(scroll !== 0)
+				}}
+				className='previous-article'
+			>
 				<NextItemButton onClick={handlePreviousClick} />
-			</div>
+			</motion.div>
 		</div>
 	);
 };

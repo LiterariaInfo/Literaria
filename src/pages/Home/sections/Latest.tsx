@@ -1,10 +1,10 @@
 import { useSelector } from 'react-redux';
-import { selectRecommended } from '../../../redux/slices/articleSlice.ts';
+import { selectLatest } from '../../../redux/slices/articleSlice.ts';
 import ArticleList from '../../../components/article-list/ArticleList.tsx';
 import MediumArticleCard from '../../../components/cards/MediumArticleCard.tsx';
 
 const Latest = () => {
-	const recommendedArticles = useSelector(selectRecommended);
+	const recommendedArticles = useSelector(selectLatest);
 
 	return (
 		<div className='latest section'>

@@ -4,8 +4,8 @@ import { baseURL } from '../../api.ts';
 import Timestamp from '../timestamp/Timestamp.tsx';
 import OpenLinkButton from '../buttons/OpenLinkButton.tsx';
 
-const MediumArticleCard = (props: { article: Article }) => {
-	const { author, name, image, createdAt } = props.article;
+const MediumArticleCard = ({ article }: { article: Article }) => {
+	const { author, name, image, createdAt } = article;
 
 	return (
 		<div className='medium-article-card'>

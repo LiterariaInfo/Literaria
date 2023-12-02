@@ -11,7 +11,7 @@ import store from '../../redux/store.ts';
 import { fetchDirectory } from '../../redux/slices/articleSlice.ts';
 
 const Category = () => {
-	let { categoryID } = useParams();
+	const { categoryID } = useParams();
 
 	const dispatch = useDispatch<typeof store.dispatch>();
 
@@ -20,13 +20,13 @@ const Category = () => {
 	}, [dispatch]);
 
 	return (
-		<div className='category-slide'>
+		<>
 			<Landing />
 			<Description />
 			<SubCategories />
 			<Articles />
 			<ArticlesExpanded />
-		</div>
+		</>
 	);
 };
 

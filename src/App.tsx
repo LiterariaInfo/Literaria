@@ -1,7 +1,11 @@
 import { Route, Routes } from 'react-router-dom';
-import { lazy, useRef } from 'react';
+import { createContext, lazy, RefObject, useRef } from 'react';
 import './App.scss';
 import NavBar from './components/navbar/NavBar.tsx';
+
+export const AppContext = createContext<{
+	scrollRef: RefObject<HTMLDivElement>;
+} | null>(null);
 
 const Home = lazy(() => import('./pages/Home/Home.tsx'));
 const About = lazy(() => import('./pages/About/About.tsx'));
@@ -13,8 +17,12 @@ function App() {
 	const scrollRef = useRef<HTMLDivElement>(null);
 
 	return (
-		<>
-			<NavBar scrollRef={scrollRef} />
+		<AppContext.Provider
+			value={{
+				scrollRef
+			}}
+		>
+			<NavBar />
 			<div ref={scrollRef} className='category-slide'>
 				<Routes>
 					<Route index path='/' element={<Home />} />
@@ -24,7 +32,7 @@ function App() {
 					<Route path='/admin' element={<Admin />} />
 				</Routes>
 			</div>
-		</>
+		</AppContext.Provider>
 	);
 }
 

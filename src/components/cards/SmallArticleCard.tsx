@@ -3,8 +3,8 @@ import { baseURL } from '../../api.ts';
 import { Article } from '../../redux/slices/articleSlice.ts';
 import OpenLinkButton from '../buttons/OpenLinkButton.tsx';
 
-const SmallArticleCard = (props: { article: Article }) => {
-	const { author, name, image } = props.article;
+const SmallArticleCard = ({ article }: { article: Article }) => {
+	const { author, name, image } = article;
 
 	return (
 		<div className='small-article-card'>
