@@ -2,12 +2,13 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  scroll-snap-type: y mandatory;
-  -webkit-scroll-snap-type: y mandatory;
+  //scroll-snap-type: y mandatory;
+  //-webkit-scroll-snap-type: y mandatory;
   overflow-y: scroll;
   overflow-x: hidden;
   padding-top: 12rem;
   scroll-padding-top: 12rem;
+  background: white;
 }
 
 .section {

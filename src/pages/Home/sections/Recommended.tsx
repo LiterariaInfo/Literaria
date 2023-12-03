@@ -10,7 +10,7 @@ const Recommended = () => {
 
 	const handleNextSectionClick = () => {};
 
-	return (
+	return recommendedArticles.length ? (
 		<div className='recommended section'>
 			<h1 className='main-title'>Articole recomandate</h1>
 			<ArticleList>
@@ -24,7 +24,7 @@ const Recommended = () => {
 			</ArticleList>
 			<NextSectionButton text='Vezi cele mai noi articole' onClick={handleNextSectionClick} />
 		</div>
-	);
+	) : null;
 };
 
 export default Recommended;

@@ -1,14 +1,13 @@
-import { useSelector } from 'react-redux';
-import { selectDirectory } from '../../../redux/slices/articleSlice.ts';
+import { selectDirectoryArticles } from '../../../redux/slices/articleSlice.ts';
 import ArticleList from '../../../components/article-list/ArticleList.tsx';
 import MediumArticleCard from '../../../components/cards/MediumArticleCard.tsx';
-import { RootState } from '../../../redux/store.ts';
+import { useAppSelector } from '../../../redux/store.ts';
 import { useParams } from 'react-router-dom';
 
 const Articles = () => {
 	const { categoryID } = useParams();
 
-	const articles = (useSelector((state: RootState) => selectDirectory(state, +categoryID!)) ?? { articles: [] }).articles!;
+	const articles = useAppSelector(selectDirectoryArticles(+categoryID!));
 
 	return (
 		<div className='articles section'>

@@ -5,7 +5,7 @@ import Timestamp from '../timestamp/Timestamp.tsx';
 import OpenLinkButton from '../buttons/OpenLinkButton.tsx';
 
 const GiantArticleCard = ({ article }: { article: Article }) => {
-  const { image, name, createdAt } = article;
+  const { image, name, createdAt } = article ?? {};
 
   return (
     <div className='large-article-card'>

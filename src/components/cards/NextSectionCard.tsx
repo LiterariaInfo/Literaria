@@ -1,4 +1,4 @@
-const NextSectionCard = () => {
+const NextSectionCard = ({ text }: { text: string }) => {
 	return <></>;
 };
 

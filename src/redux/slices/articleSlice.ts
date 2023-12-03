@@ -2,6 +2,8 @@ import { createAsyncThunk, createSelector, createSlice } from '@reduxjs/toolkit'
 import articleController from '../controllers/articleController.ts';
 import { RootState } from '../store.ts';
 
+type status = 'idle' | 'loading' | 'failed' | 'succeeded';
+
 interface Directory {
 	id: number;
 	name: string;
@@ -9,7 +11,7 @@ interface Directory {
 	description: string;
 	articles?: Article[];
 	directories?: Directory[];
-	status: 'idle' | 'loading' | 'failed' | 'succeeded';
+	status: status;
 }
 
 export interface Article {
@@ -19,16 +21,26 @@ export interface Article {
 	author: string;
 	createdAt: Date;
 	content?: string;
-	status: 'idle' | 'loading' | 'failed' | 'succeeded';
+	status: status;
 }
 
 interface ArticleStateModel {
-	directories: { [key: number]: Directory };
-	articles: { [key: number]: Article };
-	recommended: number[];
-	latest: number[];
-	recommendedStatus: 'idle' | 'loading' | 'failed' | 'succeeded';
-	latestStatus: 'idle' | 'loading' | 'failed' | 'succeeded';
+	directories: {
+		[key: number]: {
+			data?: Directory;
+			status: status;
+		};
+	};
+	articles: {
+		[key: number]: {
+			data?: Article;
+			status: status;
+		};
+	};
+	recommended: Article[];
+	latest: Article[];
+	recommendedStatus: status;
+	latestStatus: status;
 }
 
 const initialState: ArticleStateModel = {
@@ -76,11 +88,7 @@ const articleSlice = createSlice({
 				state.recommendedStatus = 'failed';
 			})
 			.addCase(fetchRecommended.fulfilled, (state, action) => {
-				state.recommended = action.payload.map((art: Article) => art.id);
-
-				action.payload.forEach((art: Article) => {
-					state.articles[art.id] = art;
-				});
+				state.recommended = action.payload;
 
 				state.recommendedStatus = 'succeeded';
 			})
@@ -91,55 +99,34 @@ const articleSlice = createSlice({
 				state.recommendedStatus = 'failed';
 			})
 			.addCase(fetchLatest.fulfilled, (state, action) => {
-				state.latest = action.payload.map((art: Article) => art.id);
-
-				action.payload.forEach((art: Article) => {
-					state.articles[art.id] = art;
-				});
+				state.latest = action.payload;
 
 				state.recommendedStatus = 'succeeded';
 			})
 			.addCase(fetchDirectory.pending, (state, action) => {
-				state.directories[action.meta.arg] = {
-					directories: [],
-					articles: [],
-					name: '',
-					image: '',
-					id: 0,
-					description: '',
-					status: 'loading'
-				};
+				state.directories[action.meta.arg] = { status: 'loading' };
 			})
 			.addCase(fetchDirectory.rejected, (state, action) => {
 				state.directories[action.meta.arg].status = 'failed';
 			})
 			.addCase(fetchDirectory.fulfilled, (state, action) => {
 				state.directories[action.payload.id] = {
-					directories: action.payload.directories.map((dir: Directory) => dir.id),
-					articles: action.payload.articleDirectory.map(
-						(art: { article: Article }) => art.article.id
-					),
+					directories: action.payload.directories,
+					articles: action.payload.articleDirectory.map((art: { article: Article }) => art.article),
 					...action.payload
 				};
 
 				state.directories[action.meta.arg].status = 'succeeded';
 			})
 			.addCase(fetchArticle.pending, (state, action) => {
-				state.articles[action.meta.arg] = {
-					name: '',
-					id: 0,
-					image: '',
-					createdAt: new Date(),
-					author: '',
-					status: 'loading'
-				};
+				state.articles[action.meta.arg] = { status: 'loading' };
 			})
 			.addCase(fetchArticle.rejected, (state, action) => {
 				state.articles[action.meta.arg].status = 'failed';
 			})
 			.addCase(fetchArticle.fulfilled, (state, action) => {
-				state.articles[action.payload.id] = { ...action.payload };
-				state.articles[action.payload.id].content = action.payload.articleContent.content;
+				state.articles[action.payload.id].data = { ...action.payload };
+				state.articles[action.payload.id].data!.content = action.payload.articleContent.content;
 				state.articles[action.payload.id].status = 'succeeded';
 			})
 });
@@ -151,13 +138,24 @@ export default articleSlice.reducer;
 const selectArticles = (state: RootState) => state.article;
 
 export const selectRecommended = createSelector([selectArticles], (articleState) => {
-	return articleState.recommended.map((id) => articleState.articles[id]);
+	return articleState.recommended;
 });
+
+export const selectRecommendedState = (state: RootState) => state.article.recommendedStatus;
 
 export const selectLatest = createSelector([selectArticles], (articleState) => {
-	return articleState.latest.map((id) => articleState.articles[id]);
+	return articleState.latest;
 });
 
-export const selectDirectory = (state: RootState, id: number) => {
-	return state.article.directories[id];
+export const selectLatestState = (state: RootState) => state.article.latestStatus;
+
+export const selectDirectory = (id: number) => (state: RootState) => {
+	return state.article.directories[id]?.data ?? { name: '', articles: [] };
 };
+
+export const selectDirectoryArticles = (id: number) => (state: RootState) => {
+	return state.article.directories[id]?.data?.articles ?? [];
+};
+
+export const selectDirectoryState = (id: number) => (state: RootState) =>
+	state.article.directories[id]?.status ?? 'idle';

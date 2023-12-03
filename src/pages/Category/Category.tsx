@@ -6,17 +6,20 @@ import Description from './sections/Description.tsx';
 import SubCategories from './sections/SubCategories.tsx';
 import Articles from './sections/Articles.tsx';
 import ArticlesExpanded from './sections/ArticlesExpanded.tsx';
-import { useDispatch } from 'react-redux';
-import store from '../../redux/store.ts';
-import { fetchDirectory } from '../../redux/slices/articleSlice.ts';
+import { useAppDispatch, useAppSelector } from '../../redux/store.ts';
+import { fetchDirectory, selectDirectoryState } from '../../redux/slices/articleSlice.ts';
 
 const Category = () => {
+	const dispatch = useAppDispatch();
+
 	const { categoryID } = useParams();
 
-	const dispatch = useDispatch<typeof store.dispatch>();
-
+	const directoryState = useAppSelector(selectDirectoryState(+categoryID!));
+	
 	useEffect(() => {
-		dispatch(fetchDirectory(+categoryID!));
+		if (directoryState === 'idle') {
+			dispatch(fetchDirectory(+categoryID!));
+		}
 	}, [dispatch]);
 
 	return (
