@@ -19,6 +19,7 @@ const Category = () => {
 	useEffect(() => {
 		if (directoryState === 'idle') {
 			dispatch(fetchDirectory(+categoryID!));
+			console.log(6888)
 		}
 	}, [dispatch]);
 

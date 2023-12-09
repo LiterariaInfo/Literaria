@@ -1,13 +1,15 @@
 .small-article-card {
   scroll-snap-align: start;
+  display: flex;
+  flex-direction: column;
 
   h3 {
     margin: 1rem 0 0 0;
   }
 
   img {
-    height: 30rem;
     border-radius: 3rem;
+    object-fit: cover;
 
     &:hover {
       cursor: pointer;
@@ -22,16 +24,21 @@
 
   .small-article-card-image {
     position: relative;
+    flex-grow: 1;
+    display: flex;
   }
 }
 
 .large-article-card {
   scroll-snap-align: start;
   position: relative;
+  height: 100%;
 
   img {
-    height: 40rem;
+    height: 100%;
+    width: 100%;
     border-radius: 3rem;
+    object-fit: cover;
 
     &:hover {
       cursor: pointer;
@@ -87,5 +94,51 @@
       right: 2rem;
       top: 2rem;
     }
+  }
+}
+
+.next-section-card {
+  position: relative;
+
+  img {
+    top: 0;
+    left: 0;
+    border-radius: 3rem;
+    height: 20rem;
+  }
+
+  label {
+    top: 0;
+    left: 0;
+    color: #FFFFFF;
+    font-weight: 600;
+    font-size: 2rem;
+  }
+
+  div {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    backdrop-filter: blur(.5rem) brightness(.5);
+    border-radius: 3rem;
+  }
+}
+
+.spotlight-card {
+  background: #5B5A36;
+  border-radius: 3rem;
+  padding: 3.5rem;
+
+  h1 {
+    color: white;
+  }
+
+  label {
+    color: white;
   }
 }

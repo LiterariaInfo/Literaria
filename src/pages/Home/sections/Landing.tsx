@@ -20,7 +20,7 @@ const Landing = () => {
 	useEffect(() => {
 		const changeSlide = setInterval(() => {
 			setCurrentSlide((currentSlide + 1) % categories.length);
-		}, 6000);
+		}, 2000);
 
 		return () => {
 			clearInterval(changeSlide);
@@ -35,7 +35,7 @@ const Landing = () => {
 
 	return (
 		<>
-			<div className='outer-slider section'>
+			<div className='outer-slider section top-section'>
 				<div className='slider'>
 					{categories.map((category, index) => (
 						<motion.img
@@ -66,8 +66,8 @@ const Landing = () => {
 						</div>
 						<NextItemButton onClick={handleNextItemClick} />
 					</div>
-					<NextSectionButton text='Vezi articolele recomandate' onClick={handleNextSectionClick} />
 				</div>
+				<NextSectionButton text='Vezi articolele recomandate' onClick={handleNextSectionClick} />
 			</div>
 		</>
 	);

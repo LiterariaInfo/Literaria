@@ -1,5 +1,6 @@
 import './button.scss';
 import downArrow from '../../assets/icons/down-arrow.svg';
+import { motion } from 'framer-motion';
 
 const NextSectionButton = (props: { text: string; onClick: () => void }) => {
 	const { text, onClick } = props;
@@ -7,7 +8,7 @@ const NextSectionButton = (props: { text: string; onClick: () => void }) => {
 	return (
 		<div className='next-section-button' onClick={onClick}>
 			<label>{text}</label>
-			<img src={downArrow} alt='down-arrow' />
+			<motion.img src={downArrow} alt='down-arrow' />
 		</div>
 	);
 };

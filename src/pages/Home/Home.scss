@@ -83,6 +83,34 @@
   }
 }
 
+.recommended-article-list {
+  display: flex;
+  flex-grow: 1;
+  width: 100%;
+  box-sizing: border-box;
+  overflow: hidden;
+  padding: 0 2%;
+  gap: 2%;
+
+  .small-article-card {
+    &:nth-child(1) {
+      width: 30%;
+    }
+
+    &:nth-child(3) {
+      width: 24%;
+    }
+
+    img {
+      width: 100%;
+    }
+  }
+
+  .large-article-card {
+    width: 42%;
+  }
+}
+
 .latest {
   .main-title {
     text-align: left;

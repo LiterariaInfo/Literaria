@@ -132,19 +132,6 @@ const NavBar = () => {
 						))}
 					</motion.div>
 				) : null}
-				{/*<AnimatePresence>
-					{expanded ? (
-						<motion.div layout className='nav-bar-category-list-list'>
-							{navBarCategories.map((category, index) => (
-								<NavBarCategoryList
-									title={category.title}
-									categories={category.categories}
-									key={index}
-								/>
-							))}
-						</motion.div>
-					) : null}
-				</AnimatePresence>*/}
 			</motion.div>
 			<motion.div
 				animate={navbarBackground}

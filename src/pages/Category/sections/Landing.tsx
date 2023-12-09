@@ -10,18 +10,21 @@ const Landing = () => {
 
 	const directory = useAppSelector(selectDirectory(+categoryID!));
 
+	console.log(directory)
+
 	return (
 		<div className='landing section'>
 			<div>
-				<h1>{directory.name}</h1>
+				<h1 className='main-title'>{directory.name}</h1>
 				<GiantArticleCard article={directory.articles![0]} />
 			</div>
-			<div>
-				<SpotlightCard />
+			<div className='landing-side'>
+				<SpotlightCard article={directory.articles![0]} />
 				<NextSectionCard
 					text={`Vezi toate cele ${directory.articles?.length}${
 						directory.articles?.length! >= 20 ? ' de' : ''
 					} Articole`}
+					image={directory.articles![0]?.image}
 				/>
 			</div>
 		</div>

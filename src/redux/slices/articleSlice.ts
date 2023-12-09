@@ -88,7 +88,7 @@ const articleSlice = createSlice({
 				state.recommendedStatus = 'failed';
 			})
 			.addCase(fetchRecommended.fulfilled, (state, action) => {
-				state.recommended = action.payload;
+				state.recommended = action.payload.map((art: { article: Article }) => art.article);
 
 				state.recommendedStatus = 'succeeded';
 			})
@@ -110,13 +110,13 @@ const articleSlice = createSlice({
 				state.directories[action.meta.arg].status = 'failed';
 			})
 			.addCase(fetchDirectory.fulfilled, (state, action) => {
-				state.directories[action.payload.id] = {
+				state.directories[action.payload.id].data = {
 					directories: action.payload.directories,
 					articles: action.payload.articleDirectory.map((art: { article: Article }) => art.article),
 					...action.payload
 				};
 
-				state.directories[action.meta.arg].status = 'succeeded';
+				state.directories[action.payload.id].status = 'succeeded';
 			})
 			.addCase(fetchArticle.pending, (state, action) => {
 				state.articles[action.meta.arg] = { status: 'loading' };
@@ -150,6 +150,7 @@ export const selectLatest = createSelector([selectArticles], (articleState) => {
 export const selectLatestState = (state: RootState) => state.article.latestStatus;
 
 export const selectDirectory = (id: number) => (state: RootState) => {
+	console.log(state.article.directories[id])
 	return state.article.directories[id]?.data ?? { name: '', articles: [] };
 };
 
@@ -157,5 +158,7 @@ export const selectDirectoryArticles = (id: number) => (state: RootState) => {
 	return state.article.directories[id]?.data?.articles ?? [];
 };
 
-export const selectDirectoryState = (id: number) => (state: RootState) =>
-	state.article.directories[id]?.status ?? 'idle';
+export const selectDirectoryState = (id: number) => (state: RootState) => {
+	//console.log(state.article.directories[id]?.status, 111)
+	return state.article.directories[id]?.status ?? 'idle';
+}
