@@ -22,9 +22,6 @@ const NavBar = () => {
 	return (
 		<>
 			<motion.div
-				onHoverStart={() => {
-					setExpanded(true);
-				}}
 				onHoverEnd={() => {
 					setExpanded(false);
 				}}
@@ -35,7 +32,7 @@ const NavBar = () => {
 				<motion.div style={navbarVariants} layout className='outer-nav-bar'>
 					<NavBarLogo navMode={navMode} />
 					<motion.div style={mainNavbarVariants} layout className='main-nav-bar'>
-						<NavBarCategories />
+						<NavBarCategories setExpanded={setExpanded} />
 						<SearchBar />
 					</motion.div>
 				</motion.div>

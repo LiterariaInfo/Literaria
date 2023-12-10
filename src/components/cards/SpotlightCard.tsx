@@ -6,9 +6,9 @@ const SpotlightCard = ({ article }: { article: Article }) => {
 	return (
 		<div className='spotlight-card'>
 			<h1>{article?.name}</h1>
-			<label>{article?.author}</label>
-			<div className=''>
-				<label>{dateFormatter(new Date(article?.createdAt))}</label>
+			<label className='spotlight-card-author'>{article?.author}</label>
+			<div className='spotlight-card-bottom'>
+				<label className='spotlight-card-date'>{dateFormatter(new Date(article?.createdAt))}</label>
 				<OpenLinkButton />
 			</div>
 		</div>

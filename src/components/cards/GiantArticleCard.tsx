@@ -8,7 +8,7 @@ const GiantArticleCard = ({ article }: { article: Article }) => {
   const { image, name, createdAt } = article ?? {};
 
   return (
-    <div className='large-article-card'>
+    <div className='giant-article-card'>
       <img src={`${baseURL}/image/${image}`} alt={name} />
       <Timestamp time={createdAt} />
       <OpenLinkButton />

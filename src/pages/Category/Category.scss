@@ -23,3 +23,46 @@
   flex-direction: column;
   gap: 2vw;
 }
+
+.description {
+  overflow: auto;
+
+  &::-webkit-scrollbar {
+    width: 16px;
+  }
+
+  &::-webkit-scrollbar-track {
+    border-radius: 8px;
+    background-color: #e7e7e7;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    border-radius: 8px;
+    border: 3px solid transparent;
+    background-clip: content-box;
+    background-color: #bfbfbf;
+  }
+
+  p {
+    font-weight: 600;
+    font-size: 1em;
+  }
+}
+
+.sub-categories {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 2rem;
+  padding: 0 2rem;
+
+  .sub-categories-title {
+    width: 25rem;
+  }
+}
+
+.articles {
+  .main-title {
+    margin-left: 2rem;
+  }
+}

@@ -1,12 +1,12 @@
 import api from '../../api.ts';
 
-const login = (user: string, password: string): Promise<any> => {
-	return api.post('/login', {
+export const login = (user: string, password: string): Promise<any> => {
+	return api.post('/auth/login', {
 		user,
 		password
 	});
 };
 
-export default {
-	login
+export const getAccount = (): Promise<any> => {
+	return api.get('/auth/account');
 };

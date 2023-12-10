@@ -5,6 +5,8 @@ import Landing from './sections/Landing.tsx';
 import { useAppDispatch, useAppSelector } from '../../redux/store.ts';
 import { fetchDirectory, selectDirectoryState } from '../../redux/slices/articleSlice.ts';
 import Description from './sections/Description.tsx';
+import SubCategories from './sections/SubCategories.tsx';
+import Articles from './sections/Articles.tsx';
 
 const Category = () => {
 	const dispatch = useAppDispatch();
@@ -12,7 +14,7 @@ const Category = () => {
 	const { categoryID } = useParams();
 
 	const directoryState = useAppSelector(selectDirectoryState(+categoryID!));
-	
+
 	useEffect(() => {
 		if (directoryState === 'idle') {
 			dispatch(fetchDirectory(+categoryID!));
@@ -23,10 +25,9 @@ const Category = () => {
 		<>
 			<Landing />
 			<Description />
-			{/*
 			<SubCategories />
 			<Articles />
-			<ArticlesExpanded />*/}
+			{/* <ArticlesExpanded /> */}
 		</>
 	);
 };
