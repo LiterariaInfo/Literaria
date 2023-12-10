@@ -3,9 +3,11 @@ import { AppContext } from '../../App.tsx';
 import { useMotionValueEvent, useScroll } from 'framer-motion';
 
 const useNavBar = () => {
-  const [navMode, setNavMode] = useState<boolean>(true);
+  const isHome = window.location.pathname === '/';
 
-  if (window.location.pathname === '/') {
+  const [navMode, setNavMode] = useState<boolean>(isHome);
+
+  if (isHome) {
     const { scrollRef } = useContext(AppContext)!;
 
     const { scrollYProgress } = useScroll({

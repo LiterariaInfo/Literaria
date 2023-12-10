@@ -150,7 +150,6 @@ export const selectLatest = createSelector([selectArticles], (articleState) => {
 export const selectLatestState = (state: RootState) => state.article.latestStatus;
 
 export const selectDirectory = (id: number) => (state: RootState) => {
-	console.log(state.article.directories[id])
 	return state.article.directories[id]?.data ?? { name: '', articles: [] };
 };
 
@@ -159,6 +158,5 @@ export const selectDirectoryArticles = (id: number) => (state: RootState) => {
 };
 
 export const selectDirectoryState = (id: number) => (state: RootState) => {
-	//console.log(state.article.directories[id]?.status, 111)
 	return state.article.directories[id]?.status ?? 'idle';
 }

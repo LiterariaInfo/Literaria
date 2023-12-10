@@ -1,17 +1,10 @@
 import './Timestamp.scss';
+import dateFormatter from '../../Formatters/dateFormatter.ts';
 
-const Timestamp = ({ time, className = '' }: { time: Date; className?: string }) => {
+const Timestamp = ({ time }: { time: Date }) => {
 	return (
-		<div className={`time-stamp ${className}`}>
-			<label>
-				{new Date(time)
-					.toLocaleDateString('ro-RO', {
-						year: 'numeric',
-						month: '2-digit',
-						day: '2-digit'
-					})
-					.replace(/\//g, '.')}
-			</label>
+		<div className='time-stamp'>
+			<label>{dateFormatter(new Date(time))}</label>
 		</div>
 	);
 };

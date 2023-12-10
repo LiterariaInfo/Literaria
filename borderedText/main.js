@@ -37,7 +37,6 @@ const text = document.getElementById('text');
 
 content.forEach((value) => {
 	const ts = document.createElementNS(xmlns, 'tspan');
-	console.log(ts.getBBox().height);
 	ts.setAttributeNS(null, 'font-size', fontSize);
 	ts.setAttributeNS(null, 'x', '50%');
 	ts.setAttributeNS(null, 'text-anchor', textAnchor);
@@ -55,8 +54,6 @@ for (let tspan of document.getElementsByTagNameNS(xmlns, 'tspan')) {
 	tspan.setAttributeNS(null, 'dy', String(rect.height + lineGap / 2));
 
 	rect.y += rect.height;
-
-	console.log(rect);
 
 	boxes.push(rect);
 }

@@ -1,9 +1,7 @@
 import './button.scss';
 import horizontalArrow from '../../assets/icons/horizontal-arrow.svg';
 
-const NextItemButton = (props: { onClick: () => void }) => {
-	const { onClick } = props;
-
+const NextItemButton = ({ onClick }: { onClick: () => void }) => {
 	return (
 		<div onClick={onClick} className='next-item-button'>
 			<img

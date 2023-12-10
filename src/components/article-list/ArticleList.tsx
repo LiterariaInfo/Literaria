@@ -16,13 +16,9 @@ const ArticleList: FC<{ children: ReactNode }> = ({ children }) => {
 		setScroll(value);
 	});
 
-	const handleNextClick = () => {
-		console.log(scrollXProgress.get());
-	};
+	const handleNextClick = () => {};
 
-	const handlePreviousClick = () => {
-		console.log(scrollXProgress.get());
-	};
+	const handlePreviousClick = () => {};
 
 	return (
 		<div className='outer-article-list'>

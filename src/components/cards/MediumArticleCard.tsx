@@ -11,8 +11,8 @@ const MediumArticleCard = ({ article }: { article: Article }) => {
 		<div className='medium-article-card'>
 			<div className='medium-article-card-image'>
 				<img src={`${baseURL}/image/${image}`} alt={name} />
-				<Timestamp className='outer-time-stamp' time={createdAt} />
-				<OpenLinkButton className='outer-open-link-button' />
+				<Timestamp time={createdAt} />
+				<OpenLinkButton />
 			</div>
 			<label className='title-label'>{author}</label>
 			<h3 className='small-title'>{name}</h3>

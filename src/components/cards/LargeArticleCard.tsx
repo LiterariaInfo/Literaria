@@ -10,8 +10,8 @@ const LargeArticleCard = ({ article }: { article: Article }) => {
 	return (
 		<div className='large-article-card'>
 			<img src={`${baseURL}/image/${image}`} alt={name} />
-			<Timestamp className='outer-time-stamp' time={createdAt} />
-			<OpenLinkButton className='outer-open-link-button' />
+			<Timestamp time={createdAt} />
+			<OpenLinkButton />
 		</div>
 	);
 };
