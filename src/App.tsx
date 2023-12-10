@@ -1,23 +1,24 @@
-import { Route, Routes } from 'react-router-dom';
+//import { Route, Routes } from 'react-router-dom';
 import { createContext, lazy, RefObject, useRef } from 'react';
 import './App.scss';
-import NavBar from './components/navbar/NavBar.tsx';
+//import NavBar from './components/navbar/NavBar.tsx';
+import { Test } from './test.tsx';
 
 export const AppContext = createContext<{
 	scrollRef: RefObject<HTMLDivElement>;
 } | null>(null);
 
-const Home = lazy(() => import('./pages/Home/Home.tsx'));
-const About = lazy(() => import('./pages/About/About.tsx'));
-const Category = lazy(() => import('./pages/Category/Category.tsx'));
-const Article = lazy(() => import('./pages/Article/Article.tsx'));
-const Admin = lazy(() => import('./pages/Admin/Admin.tsx'));
+//const Home = lazy(() => import('./pages/Home/Home.tsx'));
+//const About = lazy(() => import('./pages/About/About.tsx'));
+//const Category = lazy(() => import('./pages/Category/Category.tsx'));
+//const Article = lazy(() => import('./pages/Article/Article.tsx'));
+//const Admin = lazy(() => import('./pages/Admin/Admin.tsx'));
 
 function App() {
-	const scrollRef = useRef<HTMLDivElement>(null);
+	//const scrollRef = useRef<HTMLDivElement>(null);
 
 	return (
-		<AppContext.Provider
+		/*<AppContext.Provider
 			value={{
 				scrollRef
 			}}
@@ -32,7 +33,8 @@ function App() {
 					<Route path='/admin' element={<Admin />} />
 				</Routes>
 			</div>
-		</AppContext.Provider>
+		</AppContext.Provider>*/
+		<Test />
 	);
 }
 

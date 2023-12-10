@@ -1,48 +1,60 @@
 import api from '../../api.ts';
 
-export const getArticleContent = (articleID: number): Promise<any> => {
+const getArticle = (articleID: number): Promise<any> => {
 	return api.get(`/article/${articleID}`);
 };
 
-export const getLatestArticles = (): Promise<any> => {
+const getLatestArticles = (): Promise<any> => {
 	return api.get('/article/latest');
 };
 
-export const getRecommendedArticles = (): Promise<any> => {
+const getRecommendedArticles = (): Promise<any> => {
 	return api.get('/article/recommended');
 };
 
-export const createArticle = (body: {
+const createArticle = (payload: {
 	author: string;
 	name: string;
 	content: string;
 }): Promise<any> => {
-	return api.post('/article', body);
+	return api.post('/article', payload);
 };
 
-export const addArticleToDirectory = (articleID: number, directoryID: number): Promise<any> => {
+const addArticleToDirectory = (articleID: number, directoryID: number): Promise<any> => {
 	return api.post(`/article/directory/${articleID}/${directoryID}`);
 };
 
-export const updateArticle = (
+const updateArticle = (
 	articleID: number,
-	body: {
+	payload: {
 		author: string;
 		name: string;
 		content: string;
 	}
 ): Promise<any> => {
-	return api.put(`/article/${articleID}`, body);
+	return api.put(`/article/${articleID}`, payload);
 };
 
-export const updateRecommendedList = (articleIDs: [number, number, number]): Promise<any> => {
+const updateRecommendedList = (articleIDs: [number, number, number]): Promise<any> => {
 	return api.put('/article/recommended', articleIDs);
 };
 
-export const deleteArticle = (articleID: number): Promise<any> => {
+const deleteArticle = (articleID: number): Promise<any> => {
 	return api.delete(`/article/${articleID}`);
 };
 
-export const removeArticleFromDirectory = (articleDirectoryID: number): Promise<any> => {
+const removeArticleFromDirectory = (articleDirectoryID: number): Promise<any> => {
 	return api.delete(`/article/directory/${articleDirectoryID}`);
 };
+
+export default {
+	getArticle,
+	getLatestArticles,
+	getRecommendedArticles,
+	createArticle,
+	addArticleToDirectory,
+	updateArticle,
+	updateRecommendedList,
+	deleteArticle,
+	removeArticleFromDirectory
+}

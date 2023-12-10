@@ -1,3 +1,5 @@
 import { RootState } from '../store.ts';
 
-export const selectAuth = (state: RootState) => state.account.logged;
+export const selectAccount = (state: RootState) => state.account.account;
+
+export const selectAccountStatus = (state: RootState) => state.account.status;

@@ -1,10 +1,10 @@
 import api from '../../api.ts';
 
-export const getDirectory = (directoryID: number): Promise<any> => {
+const getDirectory = (directoryID: number): Promise<any> => {
 	return api.get(`/directory/${directoryID}`);
 };
 
-export const createDirectory = (body: {
+const createDirectory = (body: {
 	name: string;
 	parentID: number;
 	description: string;
@@ -12,7 +12,7 @@ export const createDirectory = (body: {
 	return api.post('/directory', body);
 };
 
-export const updateDirectory = (
+const updateDirectory = (
 	directoryID: number,
 	body: {
 		name: string;
@@ -23,6 +23,13 @@ export const updateDirectory = (
 	return api.put(`/directory/${directoryID}`, body);
 };
 
-export const deleteDirectory = (directoryID: number): Promise<any> => {
+const deleteDirectory = (directoryID: number): Promise<any> => {
 	return api.delete(`/directory/${directoryID}`);
+};
+
+export default {
+	getDirectory,
+	createDirectory,
+	updateDirectory,
+	deleteDirectory
 };
