@@ -10,7 +10,7 @@ const Articles = () => {
 	const articles = useAppSelector(selectDirectoryArticles(+categoryID!));
 
 	return (
-		<div className='articles section'>
+		<div className='articles section bottom-section'>
 			<h1 className='main-title'>Perioada Pașoptistă</h1>
 			<ArticleList>
 				{articles.map((article, index) => (

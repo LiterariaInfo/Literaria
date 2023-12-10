@@ -1,5 +1,5 @@
 import './Home.scss';
-import Landing from './sections/Landing.tsx';
+import Landing from './sections/Landing/Landing.tsx';
 import { useEffect } from 'react';
 import Recommended from './sections/Recommended.tsx';
 import {

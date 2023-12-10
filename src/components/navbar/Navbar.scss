@@ -64,6 +64,11 @@
 .nav-bar-categories {
   display: flex;
   gap: 2rem;
+
+  label {
+    font-weight: 700;
+    font-size: 1.05rem;
+  }
 }
 
 .nav-bar-category-list {
@@ -86,7 +91,7 @@
   }
 }
 
-.nav-bar-category-list-list {
+.nav-bar-category-list-expanded {
   display: flex;
   gap: 4rem;
   padding-left: 8rem;

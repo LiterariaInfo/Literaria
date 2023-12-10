@@ -1,11 +1,25 @@
 .landing {
-  padding-left: 2rem;
   display: flex;
+  flex-direction: row;
+  padding-left: 2%;
+  padding-right: 2%;
+  gap: 2%;
+
+  .main-title {
+    margin-top: 0;
+    margin-bottom: 1rem;
+  }
 }
 
-.landing-side {
+.thumbnail-side {
+  width: 60%;
   display: flex;
   flex-direction: column;
+}
+
+.navigation-side {
   flex-grow: 1;
-  align-items: center;
+  display: flex;
+  flex-direction: column;
+  gap: 2vw;
 }

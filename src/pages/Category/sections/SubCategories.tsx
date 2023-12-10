@@ -1,5 +1,5 @@
-const SubCateogries = () => {
-  return <></>;
+const SubCategories = () => {
+  return <div className='section bottom-section'></div>;
 };
 
-export default SubCateogries;
+export default SubCategories;

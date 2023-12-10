@@ -1,5 +1,7 @@
 const Description = () => {
-	return <></>;
+	return <div className='section bottom-section'>
+
+	</div>;
 };
 
 export default Description;
