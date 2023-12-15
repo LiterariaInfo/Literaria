@@ -3,23 +3,24 @@ import { useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import Landing from './sections/Landing.tsx';
 import { useAppDispatch, useAppSelector } from '../../redux/store.ts';
-import { fetchDirectory, selectDirectoryState } from '../../redux/slices/articleSlice.ts';
 import Description from './sections/Description.tsx';
 import SubCategories from './sections/SubCategories.tsx';
 import Articles from './sections/Articles.tsx';
+import { getDirectory } from '../../redux/thunks/directoryThunk.ts';
+import { selectDirectoryStatus } from '../../redux/selectors/directorySelector.ts';
 
 const Category = () => {
-	const dispatch = useAppDispatch();
+	/*const dispatch = useAppDispatch();
 
 	const { categoryID } = useParams();
 
-	const directoryState = useAppSelector(selectDirectoryState(+categoryID!));
+	const status = useAppSelector(selectDirectoryStatus(+categoryID!));
 
 	useEffect(() => {
-		if (directoryState === 'idle') {
-			dispatch(fetchDirectory(+categoryID!));
+		if (status === 'idle') {
+			dispatch(getDirectory(+categoryID!));
 		}
-	}, [dispatch]);
+	}, [dispatch]);*/
 
 	return (
 		<>

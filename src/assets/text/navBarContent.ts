@@ -1,27 +1,20 @@
 interface NavBarCategoryModel {
 	name: string;
-	subCategories: {
-		name: string;
-		url: string;
-	}[];
+	id: number;
 }
 
 const categories: NavBarCategoryModel[] = [
 	{
 		name: 'Articole generale',
-		subCategories: []
+		id: 0
 	},
 	{
 		name: 'Literatura și celelalte arte',
-		subCategories: []
+		id: 1
 	},
 	{
 		name: 'Perioade literare',
-		subCategories: []
-	},
-	{
-		name: 'Despre noi',
-		subCategories: []
+		id: 2
 	}
 ];
 

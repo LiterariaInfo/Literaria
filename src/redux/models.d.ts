@@ -35,6 +35,22 @@ export interface ArticleStateModel {
 		articles: Article[];
 		status: status;
 	};
+	categories: {
+		categories: {
+			name: string;
+			id: number;
+			directories: {
+				name: string;
+				id: number;
+				directories: {
+					name: string;
+					id: number;
+				}[];
+			}[];
+		}[];
+		activeCategory: number;
+		status: status;
+	};
 }
 
 export interface DirectoryStateModel {

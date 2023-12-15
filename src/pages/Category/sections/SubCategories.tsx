@@ -1,12 +1,25 @@
 import SubCategoryCard from '../../../components/cards/SubCategoryCard.tsx';
-import { useParams } from 'react-router-dom';
-import { useAppSelector } from '../../../redux/store.ts';
-import { selectDirectory } from '../../../redux/slices/articleSlice.ts';
 
 const SubCategories = () => {
-	const { categoryID } = useParams();
+	// const { categoryID } = useParams();
 
-	const directory = useAppSelector(selectDirectory(+categoryID!));
+	const directory = {
+		name: 'dire',
+		articles: [{
+			name: 'test',
+			image: '1701428055558-5rdvdt',
+			status: 'succeeded',
+			id: 0,
+			createdAt: new Date(),
+			author: 'me',
+			content: 'me2'
+		}],
+		id: -1,
+		image: '1701428055558-5rdvdt',
+		description: 'meme',
+		status: 'succeeded',
+		directories: []
+	};
 
 	return (
 		<div className='section bottom-section sub-categories'>

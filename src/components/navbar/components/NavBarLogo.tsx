@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion';
 import logo from '../../../assets/logo.svg';
+import { Link } from 'react-router-dom';
 
 const NavBarLogo = ({ navMode }: { navMode: boolean }) => {
   const logoVariants: any = {
@@ -7,15 +8,17 @@ const NavBarLogo = ({ navMode }: { navMode: boolean }) => {
   };
 
   return (
-    <motion.img
-      initial={{
-        height: '3rem'
-      }}
-      animate={logoVariants}
-      layout='preserve-aspect'
-      src={logo}
-      alt='Literaria'
-    />
+    <Link to={'/'}>
+      <motion.img
+        initial={{
+          height: '3rem'
+        }}
+        animate={logoVariants}
+        layout='preserve-aspect'
+        src={logo}
+        alt='Literaria'
+      />
+    </Link>
   );
 };
 

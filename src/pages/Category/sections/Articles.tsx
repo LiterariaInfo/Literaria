@@ -1,13 +1,19 @@
-import { selectDirectoryArticles } from '../../../redux/slices/articleSlice.ts';
 import ArticleList from '../../../components/article-list/ArticleList.tsx';
 import MediumArticleCard from '../../../components/cards/MediumArticleCard.tsx';
-import { useAppSelector } from '../../../redux/store.ts';
-import { useParams } from 'react-router-dom';
+import { Article } from '../../../redux/models';
 
 const Articles = () => {
-	const { categoryID } = useParams();
+	// const { categoryID } = useParams();
 
-	const articles = useAppSelector(selectDirectoryArticles(+categoryID!));
+	const articles: Article[] = [{
+		name: 'test',
+		image: '1701428055558-5rdvdt',
+		status: 'succeeded',
+		id: 0,
+		createdAt: new Date(),
+		author: 'me',
+		content: 'me2'
+	}]
 
 	return (
 		<div className='articles section bottom-section'>

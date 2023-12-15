@@ -16,6 +16,11 @@ export const getArticle = createAsyncThunk('article/fetchArticle', async (articl
 	return response.data;
 });
 
+export const getCategories = createAsyncThunk('article/fetchCategories', async () => {
+	const response = await articleController.getCategories();
+	return response.data;
+});
+
 export const createArticle = createAsyncThunk(
 	'article/createArticle',
 	async (payload: { author: string; name: string; content: string }) => {

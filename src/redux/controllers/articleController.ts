@@ -12,6 +12,10 @@ const getRecommendedArticles = (): Promise<any> => {
 	return api.get('/article/recommended');
 };
 
+const getCategories = (): Promise<any> => {
+	return api.get('/article/categories');
+};
+
 const createArticle = (payload: {
 	author: string;
 	name: string;
@@ -48,6 +52,7 @@ const removeArticleFromDirectory = (articleDirectoryID: number): Promise<any> =>
 };
 
 export default {
+	getCategories,
 	getArticle,
 	getLatestArticles,
 	getRecommendedArticles,
@@ -57,4 +62,4 @@ export default {
 	updateRecommendedList,
 	deleteArticle,
 	removeArticleFromDirectory
-}
+};

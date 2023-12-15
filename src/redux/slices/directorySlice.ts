@@ -1,4 +1,4 @@
-import { Article, DirectoryStateModel } from '../models.ts';
+import { Article, DirectoryStateModel } from '../models.d.ts';
 import { createSlice } from '@reduxjs/toolkit';
 import { getDirectory } from '../thunks/directoryThunk.ts';
 
@@ -11,19 +11,19 @@ const directorySlice = createSlice({
 	extraReducers: (builder) =>
 		builder
 			.addCase(getDirectory.pending, (state, action) => {
-				state.directories[action.meta.arg] = { status: 'loading' };
+				state[action.meta.arg] = { status: 'loading' };
 			})
 			.addCase(getDirectory.rejected, (state, action) => {
-				state.directories[action.meta.arg].status = 'failed';
+				state[action.meta.arg].status = 'failed';
 			})
 			.addCase(getDirectory.fulfilled, (state, action) => {
-				state.directories[action.payload.id].data = {
+				state[action.payload.id].data = {
 					directories: action.payload.directories,
 					articles: action.payload.articleDirectory.map((art: { article: Article }) => art.article),
 					...action.payload
 				};
 
-				state.directories[action.payload.id].status = 'succeeded';
+				state[action.payload.id].status = 'succeeded';
 			})
 });
 

@@ -1,8 +1,8 @@
 import './card.scss';
-import { Article } from '../../redux/slices/articleSlice.ts';
 import { baseURL } from '../../api.ts';
 import Timestamp from '../timestamp/Timestamp.tsx';
 import OpenLinkButton from '../buttons/OpenLinkButton.tsx';
+import { Article } from '../../redux/models';
 
 const MediumArticleCard = ({ article }: { article: Article }) => {
 	const { author, name, image, createdAt } = article;

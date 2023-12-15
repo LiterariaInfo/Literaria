@@ -1,6 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit';
 import { Article, ArticleStateModel } from '../models.ts';
-import { getArticle, getLatest, getRecommended } from '../thunks/articleThunk.ts';
+import { getArticle, getCategories, getLatest, getRecommended } from '../thunks/articleThunk.ts';
 
 const initialState: ArticleStateModel = {
 	articles: [],
@@ -11,13 +11,22 @@ const initialState: ArticleStateModel = {
 	latest: {
 		articles: [],
 		status: 'idle'
+	},
+	categories: {
+		categories: [],
+		activeCategory: -1,
+		status: 'idle'
 	}
 };
 
 const articleSlice = createSlice({
 	name: 'article',
 	initialState,
-	reducers: {},
+	reducers: {
+		setActiveCategory(state, action) {
+			state.categories.activeCategory = action.payload;
+		}
+	},
 	extraReducers: (builder) =>
 		builder
 			.addCase(getRecommended.pending, (state) => {
@@ -27,7 +36,7 @@ const articleSlice = createSlice({
 				state.recommended.status = 'failed';
 			})
 			.addCase(getRecommended.fulfilled, (state, action) => {
-				state.recommended = action.payload.map((art: { article: Article }) => art.article);
+				state.recommended.articles = action.payload.map((art: { article: Article }) => art.article);
 
 				state.recommended.status = 'succeeded';
 			})
@@ -38,7 +47,7 @@ const articleSlice = createSlice({
 				state.latest.status = 'failed';
 			})
 			.addCase(getLatest.fulfilled, (state, action) => {
-				state.latest = action.payload;
+				state.latest.articles = action.payload;
 
 				state.latest.status = 'succeeded';
 			})
@@ -53,6 +62,19 @@ const articleSlice = createSlice({
 				state.articles[action.payload.id].data!.content = action.payload.articleContent.content;
 				state.articles[action.payload.id].status = 'succeeded';
 			})
+			.addCase(getCategories.pending, (state) => {
+				state.categories.status = 'loading';
+			})
+			.addCase(getCategories.rejected, (state) => {
+				state.categories.status = 'failed';
+			})
+			.addCase(getCategories.fulfilled, (state, action) => {
+				state.categories.status = 'succeeded';
+
+				state.categories.categories = action.payload;
+			})
 });
+
+export const { setActiveCategory } = articleSlice.actions;
 
 export default articleSlice.reducer;
