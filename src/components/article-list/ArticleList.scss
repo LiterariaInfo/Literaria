@@ -1,0 +1,33 @@
+.article-list {
+  position: relative;
+  display: flex;
+  width: 100%;
+  scroll-padding-left: 2rem;
+  padding-left: 2rem;
+  scroll-padding-right: 2rem;
+  padding-right: 2rem;
+  gap: 2rem;
+  overflow: auto;
+  scroll-snap-type: x mandatory;
+  box-sizing: border-box;
+}
+
+.outer-article-list {
+  position: relative;
+  flex-grow: 1;
+  display: flex;
+}
+
+.next-article, .previous-article {
+  position: absolute;
+  top: 50%;
+
+  &.next-article {
+    right: 1rem;
+  }
+
+  &.previous-article {
+    left: 1rem;
+    transform: rotate(180deg) ;
+  }
+}
