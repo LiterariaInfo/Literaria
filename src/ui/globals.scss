@@ -2,9 +2,42 @@
 @tailwind components;
 @tailwind utilities;
 
+@import "fonts";
 @import "text";
 
 body, html {
-    margin: 0;
-    padding: 0;
+  @apply m-0 p-0 overflow-hidden;
+}
+
+* {
+  font-family: 'Jakarta', serif;
+  color: black;
+}
+
+.swiper {
+  padding-left: 2rem !important;
+}
+
+@media screen and (max-width: 1600px) {
+  .swiper {
+    padding-left: 1.25rem !important;
+  }
+}
+
+@media screen and (max-width: 900px) {
+  .swiper {
+    padding-left: 5vw !important;
+  }
+}
+
+@media screen and (min-width: 900px) {
+  .swiper-wrapper {
+    > * {
+      max-width: min-content;
+    }
+  }
+}
+
+.section {
+  @apply h-screen w-screen box-border flex;
 }

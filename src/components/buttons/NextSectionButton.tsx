@@ -1,5 +1,7 @@
+'use client';
+
 import './button.scss';
-import downArrow from '../../assets/icons/down-arrow.svg';
+import downArrow from '../../../public/icons/down-arrow.svg';
 import { motion } from 'framer-motion';
 
 const NextSectionButton = (props: { text: string; onClick: () => void }) => {

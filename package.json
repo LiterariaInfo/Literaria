@@ -10,12 +10,15 @@
   },
   "dependencies": {
     "@prisma/client": "^5.7.1",
+    "@types/swiper": "^6.0.0",
+    "framer-motion": "^10.17.9",
     "next": "14.0.4",
     "prettier": "^3.1.1",
     "prisma": "^5.7.1",
     "react": "^18",
     "react-dom": "^18",
-    "sass": "^1.69.7"
+    "sass": "^1.69.7",
+    "swiper": "^11.0.5"
   },
   "devDependencies": {
     "@types/node": "^20",

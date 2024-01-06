@@ -33,18 +33,3 @@
     position: relative;
   }
 }
-
-.open-link-button {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: 5rem;
-  aspect-ratio: 1;
-  background: #FFFFFF;
-  padding: 1rem;
-
-  img {
-    height: 1rem !important;
-    border-radius: 0 !important;
-  }
-}

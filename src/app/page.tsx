@@ -1,3 +1,9 @@
+import Latest from '@/app/_sections/Latest';
+
 export default () => {
-	return <main className=""></main>;
+	return (
+		<main>
+			<Latest />
+		</main>
+	);
 };

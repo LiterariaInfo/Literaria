@@ -17,6 +17,7 @@ model Article {
   id                 Int                 @id @default(autoincrement())
   createdAt          DateTime            @default(now())
   content            ArticleContent?
+  title              String
   author             String
   image              String
   RecommendedArticle RecommendedArticle?

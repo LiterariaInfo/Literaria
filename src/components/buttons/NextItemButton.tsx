@@ -1,12 +1,20 @@
-import './button.scss';
-import horizontalArrow from '../../assets/icons/horizontal-arrow.svg';
+'use client';
 
-const NextItemButton = ({ onClick }: { onClick: () => void }) => {
+const NextItemButton = ({
+	onClick,
+	className
+}: {
+	onClick: () => void;
+	className?: string;
+}) => {
 	return (
-		<div onClick={onClick} className='next-item-button'>
+		<div
+			onClick={onClick}
+			className={`flex justify-center items-center h-10 w-10 backdrop-blur-[0.1rem] rounded-[5rem] bg-[#ffffffcc] hover:bg-[#ffffff] cursor-pointer ${className}`}
+		>
 			<img
-				className='slider-next-image'
-				src={horizontalArrow}
+				className='h-1/2 max-h-8'
+				src={'./icons/horizontal-arrow.svg'}
 				alt='horizontal-arrow'
 				draggable='false'
 			/>

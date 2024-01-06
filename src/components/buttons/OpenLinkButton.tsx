@@ -1,14 +1,23 @@
-import topLeftArrow from '../../assets/icons/top-right-arrow.svg';
-import { Link } from 'react-router-dom';
+import Link from 'next/link';
 
-const OpenLinkButton = ({ url = '' }: { url?: string }) => {
+export default ({
+	url = '',
+	className = ''
+}: {
+	url?: string;
+	className?: string;
+}) => {
 	return (
-		<Link to={url}>
-			<div className='open-link-button'>
-				<img src={topLeftArrow} alt='Top left arrow' />
+		<Link href={url}>
+			<div
+				className={`flex items-center justify-center rounded-full bg-white p-4 aspect-square ${className}`}
+			>
+				<img
+					className='h-4 rounded-none'
+					src='./icons/top-right-arrow.svg'
+					alt='Top right arrow'
+				/>
 			</div>
 		</Link>
 	);
 };
-
-export default OpenLinkButton;
