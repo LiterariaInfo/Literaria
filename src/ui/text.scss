@@ -10,6 +10,10 @@
   @apply text-3xl font-semibold max-[1600px]:text-2xl;
 }
 
+.extra-small-title {
+  @apply text-[1.2rem] font-semibold;
+}
+
 .title-label {
   @apply text-base font-medium max-[1600px]:text-xs;
 }
