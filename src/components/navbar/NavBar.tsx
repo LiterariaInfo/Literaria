@@ -1,15 +1,15 @@
+'use client';
+
 import './Navbar.scss';
-import SearchBar from './components/SearchBar.tsx';
 import { motion } from 'framer-motion';
-import { useEffect, useState } from 'react';
-import NavBarLogo from './components/NavBarLogo.tsx';
-import NavBarCategories from './components/NavBarCategories.tsx';
-import NavBarListExpanded from './components/NavBarListExpanded.tsx';
-import BackgroundEffect from './components/BackgroundEffect.tsx';
-import useNavBar from './useNavBar.tsx';
-import { useAppDispatch, useAppSelector } from '../../redux/store.ts';
-import { selectCategoriesStatus } from '../../redux/selectors/articleSelector.ts';
-import { getCategories } from '../../redux/thunks/articleThunk.ts';
+import { useState } from 'react';
+import useNavBar from '@/components/navbar/useNavBar';
+import NavBarLogo from '@/components/navbar/components/NavBarLogo';
+import NavBarCategories from '@/components/navbar/components/NavBarCategories';
+import SearchBar from '@/components/navbar/components/SearchBar';
+import NavBarListExpanded from '@/components/navbar/components/NavBarListExpanded';
+import BackgroundEffect from '@/components/navbar/components/BackgroundEffect';
+
 
 const navBarTransition = {
 	bounce: 0,
@@ -20,14 +20,6 @@ const navBarTransition = {
 const NavBar = () => {
 	const { navMode, navbarVariants, mainNavbarVariants } = useNavBar();
 	const [expanded, setExpanded] = useState<boolean>(false);
-	const status = useAppSelector(selectCategoriesStatus);
-	const dispatch = useAppDispatch();
-
-	useEffect(() => {
-		if (status === 'idle') {
-			dispatch(getCategories());
-		}
-	}, [dispatch]);
 
 	return (
 		<>

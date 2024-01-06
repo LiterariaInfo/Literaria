@@ -39,5 +39,9 @@ body, html {
 }
 
 .section {
-  @apply h-screen w-screen box-border flex;
+  @apply h-screen w-screen box-border flex snap-start;
+}
+
+main {
+  scroll-snap-type: y mandatory;
 }

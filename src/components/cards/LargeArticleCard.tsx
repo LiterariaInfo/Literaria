@@ -1,17 +1,26 @@
 import './card.scss';
-import { baseURL } from '../../api.ts';
-import { Article } from '../../redux/slices/articleSlice.ts';
-import Timestamp from '../timestamp/Timestamp.tsx';
-import OpenLinkButton from '../buttons/OpenLinkButton.tsx';
+import { Article } from '@/lib/models';
+import Timestamp from '@/components/Timestamp';
+import OpenLinkButton from '@/components/buttons/OpenLinkButton';
 
-const LargeArticleCard = ({ article }: { article: Article }) => {
-	const { image, name, createdAt } = article;
+const LargeArticleCard = ({
+	article,
+	className = ''
+}: {
+	article: Article;
+	className?: string;
+}) => {
+	const { image, title, createdAt } = article;
 
 	return (
-		<div className='large-article-card'>
-			<img src={`${baseURL}/image/${image}`} alt={name} />
-			<Timestamp time={createdAt} />
-			<OpenLinkButton />
+		<div className={`relative h-full ${className}`}>
+			<img
+				className='h-full w-full object-cover cursor-pointer rounded-[3rem]'
+				src={image}
+				alt={title}
+			/>
+			<Timestamp className='absolute right-8 bottom-8' time={createdAt} />
+			<OpenLinkButton className='absolute right-8 top-8' />
 		</div>
 	);
 };

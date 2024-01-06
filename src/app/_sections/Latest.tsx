@@ -12,35 +12,35 @@ export default () => {
 			createdAt: new Date()
 		},
 		{
-			id: 0,
+			id: 1,
 			title: 'Pasoptism',
 			author: 'gigel',
 			image: 'http://localhost:3000/images/art.jpg',
 			createdAt: new Date()
 		},
 		{
-			id: 0,
+			id: 2,
 			title: 'Pasoptism',
 			author: 'gigel',
 			image: 'http://localhost:3000/images/art.jpg',
 			createdAt: new Date()
 		},
 		{
-			id: 0,
+			id: 3,
 			title: 'Pasoptism',
 			author: 'gigel',
 			image: 'http://localhost:3000/images/art.jpg',
 			createdAt: new Date()
 		},
 		{
-			id: 0,
+			id: 4,
 			title: 'Pasoptism',
 			author: 'gigel',
 			image: 'http://localhost:3000/images/art.jpg',
 			createdAt: new Date()
 		},
 		{
-			id: 0,
+			id: 5,
 			title: 'Pasoptism',
 			author: 'gigel',
 			image: 'http://localhost:3000/images/art.jpg',
@@ -49,7 +49,7 @@ export default () => {
 	];
 
 	return (
-		<section className='section bottom-section flex-col'>
+		<section className='section flex-col pt-20'>
 			<h1 className='text-left pl-8 mb-8 main-title max-[1600px]:pl-5'>
 				Ultimele articole
 			</h1>

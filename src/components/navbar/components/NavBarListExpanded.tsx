@@ -1,10 +1,8 @@
 import { motion } from 'framer-motion';
-import NavBarCategoryList from './NavBarCategoryList.tsx';
-import { useAppSelector } from '../../../redux/store.ts';
-import { selectActiveCategories } from '../../../redux/selectors/articleSelector.ts';
+import NavBarCategoryList from '@/components/navbar/components/NavBarCategoryList';
 
 const NavBarListExpanded = () => {
-  const navBarCategories = useAppSelector(selectActiveCategories);
+  const navBarCategories: any[] = [];
 
   return (
     <motion.div layout className='nav-bar-category-list-expanded'>

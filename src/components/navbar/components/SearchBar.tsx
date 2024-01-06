@@ -1,4 +1,3 @@
-import search from '../../../assets/icons/search.svg';
 import { motion } from 'framer-motion';
 import { useRef, useState } from 'react';
 
@@ -33,7 +32,7 @@ const SearchBar = () => {
 				}}
 			/>
 			<div className='search'>
-				<img src={search} alt='search' />
+				<img src={'./icons/search.svg'} alt='search' />
 			</div>
 		</motion.div>
 	);

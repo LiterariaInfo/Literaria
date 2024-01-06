@@ -14,7 +14,7 @@ export default ({ children }: { children: ReactNode }) => {
 
 	useEffect(() => {
 		const handleResize = () => {
-			ref.current!.swiper.slideToClosest();
+			ref.current!.swiper.slideTo(0);
 		};
 
 		window.addEventListener('resize', handleResize);
@@ -37,9 +37,15 @@ export default ({ children }: { children: ReactNode }) => {
 				breakpoints={{
 					1600: {
 						spaceBetween: 50,
-						slidesPerView: 'auto'
+						slidesPerView: 'auto',
+						centeredSlides: false
 					},
 					900: {
+						spaceBetween: 50,
+						slidesPerView: 'auto',
+						centeredSlides: false
+					},
+					0: {
 						centeredSlides: true
 					}
 				}}
@@ -50,11 +56,15 @@ export default ({ children }: { children: ReactNode }) => {
 			</Swiper>
 			<NextItemButton
 				className='absolute top-1/2 left-8 rotate-180 z-[1000] swiper-button-next'
-				onClick={() => {}}
+				onClick={() => {
+					ref.current!.swiper.slidePrev();
+				}}
 			/>
 			<NextItemButton
 				className='absolute top-1/2 right-8 z-[1000] swiper-button-next'
-				onClick={() => {}}
+				onClick={() => {
+					ref.current!.swiper.slideNext();
+				}}
 			/>
 		</div>
 	);

@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { Link } from 'react-router-dom';
+import Link from 'next/link';
 
 const opacity0 = {
 	opacity: 0
@@ -24,7 +24,7 @@ const NavBarCategoryList = ({
 	return (
 		<div className='nav-bar-category-list'>
 			<motion.h1 initial={opacity0} animate={opacity1}>
-				<Link to={`/category/${category.id}`}>{category.name}</Link>
+				<Link href={`/category/${category.id}`}>{category.name}</Link>
 			</motion.h1>
 			<div>
 				{category.directories.map((directory, index) => (
@@ -37,7 +37,7 @@ const NavBarCategoryList = ({
 						key={index}
 						exit={exit}
 					>
-						<Link to={`/category/${directory.id}`}>{directory.name}</Link>
+						<Link href={`/category/${directory.id}`}>{directory.name}</Link>
 					</motion.label>
 				))}
 			</div>

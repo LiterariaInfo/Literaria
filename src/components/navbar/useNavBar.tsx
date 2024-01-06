@@ -1,24 +1,26 @@
-import { useContext, useState } from 'react';
-import { AppContext } from '../../App.tsx';
+'use client';
+
+import { useEffect, useRef, useState } from 'react';
 import { useMotionValueEvent, useScroll } from 'framer-motion';
 
 const useNavBar = () => {
-	const isHome = window.location.pathname === '/';
+	const [navMode, setNavMode] = useState<boolean>(true);
 
-	const [navMode, setNavMode] = useState<boolean>(isHome);
+	const main = useRef<any>(null);
 
-	const { scrollRef } = useContext(AppContext)!;
+	useEffect(() => {
+		main.current = document.getElementById('main');
+	}, [navMode]);
 
 	const { scrollYProgress } = useScroll({
-		container: scrollRef,
+		container: main,
 		layoutEffect: false
 	});
 
-	if (isHome) {
-		useMotionValueEvent(scrollYProgress, 'change', (value) => {
-			setNavMode(value === 0);
-		});
-	}
+	useMotionValueEvent(scrollYProgress, 'change', (value) => {
+		console.log(333);
+		setNavMode(value === 0);
+	});
 
 	const navbarVariants: any = {
 		flexDirection: navMode ? 'column' : 'row',
