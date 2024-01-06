@@ -1,3 +1,7 @@
+import NavBar from '@/components/navbar/NavBar';
+
 export default () => {
-	return <></>;
+	return <>
+		<NavBar />
+	</>;
 };

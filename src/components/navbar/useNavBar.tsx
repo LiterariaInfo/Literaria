@@ -4,7 +4,9 @@ import { useEffect, useRef, useState } from 'react';
 import { useMotionValueEvent, useScroll } from 'framer-motion';
 
 const useNavBar = () => {
-	const [navMode, setNavMode] = useState<boolean>(true);
+	const isHome = window.location.pathname === '/';
+
+	const [navMode, setNavMode] = useState<boolean>(isHome);
 
 	const main = useRef<any>(null);
 
@@ -17,10 +19,11 @@ const useNavBar = () => {
 		layoutEffect: false
 	});
 
-	useMotionValueEvent(scrollYProgress, 'change', (value) => {
-		console.log(333);
-		setNavMode(value === 0);
-	});
+	if (isHome) {
+		useMotionValueEvent(scrollYProgress, 'change', (value) => {
+			setNavMode(value === 0);
+		});
+	}
 
 	const navbarVariants: any = {
 		flexDirection: navMode ? 'column' : 'row',

@@ -1,15 +1,14 @@
 'use client';
 
-import './Navbar.scss';
 import { motion } from 'framer-motion';
 import { useState } from 'react';
+import dynamic from 'next/dynamic';
 import useNavBar from '@/components/navbar/useNavBar';
 import NavBarLogo from '@/components/navbar/components/NavBarLogo';
 import NavBarCategories from '@/components/navbar/components/NavBarCategories';
 import SearchBar from '@/components/navbar/components/SearchBar';
 import NavBarListExpanded from '@/components/navbar/components/NavBarListExpanded';
 import BackgroundEffect from '@/components/navbar/components/BackgroundEffect';
-
 
 const navBarTransition = {
 	bounce: 0,
@@ -29,11 +28,19 @@ const NavBar = () => {
 				}}
 				transition={navBarTransition}
 				layout
-				className='nav-bar'
+				className='fixed z-10 box-border w-screen pt-4 pb-[0.8rem] px-8 top-0 bg-white'
 			>
-				<motion.div style={navbarVariants} layout className='outer-nav-bar'>
+				<motion.div
+					style={navbarVariants}
+					layout
+					className='flex justify-between items-center'
+				>
 					<NavBarLogo navMode={navMode} />
-					<motion.div style={mainNavbarVariants} layout className='main-nav-bar'>
+					<motion.div
+						style={mainNavbarVariants}
+						layout
+						className='w-screen flex box-border items-center gap-8'
+					>
 						<NavBarCategories setExpanded={setExpanded} />
 						<SearchBar />
 					</motion.div>
@@ -45,4 +52,6 @@ const NavBar = () => {
 	);
 };
 
-export default NavBar;
+export default dynamic(() => Promise.resolve(NavBar), {
+	ssr: false
+});

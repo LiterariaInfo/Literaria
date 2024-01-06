@@ -1,6 +1,10 @@
 import { motion } from 'framer-motion';
 import Link from 'next/link';
 
+const initial = {
+	height: '3rem'
+};
+
 const NavBarLogo = ({ navMode }: { navMode: boolean }) => {
 	const logoVariants: any = {
 		height: navMode ? '6rem' : '3rem'
@@ -9,9 +13,7 @@ const NavBarLogo = ({ navMode }: { navMode: boolean }) => {
 	return (
 		<Link href={'/'}>
 			<motion.img
-				initial={{
-					height: '3rem'
-				}}
+				initial={initial}
 				animate={logoVariants}
 				layout='preserve-aspect'
 				src={'./logo.svg'}
