@@ -6,8 +6,10 @@ export default () => {
 	const articles: Article[] = [
 		{
 			id: 0,
-			title: 'Pasoptism Pasoptism Pasoptism Pasoptism Pasoptism Pasoptism Pasoptism Pasoptism Pasoptism Pasoptism',
-			author: 'gigel gigel gigel gigel gigel gigel gigel gigel gigel gigel gigel gigel gigel gigel gigel ',
+			title:
+				'Pasoptism Pasoptism Pasoptism Pasoptism Pasoptism Pasoptism Pasoptism Pasoptism Pasoptism Pasoptism',
+			author:
+				'gigel gigel gigel gigel gigel gigel gigel gigel gigel gigel gigel gigel gigel gigel gigel ',
 			image: 'http://localhost:3000/images/art.jpg',
 			createdAt: new Date()
 		},

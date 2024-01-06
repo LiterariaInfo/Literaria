@@ -1,5 +1,3 @@
-import './card.scss';
-
 import OpenLinkButton from '../buttons/OpenLinkButton';
 import { Article } from '@/lib/models';
 import Timestamp from '@/components/Timestamp';

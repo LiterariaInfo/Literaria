@@ -1,4 +1,3 @@
-import './card.scss';
 import OpenLinkButton from '@/components/buttons/OpenLinkButton';
 import { Article } from '@/lib/models';
 

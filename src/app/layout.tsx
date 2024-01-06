@@ -12,7 +12,7 @@ export const metadata: Metadata = {
 
 export default ({ children }: { children: ReactNode }) => {
 	return (
-		<html lang="ro">
+		<html lang='ro'>
 			<body className={inter.className}>{children}</body>
 		</html>
 	);
