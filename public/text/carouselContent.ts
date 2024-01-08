@@ -1,10 +1,3 @@
-import literature from '../images/literature.jpg';
-import book from '../icons/book.svg';
-import cinematography from '../images/cinematography.jpg';
-import film from '../icons/film.svg';
-import art from '../images/art.jpg';
-import palette from '../icons/palette.svg';
-
 interface CarouselCategoryModel {
 	image: any;
 	logo: any;
@@ -13,18 +6,18 @@ interface CarouselCategoryModel {
 
 const categories: CarouselCategoryModel[] = [
 	{
-		image: literature,
-		logo: book,
+		image: './images/literature.jpg',
+		logo: './icons/book.svg',
 		title: 'Literatură'
 	},
 	{
-		image: cinematography,
-		logo: film,
+		image: './images/cinematography.jpg',
+		logo: './icons/film.svg',
 		title: 'Film'
 	},
 	{
-		image: art,
-		logo: palette,
+		image: './images/art.jpg',
+		logo: './icons/palette.svg',
 		title: 'Artă'
 	}
 ];

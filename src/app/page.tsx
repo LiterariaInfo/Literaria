@@ -6,7 +6,7 @@ import NavBar from '@/components/navbar/NavBar';
 export default () => {
 	return (
 		<main id={'main'} className='h-screen overflow-y-auto overflow-x-hidden'>
-			<NavBar />
+			{/*<NavBar />*/}
 			<Landing />
 			<Recommended />
 			<Latest />
