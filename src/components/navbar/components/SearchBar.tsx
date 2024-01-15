@@ -1,5 +1,7 @@
 import { motion } from 'framer-motion';
 import { useRef, useState } from 'react';
+import Image from 'next/image';
+import search from '../../../../public/icons/search.svg';
 
 const width0 = { width: 0 };
 
@@ -42,7 +44,7 @@ const SearchBar = () => {
 				onBlur={handleMouseLeave}
 			/>
 			<div className='w-12 h-12 flex justify-center items-center aspect-[1] rounded-[5rem] bg-black cursor-pointer'>
-				<img src={'./icons/search.svg'} alt='search' />
+				<Image src={search} alt='search' />
 			</div>
 		</motion.div>
 	);

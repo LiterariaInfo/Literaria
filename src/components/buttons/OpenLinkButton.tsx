@@ -1,4 +1,6 @@
 import Link from 'next/link';
+import Image from 'next/image';
+import arrow from '../../../public/icons/top-right-arrow.svg';
 
 export default ({
 	url = '',
@@ -12,11 +14,7 @@ export default ({
 			<div
 				className={`flex items-center justify-center rounded-full bg-white p-4 aspect-square ${className}`}
 			>
-				<img
-					className='h-3 rounded-none'
-					src='./icons/top-right-arrow.svg'
-					alt='Top right arrow'
-				/>
+				<Image className='h-3 rounded-none' src={arrow} alt='Top right arrow' />
 			</div>
 		</Link>
 	);

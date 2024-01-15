@@ -19,11 +19,11 @@ const useNavBar = () => {
 		layoutEffect: false
 	});
 
-	if (isHome) {
-		useMotionValueEvent(scrollYProgress, 'change', (value) => {
+	useMotionValueEvent(scrollYProgress, 'change', (value) => {
+		if (isHome) {
 			setNavMode(value === 0);
-		});
-	}
+		}
+	});
 
 	return {
 		navMode
