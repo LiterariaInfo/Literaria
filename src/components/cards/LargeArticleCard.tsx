@@ -14,7 +14,7 @@ const LargeArticleCard = ({
 	return (
 		<div className={`relative h-full ${className}`}>
 			<img
-				className='h-full w-full object-cover cursor-pointer rounded-[3rem]'
+				className='h-full object-cover cursor-pointer rounded-[3rem]'
 				src={image}
 				alt={title}
 			/>
