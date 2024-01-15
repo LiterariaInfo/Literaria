@@ -1,4 +1,4 @@
-import { motion } from 'framer-motion';
+import { motion, TargetAndTransition } from 'framer-motion';
 import Link from 'next/link';
 
 const initial = {
@@ -6,7 +6,7 @@ const initial = {
 };
 
 const NavBarLogo = ({ navMode }: { navMode: boolean }) => {
-	const logoVariants: any = {
+	const logoVariants: TargetAndTransition = {
 		height: navMode ? '6rem' : '3rem'
 	};
 

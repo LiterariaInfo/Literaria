@@ -1,13 +1,13 @@
 .main-title {
-  @apply italic text-6xl font-bold max-[1600px]:text-4xl;
+  @apply italic text-6xl font-bold laptop:text-4xl;
 }
 
 .secondary-title {
-  @apply italic text-5xl font-bold max-[1600px]:text-3xl;
+  @apply italic text-5xl font-bold laptop:text-3xl;
 }
 
 .small-title {
-  @apply text-3xl font-semibold max-[1600px]:text-2xl;
+  @apply text-3xl font-semibold laptop:text-2xl;
 }
 
 .extra-small-title {
@@ -15,5 +15,5 @@
 }
 
 .title-label {
-  @apply text-base font-medium max-[1600px]:text-xs;
+  @apply text-base font-medium laptop:text-xs;
 }

@@ -31,9 +31,9 @@ export default ({ children }: { children: ReactNode }) => {
 				spaceBetween={30}
 				slidesPerView={'auto'}
 				loop={true}
-				autoplay={{
+				/*autoplay={{
 					delay: 3000
-				}}
+				}}*/
 				breakpoints={{
 					1600: {
 						spaceBetween: 50,
@@ -41,7 +41,7 @@ export default ({ children }: { children: ReactNode }) => {
 						centeredSlides: false
 					},
 					900: {
-						spaceBetween: 50,
+						spaceBetween: 30,
 						slidesPerView: 'auto',
 						centeredSlides: false
 					},

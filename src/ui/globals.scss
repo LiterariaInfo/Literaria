@@ -36,6 +36,25 @@ body, html {
       max-width: min-content;
     }
   }
+
+  ::-webkit-scrollbar {
+    width: .7rem;
+    padding-right: .1rem;
+    margin: 10px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: transparent;
+    padding-right: .1rem;
+    margin-top: 11.25rem;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    width: .4rem;
+    background: rgba(61, 71, 86, 0.33);
+    border-radius: 1rem;
+    border: .2rem solid white;
+  }
 }
 
 .section {
@@ -45,3 +64,4 @@ body, html {
 main {
   scroll-snap-type: y mandatory;
 }
+

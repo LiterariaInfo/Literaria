@@ -17,7 +17,7 @@ const navBarTransition = {
 };
 
 const NavBar = () => {
-	const { navMode, navbarVariants, mainNavbarVariants } = useNavBar();
+	const { navMode } = useNavBar();
 	const [expanded, setExpanded] = useState<boolean>(false);
 
 	return (
@@ -31,23 +31,34 @@ const NavBar = () => {
 				className='fixed z-10 box-border w-screen pt-4 pb-[0.8rem] px-8 top-0 bg-white'
 			>
 				<motion.div
-					style={navbarVariants}
 					layout
-					className='flex justify-between items-center'
+					className={`flex justify-between items-center ${
+						navMode ? 'flex-col mobile:flex-row gap-0' : 'flex-row gap-8'
+					}`}
 				>
 					<NavBarLogo navMode={navMode} />
 					<motion.div
-						style={mainNavbarVariants}
 						layout
-						className='w-screen flex box-border items-center gap-8'
+						className={`w-screen flex box-border items-center gap-8 mobile:hidden ${
+							navMode ? 'justify-center' : 'justify-between'
+						}`}
 					>
 						<NavBarCategories setExpanded={setExpanded} />
 						<SearchBar />
 					</motion.div>
+					<img
+						onClick={() => {
+							setExpanded(!expanded);
+						}}
+						className='h-4 rounded-none hidden mobile:block'
+						src='./icons/menu.svg'
+						alt='Top right arrow'
+					/>
 				</motion.div>
 				{expanded ? <NavBarListExpanded /> : null}
 			</motion.div>
-			<BackgroundEffect expanded={expanded} />
+			<motion.div></motion.div>
+			<BackgroundEffect setExpanded={setExpanded} expanded={expanded} />
 		</>
 	);
 };

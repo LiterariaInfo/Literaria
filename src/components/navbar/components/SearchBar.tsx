@@ -7,7 +7,7 @@ const SearchBar = () => {
 	const [isExtended, setIsExtended] = useState<boolean>(false);
 
 	const searchBarRef = useRef<HTMLInputElement>(null);
-	const searchBar = searchBarRef.current!;
+	const searchBar = searchBarRef.current;
 
 	const inputAnimate = {
 		width: isExtended ? 300 : 0,
@@ -17,11 +17,11 @@ const SearchBar = () => {
 
 	const handleMouseEnter = () => {
 		setIsExtended(true);
-		searchBar.focus();
+		searchBar?.focus();
 	};
 
 	const handleMouseLeave = () => {
-		if (searchBar.value === '') {
+		if (searchBar?.value === '') {
 			setIsExtended(false);
 		}
 	};

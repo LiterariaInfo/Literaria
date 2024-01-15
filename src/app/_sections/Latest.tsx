@@ -52,7 +52,7 @@ export default () => {
 
 	return (
 		<section className='section flex-col pt-20'>
-			<h1 className='text-left pl-8 mb-8 main-title max-[1600px]:pl-5'>
+			<h1 className='text-left pl-8 mb-8 main-title laptop:pl-5'>
 				Ultimele articole
 			</h1>
 			<ArticleList>

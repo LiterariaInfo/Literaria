@@ -4,7 +4,7 @@ import { useEffect, useRef, useState } from 'react';
 import { useMotionValueEvent, useScroll } from 'framer-motion';
 
 const useNavBar = () => {
-	const isHome = window.location.pathname === '/';
+	const isHome = window.location.pathname === '/' && window.innerWidth > 900;
 
 	const [navMode, setNavMode] = useState<boolean>(isHome);
 
@@ -25,19 +25,8 @@ const useNavBar = () => {
 		});
 	}
 
-	const navbarVariants: any = {
-		flexDirection: navMode ? 'column' : 'row',
-		gap: navMode ? 0 : '2rem'
-	};
-
-	const mainNavbarVariants: any = {
-		justifyContent: navMode ? 'center' : 'space-between'
-	};
-
 	return {
-		navMode,
-		navbarVariants,
-		mainNavbarVariants
+		navMode
 	};
 };
 

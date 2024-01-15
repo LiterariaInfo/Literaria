@@ -39,7 +39,7 @@ const SliderIndicator = ({
 					></motion.div>
 				))}
 			</div>
-			<NextItemButton onClick={handleNextItemClick} />
+			<NextItemButton className='mobile:hidden' onClick={handleNextItemClick} />
 		</div>
 	);
 };
