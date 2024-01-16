@@ -16,7 +16,7 @@ const NavBarLogo = ({ navMode }: { navMode: boolean }) => {
 				initial={initial}
 				animate={logoVariants}
 				layout='preserve-aspect'
-				src={'./logo.svg'}
+				src={'/logo.svg'}
 				alt='Literaria'
 			/>
 		</Link>
