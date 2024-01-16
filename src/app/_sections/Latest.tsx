@@ -1,6 +1,7 @@
 import MediumArticleCard from '@/components/cards/MediumArticleCard';
 import { Article } from '@/lib/models';
 import ArticleList from '@/components/ArticleList';
+import Script from 'next/script';
 
 export default () => {
 	const articles: Article[] = [
@@ -51,7 +52,7 @@ export default () => {
 	];
 
 	return (
-		<section className='section flex-col pt-20'>
+		<section id='5' className='section flex-col pt-20'>
 			<h1 className='text-left pl-8 mb-8 main-title laptop:pl-5'>
 				Ultimele articole
 			</h1>
