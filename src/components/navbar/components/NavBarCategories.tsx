@@ -20,7 +20,7 @@ const NavBarCategories = ({
 					onHoverStart={onHoverStart}
 					key={index}
 				>
-					<Link href={`/category/${category.id}`}>{category.name}</Link>
+					<Link href={`/article/${category.id}`}>{category.name}</Link>
 				</motion.label>
 			))}
 		</motion.div>

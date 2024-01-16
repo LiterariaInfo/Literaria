@@ -10,42 +10,42 @@ export default () => {
 				'Pasoptism Pasoptism Pasoptism Pasoptism Pasoptism Pasoptism Pasoptism Pasoptism Pasoptism Pasoptism',
 			author:
 				'gigel gigel gigel gigel gigel gigel gigel gigel gigel gigel gigel gigel gigel gigel gigel ',
-			image: 'http://localhost:3000/images/art.jpg',
+			image: '/images/art.jpg',
 			createdAt: new Date()
 		},
 		{
 			id: 1,
 			title: 'Pasoptism',
 			author: 'gigel',
-			image: 'http://localhost:3000/images/art.jpg',
+			image: '/images/art.jpg',
 			createdAt: new Date()
 		},
 		{
 			id: 2,
 			title: 'Pasoptism',
 			author: 'gigel',
-			image: 'http://localhost:3000/images/art.jpg',
+			image: '/images/art.jpg',
 			createdAt: new Date()
 		},
 		{
 			id: 3,
 			title: 'Pasoptism',
 			author: 'gigel',
-			image: 'http://localhost:3000/images/art.jpg',
+			image: '/images/art.jpg',
 			createdAt: new Date()
 		},
 		{
 			id: 4,
 			title: 'Pasoptism',
 			author: 'gigel',
-			image: 'http://localhost:3000/images/art.jpg',
+			image: '/images/art.jpg',
 			createdAt: new Date()
 		},
 		{
 			id: 5,
 			title: 'Pasoptism',
 			author: 'gigel',
-			image: 'http://localhost:3000/images/art.jpg',
+			image: '/images/art.jpg',
 			createdAt: new Date()
 		}
 	];
