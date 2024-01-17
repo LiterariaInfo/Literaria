@@ -30,7 +30,7 @@ const NavBar = () => {
 				}}
 				transition={navBarTransition}
 				layout
-				className='fixed z-10 box-border w-screen pt-4 pb-[0.8rem] px-8 top-0 bg-white'
+				className='fixed z-[1000] box-border w-screen pt-4 pb-[0.8rem] px-8 top-0 bg-white'
 			>
 				<motion.div
 					layout

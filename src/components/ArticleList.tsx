@@ -9,7 +9,13 @@ import 'swiper/css';
 
 SwiperCore.use([Autoplay]);
 
-export default ({ children }: { children: ReactNode }) => {
+export default ({
+	children,
+	className = ''
+}: {
+	children: ReactNode;
+	className?: string;
+}) => {
 	const ref = useRef<SwiperRef>(null);
 
 	useEffect(() => {
@@ -25,15 +31,15 @@ export default ({ children }: { children: ReactNode }) => {
 	}, []);
 
 	return (
-		<div className='relative'>
+		<div className={`relative ${className}`}>
 			<Swiper
 				ref={ref}
 				spaceBetween={30}
 				slidesPerView={'auto'}
 				loop={true}
-				/*autoplay={{
+				autoplay={{
 					delay: 3000
-				}}*/
+				}}
 				breakpoints={{
 					1600: {
 						spaceBetween: 50,

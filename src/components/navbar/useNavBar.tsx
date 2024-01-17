@@ -2,11 +2,14 @@
 
 import { useEffect, useRef, useState } from 'react';
 import { useMotionValueEvent, useScroll } from 'framer-motion';
+import { usePathname } from 'next/navigation';
 
 const useNavBar = () => {
-	const isHome = window.location.pathname === '/' && window.innerWidth > 900;
+	const pathName = usePathname();
 
-	const [navMode, setNavMode] = useState<boolean>(isHome);
+	const [navMode, setNavMode] = useState<boolean>(
+		pathName === '/' && window.innerWidth > 900
+	);
 
 	const main = useRef<any>(null);
 
@@ -14,13 +17,17 @@ const useNavBar = () => {
 		main.current = document.getElementById('main');
 	}, [navMode]);
 
+	useEffect(() => {
+		setNavMode(pathName === '/' && window.innerWidth > 900);
+	}, [pathName]);
+
 	const { scrollYProgress } = useScroll({
 		container: main,
 		layoutEffect: false
 	});
 
 	useMotionValueEvent(scrollYProgress, 'change', (value) => {
-		if (isHome) {
+		if (pathName === '/' && window.innerWidth > 900) {
 			setNavMode(value === 0);
 		}
 	});

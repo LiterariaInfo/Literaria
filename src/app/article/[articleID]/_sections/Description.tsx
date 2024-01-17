@@ -14,14 +14,14 @@ export default () => {
 	const articleTitle = 'Perioada pașoptistă';
 
 	return (
-		<section className='section pt-20 pb-10 px-8 mobile:px-4 gap-12 tablet:gap-7 mobile:gap-3 mobile:flex-col'>
+		<section className='section pt-20 pb-10 px-8 mobile:px-4 gap-12 tablet:gap-7 mobile:gap-3 mobile:flex-col !h-auto !min-h-screen'>
 			<div className='flex flex-col grow'>
-				<h1 className='text-left mb-8 main-title'>{articleTitle}</h1>
+				<h1 className='text-left mb-28 mobile:mb-8 main-title'>{articleTitle}</h1>
 				<div
 					className='pr-[10rem] mobile:pr-0'
 					dangerouslySetInnerHTML={{
 						__html:
-							'<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>'
+							'<p class="font-semibold text-[1.25rem] mobile:text-[1rem]">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>'
 					}}
 				></div>
 			</div>
