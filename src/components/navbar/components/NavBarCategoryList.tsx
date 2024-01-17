@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion';
 import Link from 'next/link';
+import { CategoryModel } from '@/components/navbar/NavBar';
 
 const opacity0 = {
 	opacity: 0
@@ -16,22 +17,14 @@ const exit = {
 	}
 };
 
-const NavBarCategoryList = ({
-	category
-}: {
-	category: {
-		name: string;
-		id: number;
-		directories: { name: string; id: number }[];
-	};
-}) => {
+const NavBarCategoryList = ({ category }: { category: CategoryModel }) => {
 	return (
 		<div className='flex flex-col'>
 			<motion.h1 className='title-label' initial={opacity0} animate={opacity1}>
-				<Link href={`/category/${category.id}`}>{category.name}</Link>
+				<Link href={`/category/${category.id}`}>{category.title}</Link>
 			</motion.h1>
 			<div className='flex flex-col'>
-				{category.directories.map((directory, index) => (
+				{category.children?.map((directory, index) => (
 					<motion.label
 						className='small-title'
 						initial={opacity0}
@@ -42,7 +35,7 @@ const NavBarCategoryList = ({
 						key={index}
 						exit={exit}
 					>
-						<Link href={`/category/${directory.id}`}>{directory.name}</Link>
+						<Link href={`/category/${directory.id}`}>{directory.title}</Link>
 					</motion.label>
 				))}
 			</div>

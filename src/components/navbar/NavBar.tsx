@@ -18,9 +18,16 @@ const navBarTransition = {
 	bounceStiffness: 0
 };
 
-const NavBar = () => {
+export interface CategoryModel {
+	title: string;
+	id: number;
+	children?: CategoryModel[];
+}
+
+const NavBar = ({ categories }: { categories: CategoryModel[] }) => {
 	const { navMode } = useNavBar();
 	const [expanded, setExpanded] = useState<boolean>(false);
+	const [activeCategory, setActiveCategory] = useState<number>(0);
 
 	return (
 		<>
@@ -45,7 +52,11 @@ const NavBar = () => {
 							navMode ? 'justify-center' : 'justify-between'
 						}`}
 					>
-						<NavBarCategories setExpanded={setExpanded} />
+						<NavBarCategories
+							categories={categories}
+							setExpanded={setExpanded}
+							setActiveCategory={setActiveCategory}
+						/>
 						<SearchBar />
 					</motion.div>
 					<Image
@@ -57,7 +68,13 @@ const NavBar = () => {
 						alt='Top right arrow'
 					/>
 				</motion.div>
-				{expanded ? <NavBarListExpanded /> : null}
+				{expanded ? (
+					<NavBarListExpanded
+						categories={categories[activeCategory].children!}
+					/>
+				) : (
+					''
+				)}
 			</motion.div>
 			<motion.div></motion.div>
 			<BackgroundEffect setExpanded={setExpanded} expanded={expanded} />

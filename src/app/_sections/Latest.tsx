@@ -1,54 +1,9 @@
 import MediumArticleCard from '@/components/cards/MediumArticleCard';
-import { Article } from '@/lib/models';
 import ArticleList from '@/components/ArticleList';
+import { getLatest } from '@/lib/api/article';
 
-export default () => {
-	const articles: Article[] = [
-		{
-			id: 0,
-			title:
-				'Pasoptism Pasoptism Pasoptism Pasoptism Pasoptism Pasoptism Pasoptism Pasoptism Pasoptism Pasoptism',
-			author:
-				'gigel gigel gigel gigel gigel gigel gigel gigel gigel gigel gigel gigel gigel gigel gigel ',
-			image: '/images/art.jpg',
-			createdAt: new Date()
-		},
-		{
-			id: 1,
-			title: 'Pasoptism',
-			author: 'gigel',
-			image: '/images/art.jpg',
-			createdAt: new Date()
-		},
-		{
-			id: 2,
-			title: 'Pasoptism',
-			author: 'gigel',
-			image: '/images/art.jpg',
-			createdAt: new Date()
-		},
-		{
-			id: 3,
-			title: 'Pasoptism',
-			author: 'gigel',
-			image: '/images/art.jpg',
-			createdAt: new Date()
-		},
-		{
-			id: 4,
-			title: 'Pasoptism',
-			author: 'gigel',
-			image: '/images/art.jpg',
-			createdAt: new Date()
-		},
-		{
-			id: 5,
-			title: 'Pasoptism',
-			author: 'gigel',
-			image: '/images/art.jpg',
-			createdAt: new Date()
-		}
-	];
+export default async () => {
+	const articles = await getLatest();
 
 	return (
 		<section className='section flex-col pt-20'>
