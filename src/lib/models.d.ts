@@ -5,4 +5,5 @@ export interface Article {
 	createdAt: Date;
 	image: string;
 	content?: string;
+	children?: Article[];
 }

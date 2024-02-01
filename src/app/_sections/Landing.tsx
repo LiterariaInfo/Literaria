@@ -26,7 +26,10 @@ export default () => {
 					currentSlide={currentSlide}
 					setCurrentSlide={setCurrentSlide}
 				/>
-				<NextItemButton className='hidden mobile:flex absolute right-4 top-1/2 -translate-y-1/2' onClick={handleNextItemClick} />
+				<NextItemButton
+					className='hidden mobile:flex absolute right-4 top-1/2 -translate-y-1/2'
+					onClick={handleNextItemClick}
+				/>
 			</div>
 		</section>
 	);

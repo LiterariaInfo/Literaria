@@ -1,15 +1,20 @@
 import { motion } from 'framer-motion';
 import { Dispatch, SetStateAction } from 'react';
-import { categories } from '../../../../public/text/navBarContent';
 import Link from 'next/link';
+import { CategoryModel } from '@/components/navbar/NavBar';
 
 const NavBarCategories = ({
-	setExpanded
+	setExpanded,
+	setActiveCategory,
+	categories
 }: {
 	setExpanded: Dispatch<SetStateAction<boolean>>;
+	setActiveCategory: Dispatch<SetStateAction<number>>;
+	categories: CategoryModel[];
 }) => {
-	const onHoverStart = () => {
+	const onHoverStart = (index: number) => {
 		setExpanded(true);
+		setActiveCategory(index);
 	};
 
 	return (
@@ -17,10 +22,12 @@ const NavBarCategories = ({
 			{categories.map((category, index) => (
 				<motion.label
 					className='font-bold text-[1.05rem] cursor-pointer hover:underline'
-					onHoverStart={onHoverStart}
+					onHoverStart={() => {
+						onHoverStart(index);
+					}}
 					key={index}
 				>
-					<Link href={`/article/${category.id}`}>{category.name}</Link>
+					<Link href={`/article/${category.id}`}>{category.title}</Link>
 				</motion.label>
 			))}
 		</motion.div>
