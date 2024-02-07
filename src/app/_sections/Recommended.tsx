@@ -12,24 +12,24 @@ export default async () => {
 			<div className='flex mobile:hidden grow w-full box-border overflow-hidden gap-[2%] px-[2%] py-0'>
 				<SmallArticleCard
 					className='w-[30%] min-w-[30%]'
-					article={articles[1].article}
+					article={articles[1].article as any}
 				/>
-				<LargeArticleCard article={articles[0].article} />
+				<LargeArticleCard article={articles[0].article as any} />
 				<SmallArticleCard
 					className='w-[24%] min-w-[24%]'
-					article={articles[2].article}
+					article={articles[2].article as any}
 				/>
 			</div>
 			<div className='hidden mobile:flex flex-col grow w-full box-border overflow-hidden gap-3 px-4 py-0'>
-				<LargeArticleCard article={articles[0].article} />
+				<LargeArticleCard article={articles[0].article as any} />
 				<div className='flex gap-3'>
 					<SpotlightCardMobile
 						className='w-0 grow'
-						article={articles[1].article}
+						article={articles[1].article as any}
 					/>
 					<SpotlightCardMobile
 						className='w-0 grow'
-						article={articles[2].article}
+						article={articles[2].article as any}
 					/>
 				</div>
 			</div>
