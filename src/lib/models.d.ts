@@ -4,6 +4,6 @@ export interface Article {
 	author: string;
 	createdAt: Date;
 	image: string;
-	content?: string;
-	children?: Article[];
+	content: string;
+	children: Article[];
 }

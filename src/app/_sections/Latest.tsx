@@ -12,7 +12,7 @@ export default async () => {
 			</h1>
 			<ArticleList>
 				{articles.map((article, index) => (
-					<MediumArticleCard article={article} key={index} />
+					<MediumArticleCard article={article as any} key={index} />
 				))}
 			</ArticleList>
 		</section>
