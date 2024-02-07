@@ -4,9 +4,11 @@ import MediumArticleCard from '@/components/cards/MediumArticleCard';
 import dateFormatter from '@/lib/formatters/dateFormatter';
 
 export default ({ article }: { article: Article }) => {
-	const articles = article.children.filter((art) => art.children.length === 0);
+	const articles = article.children?.filter(
+		(art) => art.children?.length === 0
+	);
 
-	if (articles.length === 0) {
+	if (!articles?.length) {
 		return '';
 	}
 
