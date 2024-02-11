@@ -40,7 +40,7 @@ export default ({ article }: { article: Article }) => {
 			<section className='section pt-24 !hidden flex-wrap gap-8 px-8 mobile:px-[16px] !h-auto !min-h-screen mobile:!flex'>
 				<div className='pt-12'>
 					<h1 className='text-left main-title'>{article.title}</h1>
-					<label className='small-title'>Autori</label>
+					<label className='small-title'>Categorii</label>
 				</div>
 				<div className='grid grid-cols-2 gap-[16px] w-full pb-4'>
 					{directories!.map((art, index) => (

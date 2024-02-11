@@ -2,6 +2,10 @@ import NextSectionCard from '@/components/cards/NextSectionCard';
 import { Article } from '@/lib/models';
 
 export default ({ article }: { article: Article }) => {
+	if (!article.content) {
+		return '';
+	}
+
 	return (
 		<section className='section pt-20 pb-10 px-8 mobile:px-4 gap-12 tablet:gap-7 mobile:gap-3 mobile:flex-col !h-auto !min-h-screen'>
 			<div className='flex flex-col grow'>

@@ -1,23 +1,34 @@
 import prisma from '@/lib/api/prisma';
 
 const getArticleId = (id: number) => {
+	console.log(555);
+
 	return prisma.article.findUnique({
 		where: {
 			id
 		},
-		include: {
+		select: {
 			children: {
 				select: {
 					children: true,
 					image: true,
 					title: true,
-					parentID: true,
 					author: true,
 					createdAt: true,
 					id: true
 				}
 			},
-			content: true
+			content: true,
+			parent: {
+				select: {
+					title: true
+				}
+			},
+			id: true,
+			createdAt: true,
+			title: true,
+			author: true,
+			image: true
 		}
 	});
 };
@@ -53,8 +64,7 @@ const getCategories = () => {
 					id: true,
 					children: {
 						select: {
-							title: true,
-							id: true
+							title: true
 						}
 					}
 				}

@@ -1,6 +1,8 @@
 import { Article } from '@/lib/models';
 
 export default ({ article }: { article: Article }) => {
+	console.log(article);
+
 	return (
 		<section className='px-[9rem] pt-32'>
 			<div className='pb-4'>
@@ -11,13 +13,13 @@ export default ({ article }: { article: Article }) => {
 				/>
 			</div>
 			<label className='mb-16 font-medium text-[1.25rem]'>
-				Perioada Marilor Clasici /{' '}
-				<span className='font-bold'>Ion Luca Caragiale</span>
+				{(article as any)?.parent?.title ?? ''} /{' '}
+				<span className='font-bold'>{article.title}</span>
 			</label>
 			<article
 				className='py-12'
 				dangerouslySetInnerHTML={{
-					__html: (article.content as any).content!
+					__html: (article.content as any)?.content ?? ''
 				}}
 			></article>
 		</section>
