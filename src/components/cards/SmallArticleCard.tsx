@@ -12,16 +12,18 @@ const SmallArticleCard = ({
 
 	return (
 		<div className={`flex flex-col ${className}`}>
-			<div className='relative grow flex'>
+			<div className='relative flex h-0 grow'>
 				<img
-					className='object-cover rounded-[3rem] cursor-pointer'
+					className='object-cover rounded-[3rem] cursor-pointer w-full'
 					src={image}
 					alt={title}
 				/>
 				<OpenLinkButton className='absolute right-8 top-8' />
 			</div>
-			<label className='title-label'>{author}</label>
-			<h3 className='small-title mt-4 mb-0 mx-0'>{title}</h3>
+			<div className='flex flex-col'>
+				<label className='title-label'>{author}</label>
+				<h3 className='small-title mt-4 mb-0 mx-0'>{title}</h3>
+			</div>
 		</div>
 	);
 };

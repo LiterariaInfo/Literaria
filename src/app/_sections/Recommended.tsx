@@ -21,7 +21,7 @@ export default async () => {
 				/>
 			</div>
 			<div className='hidden mobile:flex flex-col grow w-full box-border overflow-hidden gap-3 px-4 py-0'>
-				<LargeArticleCard article={articles[0].article as any} />
+				<LargeArticleCard className='!h-0 grow' article={articles[0].article as any} />
 				<div className='flex gap-3'>
 					<SpotlightCardMobile
 						className='w-0 grow'
