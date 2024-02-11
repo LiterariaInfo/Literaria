@@ -21,7 +21,7 @@ const NavBarCategoryList = ({ category }: { category: CategoryModel }) => {
 	return (
 		<div className='flex flex-col'>
 			<motion.h1 className='title-label' initial={opacity0} animate={opacity1}>
-				<Link href={`/category/${category.id}`}>{category.title}</Link>
+				<Link href={`/article/${category.id}`}>{category.title}</Link>
 			</motion.h1>
 			<div className='flex flex-col'>
 				{category.children?.map((directory, index) => (
