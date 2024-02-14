@@ -4,6 +4,7 @@ import '../ui/globals.scss';
 import { ReactNode } from 'react';
 import NavBar from '@/components/navbar/NavBar';
 import { getCategories } from '@/lib/api/article';
+import Script from 'next/script';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -25,6 +26,11 @@ export default async ({ children }: { children: ReactNode }) => {
 				>
 					{children}
 				</main>
+				<Script
+					async
+					src='https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1931536699775420'
+					crossOrigin='anonymous'
+				></Script>
 			</body>
 		</html>
 	);
