@@ -1,8 +1,6 @@
 import { Article } from '@/lib/models';
 
 export default ({ article }: { article: Article }) => {
-	console.log(article);
-
 	return (
 		<section className='px-[9rem] pt-32 mobile:px-4'>
 			<div className='pb-4'>

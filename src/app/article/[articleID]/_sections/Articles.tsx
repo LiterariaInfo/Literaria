@@ -14,9 +14,9 @@ export default ({ article }: { article: Article }) => {
 	}
 
 	return (
-		<section className='section flex-col pt-20 !min-h-[100svh] !h-auto'>
+		<section className='section flex-col pt-20 !min-h-[100svh] !h-auto pb-4'>
 			<h1 className='text-left pl-8 mb-8 main-title laptop:pl-5'>
-				Ultimele articole
+				Articole
 			</h1>
 			<ArticleList className='mobile:hidden'>
 				{articles.map((article, index) => (
