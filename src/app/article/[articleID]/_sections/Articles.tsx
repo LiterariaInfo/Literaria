@@ -2,6 +2,7 @@ import { Article } from '@/lib/models';
 import ArticleList from '@/components/ArticleList';
 import MediumArticleCard from '@/components/cards/MediumArticleCard';
 import dateFormatter from '@/lib/formatters/dateFormatter';
+import Link from 'next/link';
 
 export default ({ article }: { article: Article }) => {
 	const articles = article.children?.filter(
@@ -13,9 +14,9 @@ export default ({ article }: { article: Article }) => {
 	}
 
 	return (
-		<section className='section flex-col pt-20 !min-h-screen !h-auto'>
+		<section className='section flex-col pt-20 !min-h-[100svh] !h-auto pb-4'>
 			<h1 className='text-left pl-8 mb-8 main-title laptop:pl-5'>
-				Ultimele articole
+				Articole
 			</h1>
 			<ArticleList className='mobile:hidden'>
 				{articles.map((article, index) => (
@@ -24,7 +25,11 @@ export default ({ article }: { article: Article }) => {
 			</ArticleList>
 			<div className='hidden mobile:flex flex-col gap-4 px-4'>
 				{articles.map((article, index) => (
-					<div className='flex justify-between gap-6' key={index}>
+					<Link
+						href={`/article/${article.id}`}
+						className='flex justify-between gap-6'
+						key={index}
+					>
 						<div className='flex flex-col justify-between'>
 							<h1 className='font-semibold text-[1.15rem] line-clamp-3'>
 								{article.title}
@@ -43,7 +48,7 @@ export default ({ article }: { article: Article }) => {
 							src={article.image}
 							alt={article.title}
 						/>
-					</div>
+					</Link>
 				))}
 			</div>
 		</section>

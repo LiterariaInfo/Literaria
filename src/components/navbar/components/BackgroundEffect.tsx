@@ -26,7 +26,7 @@ const BackgroundEffect = ({ expanded, setExpanded }: props) => {
 			}}
 			animate={navbarBackground}
 			transition={transition}
-			className='w-screen h-screen fixed left-0 top-0'
+			className='w-screen h-[100svh] fixed left-0 top-0'
 		></motion.div>
 	);
 };

@@ -1,8 +1,6 @@
 import prisma from '@/lib/api/prisma';
 
 const getArticleId = (id: number) => {
-	console.log(555);
-
 	return prisma.article.findUnique({
 		where: {
 			id
@@ -64,7 +62,13 @@ const getCategories = () => {
 					id: true,
 					children: {
 						select: {
-							title: true
+							title: true,
+							id: true
+						},
+						where: {
+							children: {
+								some: {}
+							}
 						}
 					}
 				}

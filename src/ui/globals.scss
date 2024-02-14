@@ -58,7 +58,7 @@ body, html {
 }
 
 .section {
-  @apply h-screen w-screen box-border flex snap-start;
+  @apply h-[100svh] w-screen box-border flex snap-start;
 }
 
 main {

@@ -12,7 +12,7 @@ export default ({ article }: { article: Article }) => {
 
 	return (
 		<>
-			<section className='section pt-24 pb-12 flex flex-wrap gap-8 px-8 !h-auto !min-h-screen mobile:hidden'>
+			<section className='section pt-24 pb-12 flex flex-wrap gap-8 px-8 !h-auto !min-h-[100svh] mobile:hidden'>
 				<div className='aspect-square w-[25rem] h-[25rem] pt-12'>
 					<h1 className='text-left main-title pb-6'>{article.title}</h1>
 					<label className='small-title'>Autori</label>
@@ -37,7 +37,7 @@ export default ({ article }: { article: Article }) => {
 					</Link>
 				))}
 			</section>
-			<section className='section pt-24 !hidden flex-wrap gap-8 px-8 mobile:px-[16px] !h-auto !min-h-screen mobile:!flex'>
+			<section className='section pt-24 !hidden flex-wrap gap-8 px-8 mobile:px-[16px] !h-auto !min-h-[100svh] mobile:!flex'>
 				<div className='pt-12'>
 					<h1 className='text-left main-title'>{article.title}</h1>
 					<label className='small-title'>Categorii</label>

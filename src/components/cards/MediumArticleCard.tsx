@@ -22,7 +22,7 @@ const MediumArticleCard = ({ article }: { article: Article }) => {
 					<OpenLinkButton className='absolute right-[2.6rem] top-[2.6rem]' />
 				</div>
 				<label className='title-label mt-3'>{author}</label>
-				<h3 className='mt-4 small-title'>{title}</h3>
+				<h3 className='mt-4 small-title line-clamp-2'>{title}</h3>
 			</div>
 		</Link>
 	);

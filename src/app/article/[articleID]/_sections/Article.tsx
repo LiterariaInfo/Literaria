@@ -1,10 +1,8 @@
 import { Article } from '@/lib/models';
 
 export default ({ article }: { article: Article }) => {
-	console.log(article);
-
 	return (
-		<section className='px-[9rem] pt-32'>
+		<section className='px-[9rem] pt-32 mobile:px-4'>
 			<div className='pb-4'>
 				<img
 					className='rounded-[3rem] h-[70vh] w-full object-cover'
