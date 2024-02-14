@@ -26,7 +26,7 @@ const NavBarCategoryList = ({ category }: { category: CategoryModel }) => {
 			<div className='flex flex-col'>
 				{category.children?.map((directory, index) => (
 					<motion.label
-						className='small-title'
+						className='small-title line-clamp-1 break-words tablet:!text-xs'
 						initial={opacity0}
 						animate={opacity1}
 						transition={{
@@ -35,7 +35,7 @@ const NavBarCategoryList = ({ category }: { category: CategoryModel }) => {
 						key={index}
 						exit={exit}
 					>
-						<Link href={`/category/${directory.id}`}>{directory.title}</Link>
+						<Link href={`/article/${directory.id}`}>{directory.title}</Link>
 					</motion.label>
 				))}
 			</div>

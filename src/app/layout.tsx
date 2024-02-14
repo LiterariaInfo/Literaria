@@ -21,7 +21,7 @@ export default async ({ children }: { children: ReactNode }) => {
 				<NavBar categories={categories} />
 				<main
 					id={'main'}
-					className='h-screen overflow-y-auto overflow-x-hidden'
+					className='h-[100svh] overflow-y-auto overflow-x-hidden'
 				>
 					{children}
 				</main>

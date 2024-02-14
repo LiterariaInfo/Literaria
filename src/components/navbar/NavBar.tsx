@@ -37,7 +37,9 @@ const NavBar = ({ categories }: { categories: CategoryModel[] }) => {
 				}}
 				transition={navBarTransition}
 				layout
-				className='fixed z-[1000] box-border w-screen pt-4 pb-[0.8rem] px-8 top-0 bg-white'
+				className={`fixed z-[1000] box-border w-screen pt-4 pb-[0.8rem] px-8 top-0 bg-white flex flex-col ${
+					expanded ? 'mobile:h-[100svh]' : ''
+				}`}
 			>
 				<motion.div
 					layout
@@ -71,12 +73,14 @@ const NavBar = ({ categories }: { categories: CategoryModel[] }) => {
 				{expanded ? (
 					<NavBarListExpanded
 						categories={categories[activeCategory].children!}
+						generalCategories={categories}
+						setActiveCategory={setActiveCategory}
+						setExpanded={setExpanded}
 					/>
 				) : (
 					''
 				)}
 			</motion.div>
-			<motion.div></motion.div>
 			<BackgroundEffect setExpanded={setExpanded} expanded={expanded} />
 		</>
 	);

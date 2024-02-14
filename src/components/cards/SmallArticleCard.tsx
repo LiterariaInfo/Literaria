@@ -1,5 +1,6 @@
 import OpenLinkButton from '@/components/buttons/OpenLinkButton';
 import { Article } from '@/lib/models';
+import Link from 'next/link';
 
 const SmallArticleCard = ({
 	article,
@@ -8,13 +9,13 @@ const SmallArticleCard = ({
 	article: Article;
 	className?: string;
 }) => {
-	const { author, title, image } = article;
+	const { author, title, image, id } = article;
 
 	return (
-		<div className={`flex flex-col ${className}`}>
+		<Link href={`/article/${id}`} className={`flex flex-col ${className}`}>
 			<div className='relative flex h-0 grow'>
 				<img
-					className='object-cover rounded-[3rem] cursor-pointer w-full'
+					className='object-cover rounded-[3rem] cursor-pointer w-full h-auto'
 					src={image}
 					alt={title}
 				/>
@@ -24,7 +25,7 @@ const SmallArticleCard = ({
 				<label className='title-label'>{author}</label>
 				<h3 className='small-title mt-4 mb-0 mx-0'>{title}</h3>
 			</div>
-		</div>
+		</Link>
 	);
 };
 
