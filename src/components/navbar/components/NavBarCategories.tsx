@@ -30,6 +30,11 @@ const NavBarCategories = ({
 					<Link href={`/article/${category.id}`}>{category.title}</Link>
 				</motion.label>
 			))}
+			<motion.label
+				className='font-bold text-[1.05rem] cursor-pointer hover:underline'
+			>
+				<Link href={`/gallery`}>Galerie</Link>
+			</motion.label>
 		</motion.div>
 	);
 };

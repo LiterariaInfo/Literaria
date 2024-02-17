@@ -12,9 +12,9 @@ export default ({
 
 	return (
 		<div
-			className={`rounded-[2rem] bg-[#5b5a36] p-4 flex flex-col gap-10 justify-between ${className}`}
+			className={`rounded-[2rem] bg-[#5b5a36] p-5 flex flex-col gap-5 justify-between ${className}`}
 		>
-			<h1 className='text-white extra-small-title'>{title}</h1>
+			<h1 className='text-white line-clamp-3 text-ellipsis font-semibold'>{title}</h1>
 			<div className='flex flex-col'>
 				<label className='text-white title-label'>
 					{dateFormatter(createdAt)}

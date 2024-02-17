@@ -1,36 +1,41 @@
 'use client';
 
 import NextItemButton from '@/components/buttons/NextItemButton';
+import Link from 'next/link';
 
 const NextSectionCard = ({
-	text,
-	image,
-	className = ''
+  text,
+  image,
+  className = '',
+  anchorScroll
 }: {
-	text: string;
-	image: string;
-	className: string;
+  text: string;
+  image: string;
+  className: string;
+  anchorScroll: string;
 }) => {
-	const handleClick = () => {};
+  const handleClick = () => {};
 
-	return (
-		<div className={`relative w-full h-0 grow ${className}`}>
-			<img
-				src={image}
-				className='object-cover w-full h-full rounded-[3rem] tablet:rounded-[2rem]'
-				alt='Next section'
-			/>
-			<div className='absolute w-full h-full flex gap-8 items-center justify-center flex-col backdrop-blur-[20px] backdrop-brightness-50 rounded-[3rem] tablet:rounded-[2rem] left-0 top-0 p-4'>
-				<label className='small-title text-white left-0 top-0 text-center'>
-					{text}
-				</label>
-				<NextItemButton
-					className='rotate-90 tablet:hidden mobile:flex'
-					onClick={handleClick}
-				/>
-			</div>
-		</div>
-	);
+  return (
+    <div className={`relative w-full h-0 grow ${className}`}>
+      <img
+        src={image}
+        className='object-cover w-full h-full rounded-[3rem] tablet:rounded-[2rem]'
+        alt='Next section'
+      />
+      <div className='absolute w-full h-full flex gap-8 items-center justify-center flex-col backdrop-blur-[20px] backdrop-brightness-50 rounded-[3rem] tablet:rounded-[2rem] left-0 top-0 p-4'>
+        <label className='small-title text-white left-0 top-0 text-center'>
+          {text}
+        </label>
+        <Link href={anchorScroll}>
+          <NextItemButton
+            className='rotate-90 tablet:hidden mobile:flex'
+            onClick={handleClick}
+          />
+        </Link>
+      </div>
+    </div>
+  );
 };
 
 export default NextSectionCard;

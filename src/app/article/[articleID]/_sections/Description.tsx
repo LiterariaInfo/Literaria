@@ -29,6 +29,7 @@ export default ({ article }: { article: Article }) => {
 					className='mobile:hidden'
 					text={'Vezi autorii'}
 					image={article.image}
+					anchorScroll={'#authors'}
 				/>
 			</div>
 		</section>

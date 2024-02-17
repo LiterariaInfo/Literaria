@@ -19,7 +19,7 @@ const SpotlightCard = ({
 			<label className='text-[white] text-xl font-medium mt-2 mb-4 mx-0'>
 				{author}
 			</label>
-			<div className='flex items-center justify-between'>
+			<div className='flex items-center justify-between gap-4'>
 				<label className='text-[white] text-base font-medium mt-[1%]'>
 					{dateFormatter(new Date(createdAt))}
 				</label>

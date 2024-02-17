@@ -97,6 +97,20 @@ const NavBarListExpanded = ({
 								{category.title}
 							</motion.label>
 						))}
+						<motion.label
+							initial={opacity0}
+							animate={opacity1}
+							transition={{
+								delay: generalCategories.length * 0.04
+							}}
+							exit={exit}
+							className='small-title'
+							onClick={() => {
+								setExpanded(false);
+							}}
+						>
+							<Link href={`/gallery`}>Galerie</Link>
+						</motion.label>
 					</>
 				)}
 			</motion.div>
