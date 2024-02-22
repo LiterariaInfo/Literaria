@@ -132,7 +132,7 @@ export default async () => {
       </section>
       <section className={'pt-20'}>
         <h2 className={'small-title py-4'}>Realizarea site-ului original</h2>
-        <p className={'w-1/3'}>
+        <p className={'w-1/3 mobile:w-full'}>
           Manea Vlad, Gavrilă Vlăduț, Bighiu Matei, Mihăilă Eduard, Bene Ionuț,
           Nica Octavian, Macri Tudor, Russu Mihaela, Spiridon Roxana, Stoian
           Tudor, Butu Radu, Pintea Ștefan, Tomele Denis

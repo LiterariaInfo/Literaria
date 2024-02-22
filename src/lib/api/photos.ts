@@ -1,3 +1,5 @@
+'use server';
+
 import {
   getDownloadURL,
   getMetadata,
@@ -39,7 +41,6 @@ const createImage = async ({
 };
 
 async function getGalleryPhotos() {
-  'use server';
   const storage = getStorage(app);
   const imagesRef = ref(storage, 'gallery');
 
@@ -63,7 +64,6 @@ async function getGalleryPhotos() {
 }
 
 async function getGalleryPhotosCount() {
-  'use server';
   const storage = getStorage(app);
   const imagesRef = ref(storage, 'gallery');
 
