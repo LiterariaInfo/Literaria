@@ -32,6 +32,9 @@ const NavBarCategories = ({
 			))}
 			<motion.label
 				className='font-bold text-[1.05rem] cursor-pointer hover:underline'
+				onHoverStart={() => {
+					setExpanded(false);
+				}}
 			>
 				<Link href={`/gallery`}>Galerie</Link>
 			</motion.label>

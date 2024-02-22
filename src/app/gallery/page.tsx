@@ -3,7 +3,7 @@
 import React, { useEffect, useState } from 'react';
 import Photos from '@/components/Photos';
 import 'yet-another-react-lightbox/styles.css';
-import getGalleryPhotos from '@/lib/api/getGalleryPhotos';
+import { getGalleryPhotos } from '@/lib/api/photos';
 import { Image } from '@/lib/models';
 
 interface ImageGroup {

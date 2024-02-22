@@ -77,4 +77,25 @@ const getCategories = () => {
 	});
 };
 
-export { getArticleId, getRecommended, getLatest, getCategories };
+const getArticleCount = () => {
+	return prisma.article.count();
+}
+
+const getUniqueAuthorsCount = async () => {
+	const uniqueAuthors = await prisma.article.groupBy({
+		by: ['author'],
+	});
+	return uniqueAuthors.length;
+}
+
+const getMovieReviewsCount = async () => {
+	const movieReviews = await prisma.article.findMany({
+		where: {
+			parentID: 9
+		}
+	});
+	return movieReviews.length;
+
+}
+
+export { getArticleId, getRecommended, getLatest, getCategories, getArticleCount, getUniqueAuthorsCount, getMovieReviewsCount };
