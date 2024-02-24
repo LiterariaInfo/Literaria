@@ -13,79 +13,91 @@ import Image from 'next/image';
 import menu from '../../../public/icons/menu.svg';
 
 const navBarTransition = {
-	bounce: 0,
-	bounceDamping: 0,
-	bounceStiffness: 0
+  bounce: 0,
+  bounceDamping: 0,
+  bounceStiffness: 0
 };
 
 export interface CategoryModel {
-	title: string;
-	id: number;
-	children?: CategoryModel[];
+  title: string;
+  id: number;
+  children?: CategoryModel[];
 }
 
-const NavBar = ({ categories }: { categories: CategoryModel[] }) => {
-	const { navMode } = useNavBar();
-	const [expanded, setExpanded] = useState<boolean>(false);
-	const [activeCategory, setActiveCategory] = useState<number>(0);
+export interface ArticleModel {
+  title: string;
+  id: number;
+  parentTitle: string | undefined;
+}
 
-	return (
-		<>
-			<motion.div
-				onHoverEnd={() => {
-					setExpanded(false);
-				}}
-				transition={navBarTransition}
-				layout
-				className={`fixed z-[1000] box-border w-screen pt-4 pb-[0.8rem] px-8 top-0 bg-white flex flex-col ${
-					expanded ? 'mobile:h-[100svh]' : ''
-				}`}
-			>
-				<motion.div
-					layout
-					className={`flex justify-between items-center ${
-						navMode ? 'flex-col mobile:flex-row gap-0' : 'flex-row gap-8'
-					}`}
-				>
-					<NavBarLogo navMode={navMode} />
-					<motion.div
-						layout
-						className={`w-screen flex box-border items-center gap-8 mobile:hidden ${
-							navMode ? 'justify-center' : 'justify-between'
-						}`}
-					>
-						<NavBarCategories
-							categories={categories}
-							setExpanded={setExpanded}
-							setActiveCategory={setActiveCategory}
-						/>
-						<SearchBar />
-					</motion.div>
-					<Image
-						onClick={() => {
-							setExpanded(!expanded);
-						}}
-						className='h-4 w-auto rounded-none hidden mobile:block '
-						src={menu}
-						alt='Top right arrow'
-					/>
-				</motion.div>
-				{expanded ? (
-					<NavBarListExpanded
-						categories={categories[activeCategory].children!}
-						generalCategories={categories}
-						setActiveCategory={setActiveCategory}
-						setExpanded={setExpanded}
-					/>
-				) : (
-					''
-				)}
-			</motion.div>
-			<BackgroundEffect setExpanded={setExpanded} expanded={expanded} />
-		</>
-	);
+const NavBar = ({
+  categories,
+  articleNames
+}: {
+  categories: CategoryModel[];
+  articleNames: ArticleModel[];
+}) => {
+  const { navMode } = useNavBar();
+  const [expanded, setExpanded] = useState<boolean>(false);
+  const [activeCategory, setActiveCategory] = useState<number>(0);
+
+  return (
+    <>
+      <motion.div
+        onHoverEnd={() => {
+          setExpanded(false);
+        }}
+        transition={navBarTransition}
+        layout
+        className={`fixed z-[1000] box-border w-screen pt-4 pb-[0.8rem] px-8 top-0 bg-white flex flex-col ${
+          expanded ? 'mobile:h-[100svh]' : ''
+        }`}
+      >
+        <motion.div
+          layout
+          className={`flex justify-between items-center ${
+            navMode ? 'flex-col mobile:flex-row gap-0' : 'flex-row gap-8'
+          }`}
+        >
+          <NavBarLogo navMode={navMode} />
+          <motion.div
+            layout
+            className={`w-screen flex box-border items-center gap-8 mobile:hidden ${
+              navMode ? 'justify-center' : 'justify-between'
+            }`}
+          >
+            <NavBarCategories
+              categories={categories}
+              setExpanded={setExpanded}
+              setActiveCategory={setActiveCategory}
+            />
+            <SearchBar articles={articleNames} />
+          </motion.div>
+          <Image
+            onClick={() => {
+              setExpanded(!expanded);
+            }}
+            className='h-4 w-auto rounded-none hidden mobile:block '
+            src={menu}
+            alt='Top right arrow'
+          />
+        </motion.div>
+        {expanded ? (
+          <NavBarListExpanded
+            categories={categories[activeCategory].children!}
+            generalCategories={categories}
+            setActiveCategory={setActiveCategory}
+            setExpanded={setExpanded}
+          />
+        ) : (
+          ''
+        )}
+      </motion.div>
+      <BackgroundEffect setExpanded={setExpanded} expanded={expanded} />
+    </>
+  );
 };
 
 export default dynamic(() => Promise.resolve(NavBar), {
-	ssr: false
+  ssr: false
 });

@@ -18,7 +18,6 @@ export default () => {
   useEffect(() => {
     getGalleryPhotos().then((res) => {
       if (res) {
-        console.log(res);
         setRawFiles(res);
         const groupedFiles = res.reduce(
           (
@@ -49,7 +48,6 @@ export default () => {
           title,
           images: groupedFiles[title]
         }));
-        console.log(newFiles);
         setFiles(newFiles);
       }
     });
@@ -58,14 +56,14 @@ export default () => {
   return (
     <div className='flex min-h-[calc(100dvh-4rem)] flex-col pt-[5rem] px-8'>
       <h2 className={'main-title py-4'}>Galerie</h2>
-      {files?.map((group) => (
+      {files?.map((group, index) => (
         <>
           <h2
             className={'main-title py-4 !not-italic mobile:!text-2xl !text-3xl'}
           >
             {group.title}
           </h2>
-          <Photos photos={group.images} />
+          <Photos photos={group.images} key={index} />
         </>
       ))}
     </div>

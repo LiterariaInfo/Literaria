@@ -26,9 +26,9 @@ export default ({ photos }: { photos: ImageType[] }) => {
 
   return (
     <div className='flex'>
-      <div className='flex flex-wrap pb-10 max-sm:justify-center'>
+      <div className='flex flex-wrap pb-10 max-sm:justify-center gap-3'>
         {photos?.map((item, index) => (
-          <div className={'flex flex-col'}>
+          <div className={'flex flex-col'} key={index}>
             <ImageCard image={item} onClick={setIndex} index={index} />
           </div>
         ))}

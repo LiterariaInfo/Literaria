@@ -22,10 +22,10 @@ const ImageCard = ({
         onClick={() => {
           onClick(index);
         }}
-        className={'w-[300px] h-[300px] object-cover'}
+        className={'w-[300px] h-[300px] object-cover rounded-3xl cursor-pointer'}
       />
       {!!image.metadata.customMetadata?.description && (
-        <div className='absolute w-full backdrop-blur-[0.3rem] backdrop-brightness-[0.8] flex items-center justify-start min-h-10 box-border pl-4 left-0 bottom-0'>
+        <div className='absolute w-full backdrop-blur-[0.3rem] backdrop-brightness-[0.8] flex items-center justify-start min-h-14 box-border pl-4 left-0 bottom-0 rounded-b-3xl pb-1 rounded-t-lg'>
           <label className='text-white text-sm'>
             {image.metadata.customMetadata?.description}
           </label>
