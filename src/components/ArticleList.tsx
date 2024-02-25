@@ -33,14 +33,14 @@ export default ({
 	return (
 		<div className={`relative ${className}`}>
 			<Swiper
-				className={'h-[75dvh]'}
+				className={'mobile:h-[75dvh]'}
 				ref={ref}
 				spaceBetween={30}
 				slidesPerView={'auto'}
 				loop={true}
-				autoplay={{
-					delay: 3000
-				}}
+				// autoplay={{
+				// 	delay: 3000
+				//}}
 				breakpoints={{
 					1600: {
 						spaceBetween: 50,

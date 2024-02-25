@@ -9,7 +9,7 @@ import Link from 'next/link';
 
 export default ({ article }: { article: Article }) => {
   return (
-    <section className='section pt-32 pb-10 px-8 mobile:px-4 gap-12 tablet:gap-7 mobile:gap-3 mobile:flex-col'>
+    <section className='section pt-32 mobile:pt-[5rem] pb-10 px-8 mobile:px-4 gap-12 tablet:gap-7 mobile:gap-3 mobile:flex-col'>
       <div className='flex flex-col grow'>
         <h1 className='text-left mb-8 main-title'>{article.title}</h1>
         <GiantArticleCard article={article} />

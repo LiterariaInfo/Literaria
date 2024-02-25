@@ -17,9 +17,9 @@ const SpotlightCard = ({
 		>
 			<div>
 			<h1 className='text-[white] small-title m-0'>{title}</h1>
-			<label className='text-[white] text-xl font-medium mt-2 mb-4 mx-0'>
+			<p className='text-[white] text-xl font-medium pt-4 mb-4 mx-0'>
 				{author}
-			</label>
+			</p>
 			</div>
 			<div className='flex items-center justify-between gap-4'>
 				<label className='text-[white] text-base font-medium mt-[1%]'>

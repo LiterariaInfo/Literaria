@@ -7,7 +7,7 @@ export default ({ article }: { article: Article }) => {
   }
 
   return (
-    <section className='section pt-32 pb-10 px-8 mobile:px-4 gap-8 tablet:gap-7 mobile:gap-3 mobile:flex-col !h-auto !min-h-[100svh]'>
+    <section className='section pt-32 mobile:pt-[5rem] pb-10 px-8 mobile:px-4 gap-8 tablet:gap-7 mobile:gap-3 mobile:flex-col !h-auto !min-h-[100svh]'>
       <div className='flex flex-col grow'>
         <h1 className='text-left mb-28 mobile:mb-8 main-title'>
           {article.title}
