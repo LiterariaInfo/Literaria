@@ -2,6 +2,7 @@
 
 import NextItemButton from '@/components/buttons/NextItemButton';
 import Link from 'next/link';
+import OpenLinkButton from '@/components/buttons/OpenLinkButton';
 
 const NextSectionCard = ({
   text,
@@ -28,10 +29,7 @@ const NextSectionCard = ({
           {text}
         </label>
         <Link href={anchorScroll}>
-          <NextItemButton
-            className='rotate-90 tablet:hidden mobile:flex'
-            onClick={handleClick}
-          />
+          <OpenLinkButton className='rotate-[135deg] flex scale-90' />
         </Link>
       </div>
     </div>

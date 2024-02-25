@@ -27,12 +27,17 @@ const NavBarCategories = ({
 					}}
 					key={index}
 				>
-					<Link href={`/article/${category.id}`}>{category.title}</Link>
+					<Link href={`/article/${category.id}`} onClick={() => {
+						setExpanded(false);
+					}}>{category.title}</Link>
 				</motion.label>
 			))}
 			<motion.label
 				className='font-bold text-[1.05rem] cursor-pointer hover:underline'
 				onHoverStart={() => {
+					setExpanded(false);
+				}}
+				onClick={() => {
 					setExpanded(false);
 				}}
 			>
@@ -41,6 +46,9 @@ const NavBarCategories = ({
 			<motion.label
 				className='font-bold text-[1.05rem] cursor-pointer hover:underline'
 				onHoverStart={() => {
+					setExpanded(false);
+				}}
+				onClick={() => {
 					setExpanded(false);
 				}}
 			>

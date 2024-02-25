@@ -11,6 +11,9 @@ export default async ({ params }: { params: { articleID: string } }) => {
 		+params.articleID
 	)) as any as ArticleModel;
 
+	if (article) {
+		// console.log(article.children[0]);
+	}
 	if (article.children!.length === 0) {
 		return <Article article={article} />;
 	}

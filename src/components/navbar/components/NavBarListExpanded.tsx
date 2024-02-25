@@ -39,7 +39,7 @@ const NavBarListExpanded = ({
         className='flex gap-16 pl-32 py-8 laptop:pl-20 tablet:pl-12 mobile:hidden'
       >
         {categories.map((category, index) => (
-          <NavBarCategoryList category={category} key={index} />
+          <NavBarCategoryList category={category} key={index} setExpanded={setExpanded} />
         ))}
       </motion.div>
       <motion.div
