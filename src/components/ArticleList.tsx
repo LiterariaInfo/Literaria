@@ -38,9 +38,9 @@ export default ({
 				spaceBetween={30}
 				slidesPerView={'auto'}
 				loop={true}
-				// autoplay={{
-				// 	delay: 3000
-				// }}
+				autoplay={{
+					delay: 3000
+				}}
 				breakpoints={{
 					1600: {
 						spaceBetween: 50,
