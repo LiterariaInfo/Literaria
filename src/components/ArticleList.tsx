@@ -38,9 +38,9 @@ export default ({
 				spaceBetween={30}
 				slidesPerView={'auto'}
 				loop={true}
-				// autoplay={{
-				// 	delay: 3000
-				//}}
+				autoplay={{
+					delay: 3000
+				}}
 				breakpoints={{
 					1600: {
 						spaceBetween: 50,
@@ -62,13 +62,13 @@ export default ({
 				))}
 			</Swiper>
 			<NextItemButton
-				className='absolute top-1/2 left-8 rotate-180 z-[999] swiper-button-next'
+				className='absolute top-1/2 left-8 rotate-180 z-[1] swiper-button-next'
 				onClick={() => {
 					ref.current!.swiper.slidePrev();
 				}}
 			/>
 			<NextItemButton
-				className='absolute top-1/2 right-8 z-[999] swiper-button-next'
+				className='absolute top-1/2 right-8 z-[1] swiper-button-next'
 				onClick={() => {
 					ref.current!.swiper.slideNext();
 				}}
