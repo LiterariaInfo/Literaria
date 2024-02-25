@@ -7,7 +7,7 @@ export default async () => {
 	const articles = await getRecommended();
 
 	return (
-		<section className='section flex-col pt-20 pb-24 laptop:pb-16'>
+		<section className='section flex-col pt-20 pb-24 laptop:pb-16 mobile:pb-8'>
 			<h1 className='text-center mb-8 main-title'>Articole recomandate</h1>
 			<div className='flex mobile:hidden grow w-full box-border overflow-hidden gap-[2%] px-[2%] py-0'>
 				<SmallArticleCard

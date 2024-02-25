@@ -8,7 +8,7 @@ export default function Loading() {
         <Skeleton className='relative flex h-0 grow rounded-3xl' />
       </div>
       <div className='flex min-w-[30%] max-w-[30%] flex-col gap-10 tablet:gap-6 mobile:max-w-none mobile:flex-row mobile:gap-3'>
-        <div className='flex h-[250px] grow gap-3'>
+        <div className='flex h-[150px] grow gap-3'>
           <Skeleton className={`hidden w-1/2 rounded-[2rem] p-5 mobile:flex`} />
           <Skeleton className={`hidden w-1/2 rounded-[2rem] p-5 mobile:flex`} />
         </div>

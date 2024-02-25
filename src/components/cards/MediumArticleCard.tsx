@@ -8,10 +8,10 @@ const MediumArticleCard = ({ article }: { article: Article }) => {
 
 	return (
 		<Link href={`/article/${id}`}>
-			<div className='max-w-min flex flex-col'>
-				<div className='relative w-[40rem] laptop:w-[30rem] mobile:w-[90vw]'>
+			<div className='max-w-min flex flex-col h-full'>
+				<div className='relative w-[40rem] laptop:w-[30rem] mobile:w-[90vw] grow flex'>
 					<img
-						className='h-[30rem] w-[40rem] laptop:h-[20rem] laptop:w-[30rem] tablet:h-[16rem] mobile:w-[90vw] mobile:h-[60vh] rounded-[3rem] cursor-pointer object-cover'
+						className='h-[30rem] w-[40rem] laptop:h-[20rem] laptop:w-[30rem] tablet:h-[16rem] mobile:w-[90vw] mobile:h-full rounded-[3rem] cursor-pointer object-cover'
 						src={image}
 						alt={title}
 					/>
