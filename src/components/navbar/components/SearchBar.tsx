@@ -11,14 +11,12 @@ const SearchBar = ({
   articles,
   className,
   isExtended,
-  setIsExtended,
-  maxWidth
+  setIsExtended
 }: {
   articles: ArticleModel[];
   className: string;
   isExtended: boolean;
   setIsExtended: Dispatch<SetStateAction<boolean>>;
-  maxWidth: string;
 }) => {
   const [searchResults, setSearchResults] = useState<
     FuseResult<{ id: number; title: string }>[]
@@ -29,7 +27,7 @@ const SearchBar = ({
   const searchBar = searchBarRef.current;
 
   const inputAnimate = {
-    width: isExtended ? '100%' : 0,
+    width: isExtended ? 300 : 0,
     fontSize: isExtended ? '1rem' : 0,
     padding: isExtended ? '0 0 0 1rem' : 0
   };
@@ -58,12 +56,9 @@ const SearchBar = ({
     <>
       <motion.div
         layout
-        className={`relative flex rounded-[10rem] ${isExtended ? 'border border-solid' : ''} outline-none mobile:hidden ${className}`}
+        className={`relative flex rounded-[10rem] border border-solid ${isExtended ? '' : 'mobile:border-none'} justify-end outline-none mobile:hidden ${className}`}
         onMouseEnter={handleMouseEnter}
         onMouseLeave={handleMouseLeave}
-        transition={{
-          duration: 0
-        }}
       >
         <motion.input
           placeholder='Căutați...'
@@ -74,9 +69,6 @@ const SearchBar = ({
           onBlur={handleMouseLeave}
           onChange={(e) => handleSearch(e.target.value)}
           value={searchTerm}
-          transition={{
-            duration: 0
-          }}
         />
         <motion.div
           layout
@@ -85,14 +77,12 @@ const SearchBar = ({
             setIsExtended(true);
             searchBarRef.current?.focus();
           }}
-          transition={{
-            duration: 0
-          }}
-          className={`flex aspect-[1] h-12 w-12 cursor-pointer items-center justify-center rounded-[5rem] ${isExtended ? 'bg-black' : 'bg-white'}`}
+          className={`flex aspect-[1] h-12 w-12 cursor-pointer items-center justify-center rounded-[5rem] bg-black ${isExtended ? '' : 'mobile:bg-white'} transition-colors duration-200`}
         >
-          <i
-            className={`fa-solid ${searchTerm.length === 0 ? 'fa-search' : 'fa-xmark'} text-lg ${isExtended ? 'text-white' : 'text-black'}`}
-          ></i>
+          <motion.i
+            layout
+            className={`fa-solid ${searchTerm.length === 0 ? 'fa-search' : 'fa-xmark'} text-lg text-white ${isExtended ? '' : 'mobile:text-black'} transition-colors duration-200`}
+          ></motion.i>
         </motion.div>
         {searchTerm.length > 0 ? (
           <ul className='absolute left-0 top-14 w-full rounded-3xl border border-solid bg-white py-3'>
