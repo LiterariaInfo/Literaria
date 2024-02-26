@@ -16,6 +16,9 @@ const config: Config = {
 			},
 			mobile: {
 				max: '900px'
+			},
+			'mobile-medium': {
+				raw: ''
 			}
 		}
 	},
