@@ -16,7 +16,7 @@ const MediumArticleCard = ({ article }: { article: Article }) => {
 						alt={title}
 					/>
 					<Timestamp
-						className='absolute right-[2.6rem] bottom-[2.6rem]'
+						className='absolute right-[2.6rem] bottom-[2.6rem] mobile:bottom-auto mobile:top-[calc(55dvh-3.6rem)]'
 						time={createdAt}
 					/>
 					<OpenLinkButton className='absolute right-[2.6rem] top-[2.6rem]' />
