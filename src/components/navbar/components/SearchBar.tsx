@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { useRef, useState } from 'react';
+import { Dispatch, SetStateAction, useRef, useState } from 'react';
 import { ArticleModel } from '@/components/navbar/NavBar';
 import Fuse, { FuseResult } from 'fuse.js';
 import Link from 'next/link';
@@ -7,19 +7,29 @@ import '@/ui/fontawesome/css/fa.css';
 
 const width0 = { width: 0 };
 
-const SearchBar = ({ articles }: { articles: ArticleModel[] }) => {
+const SearchBar = ({
+  articles,
+  className,
+  isExtended,
+  setIsExtended,
+  maxWidth
+}: {
+  articles: ArticleModel[];
+  className: string;
+  isExtended: boolean;
+  setIsExtended: Dispatch<SetStateAction<boolean>>;
+  maxWidth: string;
+}) => {
   const [searchResults, setSearchResults] = useState<
     FuseResult<{ id: number; title: string }>[]
   >([]);
   const [searchTerm, setSearchTerm] = useState('');
 
-  const [isExtended, setIsExtended] = useState<boolean>(false);
-
   const searchBarRef = useRef<HTMLInputElement>(null);
   const searchBar = searchBarRef.current;
 
   const inputAnimate = {
-    width: isExtended ? 300 : 0,
+    width: isExtended ? maxWidth : 0,
     fontSize: isExtended ? '1rem' : 0,
     padding: isExtended ? '0 0 0 1rem' : 0
   };
@@ -45,54 +55,57 @@ const SearchBar = ({ articles }: { articles: ArticleModel[] }) => {
   };
 
   return (
-    <motion.div
-      layout
-      className='flex border rounded-[10rem] border-solid outline-none relative'
-      onMouseEnter={handleMouseEnter}
-      onMouseLeave={handleMouseLeave}
-    >
-      <motion.input
-        placeholder='Căutați...'
-        className='rounded-[10rem] border-[none] outline-none bg-transparent'
-        initial={width0}
-        animate={inputAnimate}
-        ref={searchBarRef}
-        onBlur={handleMouseLeave}
-        onChange={(e) => handleSearch(e.target.value)}
-        value={searchTerm}
-      />
-      <div
-        onClick={() => {
-          setSearchTerm('');
-        }}
-        className='w-12 h-12 flex justify-center items-center aspect-[1] rounded-[5rem] bg-black cursor-pointer'
+    <>
+      <motion.div
+        layout
+        className={`relative flex rounded-[10rem] border border-solid outline-none mobile:hidden ${className}`}
+        onMouseEnter={handleMouseEnter}
+        onMouseLeave={handleMouseLeave}
       >
-        <i
-          className={`fa-solid ${searchTerm.length === 0 ? 'fa-search' : 'fa-xmark'} text-lg text-white`}
-        ></i>
-      </div>
-      {searchTerm.length > 0 ? (
-        <ul className='absolute left-0 top-14 bg-white w-full py-3 rounded-3xl border-solid border'>
-          {searchResults.map((result, index) => (
-            <Link
-              href={`/article/${result.item.id}`}
-              key={index}
-              onClick={() => {
-                setSearchTerm('');
-                setIsExtended(false);
-              }}
-            >
-              <li className='py-1 px-4 hover:bg-gray-200 cursor-pointer'>
-                {result.item.title}
-              </li>
-            </Link>
-          ))}
-          {searchResults.length === 0 ? (
-            <li className='px-4 text-gray-500'>Niciun rezultat</li>
-          ) : null}
-        </ul>
-      ) : null}
-    </motion.div>
+        <motion.input
+          placeholder='Căutați...'
+          className='rounded-[10rem] border-[none] bg-transparent outline-none'
+          initial={width0}
+          animate={inputAnimate}
+          ref={searchBarRef}
+          onBlur={handleMouseLeave}
+          onChange={(e) => handleSearch(e.target.value)}
+          value={searchTerm}
+        />
+        <div
+          onClick={() => {
+            setSearchTerm('');
+            setIsExtended(true);
+          }}
+          className='flex aspect-[1] h-12 w-12 cursor-pointer items-center justify-center rounded-[5rem] bg-black'
+        >
+          <i
+            className={`fa-solid ${searchTerm.length === 0 ? 'fa-search' : 'fa-xmark'} text-lg text-white`}
+          ></i>
+        </div>
+        {searchTerm.length > 0 ? (
+          <ul className='absolute left-0 top-14 w-full rounded-3xl border border-solid bg-white py-3'>
+            {searchResults.map((result, index) => (
+              <Link
+                href={`/article/${result.item.id}`}
+                key={index}
+                onClick={() => {
+                  setSearchTerm('');
+                  setIsExtended(false);
+                }}
+              >
+                <li className='cursor-pointer px-4 py-1 hover:bg-gray-200'>
+                  {result.item.title}
+                </li>
+              </Link>
+            ))}
+            {searchResults.length === 0 ? (
+              <li className='px-4 text-gray-500'>Niciun rezultat</li>
+            ) : null}
+          </ul>
+        ) : null}
+      </motion.div>
+    </>
   );
 };
 

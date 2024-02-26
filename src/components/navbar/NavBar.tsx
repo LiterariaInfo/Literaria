@@ -40,6 +40,7 @@ const NavBar = ({
   const { navMode } = useNavBar();
   const [expanded, setExpanded] = useState<boolean>(false);
   const [activeCategory, setActiveCategory] = useState<number>(0);
+  const [isExtended, setIsExtended] = useState<boolean>(false);
 
   return (
     <>
@@ -49,20 +50,20 @@ const NavBar = ({
         }}
         transition={navBarTransition}
         layout
-        className={`fixed z-[1000] box-border w-screen pt-4 pb-[0.8rem] px-8 top-0 bg-white flex flex-col ${
+        className={`fixed top-0 z-[1000] box-border flex w-screen flex-col bg-white px-8 pb-[0.8rem] pt-4 ${
           expanded ? 'mobile:h-[100svh]' : ''
         }`}
       >
         <motion.div
           layout
-          className={`flex justify-between items-center ${
-            navMode ? 'flex-col mobile:flex-row gap-0' : 'flex-row gap-8'
+          className={`flex items-center justify-between ${
+            navMode ? 'flex-col gap-0 mobile:flex-row' : 'flex-row gap-8'
           }`}
         >
           <NavBarLogo navMode={navMode} />
           <motion.div
             layout
-            className={`w-screen flex box-border items-center gap-8 mobile:hidden ${
+            className={`box-border flex w-screen items-center gap-8 mobile:hidden ${
               navMode ? 'justify-center' : 'justify-between'
             }`}
           >
@@ -71,16 +72,35 @@ const NavBar = ({
               setExpanded={setExpanded}
               setActiveCategory={setActiveCategory}
             />
-            <SearchBar articles={articleNames} />
+            <SearchBar
+              maxWidth={'300px'}
+              className='mobile:!hidden'
+              isExtended={isExtended}
+              setIsExtended={setIsExtended}
+              articles={articleNames}
+            />
           </motion.div>
-          <Image
-            onClick={() => {
-              setExpanded(!expanded);
-            }}
-            className='h-4 w-auto rounded-none hidden mobile:block '
-            src={menu}
-            alt='Top right arrow'
-          />
+          <motion.div className='flex items-center gap-4'>
+            <SearchBar
+              maxWidth={'40vw'}
+              className='!hidden mobile:!flex'
+              isExtended={isExtended}
+              setIsExtended={setIsExtended}
+              articles={articleNames}
+            />
+            {!isExtended ? (
+              <Image
+                onClick={() => {
+                  setExpanded(!expanded);
+                }}
+                className='hidden h-4 w-auto rounded-none mobile:block '
+                src={menu}
+                alt='Top right arrow'
+              />
+            ) : (
+              ''
+            )}
+          </motion.div>
         </motion.div>
         {expanded ? (
           <NavBarListExpanded
