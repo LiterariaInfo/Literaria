@@ -29,7 +29,7 @@ const SearchBar = ({
   const searchBar = searchBarRef.current;
 
   const inputAnimate = {
-    width: isExtended ? maxWidth : 0,
+    width: isExtended ? '100%' : 0,
     fontSize: isExtended ? '1rem' : 0,
     padding: isExtended ? '0 0 0 1rem' : 0
   };
@@ -58,9 +58,12 @@ const SearchBar = ({
     <>
       <motion.div
         layout
-        className={`relative flex rounded-[10rem] border border-solid outline-none mobile:hidden ${className}`}
+        className={`relative flex rounded-[10rem] ${isExtended ? 'border border-solid' : ''} outline-none mobile:hidden ${className}`}
         onMouseEnter={handleMouseEnter}
         onMouseLeave={handleMouseLeave}
+        transition={{
+          duration: 0
+        }}
       >
         <motion.input
           placeholder='Căutați...'
@@ -71,18 +74,26 @@ const SearchBar = ({
           onBlur={handleMouseLeave}
           onChange={(e) => handleSearch(e.target.value)}
           value={searchTerm}
+          transition={{
+            duration: 0
+          }}
         />
-        <div
+        <motion.div
+          layout
           onClick={() => {
             setSearchTerm('');
             setIsExtended(true);
+            searchBarRef.current?.focus();
           }}
-          className='flex aspect-[1] h-12 w-12 cursor-pointer items-center justify-center rounded-[5rem] bg-black'
+          transition={{
+            duration: 0
+          }}
+          className={`flex aspect-[1] h-12 w-12 cursor-pointer items-center justify-center rounded-[5rem] ${isExtended ? 'bg-black' : 'bg-white'}`}
         >
           <i
-            className={`fa-solid ${searchTerm.length === 0 ? 'fa-search' : 'fa-xmark'} text-lg text-white`}
+            className={`fa-solid ${searchTerm.length === 0 ? 'fa-search' : 'fa-xmark'} text-lg ${isExtended ? 'text-white' : 'text-black'}`}
           ></i>
-        </div>
+        </motion.div>
         {searchTerm.length > 0 ? (
           <ul className='absolute left-0 top-14 w-full rounded-3xl border border-solid bg-white py-3'>
             {searchResults.map((result, index) => (

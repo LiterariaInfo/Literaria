@@ -60,7 +60,7 @@ const NavBar = ({
             navMode ? 'flex-col gap-0 mobile:flex-row' : 'flex-row gap-8'
           }`}
         >
-          <NavBarLogo navMode={navMode} />
+          {!isExtended ? <NavBarLogo navMode={navMode} /> : ''}
           <motion.div
             layout
             className={`box-border flex w-screen items-center gap-8 mobile:hidden ${
@@ -80,10 +80,10 @@ const NavBar = ({
               articles={articleNames}
             />
           </motion.div>
-          <motion.div className='flex items-center gap-4'>
+          <motion.div className='flex grow items-center justify-end gap-4'>
             <SearchBar
-              maxWidth={'40vw'}
-              className='!hidden mobile:!flex'
+              maxWidth='100%'
+              className={`!hidden mobile:!flex ${isExtended ? 'grow' : ''}`}
               isExtended={isExtended}
               setIsExtended={setIsExtended}
               articles={articleNames}
