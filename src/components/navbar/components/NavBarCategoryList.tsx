@@ -27,7 +27,7 @@ const NavBarCategoryList = ({
 }) => {
   return (
     <div className='flex flex-col'>
-      <motion.h1 className='title-label' initial={opacity0} animate={opacity1}>
+      <motion.h1 className={category.children?.length ? 'nav-title' : 'nav-item'} initial={opacity0} animate={opacity1}>
         <Link
           href={`/article/${category.id}`}
           onClick={() => {
@@ -40,7 +40,7 @@ const NavBarCategoryList = ({
       <div className='flex flex-col'>
         {category.children?.map((directory, index) => (
           <motion.label
-            className='small-title line-clamp-1 break-words tablet:!text-xs'
+            className='nav-item line-clamp-1 break-words'
             initial={opacity0}
             animate={opacity1}
             transition={{

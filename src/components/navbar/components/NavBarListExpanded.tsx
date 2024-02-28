@@ -36,7 +36,7 @@ const NavBarListExpanded = ({
     <>
       <motion.div
         layout
-        className='flex gap-16 py-8 pl-32 laptop:pl-20 tablet:pl-12 mobile:hidden'
+        className='flex gap-16 py-8 pl-32 laptop:pl-20 laptop:gap-12 tablet:pl-12 mobile:hidden'
       >
         {categories.map((category, index) => (
           <NavBarCategoryList
@@ -48,7 +48,7 @@ const NavBarListExpanded = ({
       </motion.div>
       <motion.div
         layout
-        className='hidden h-[100svh] flex-col gap-4 overflow-auto py-6 pb-12 [scrollbar-width:none] mobile:flex'
+        className='hidden h-[100svh] flex-col gap-4 overflow-auto pt-6 pb-12 [scrollbar-width:none] mobile:flex'
       >
         {onCategory ? (
           <>
@@ -60,13 +60,13 @@ const NavBarListExpanded = ({
                   delay: index * 0.04
                 }}
                 exit={exit}
-                className={
-                  category.children?.length ? 'title-label' : 'small-title'
-                }
                 key={index}
               >
                 <Link
                   href={`/article/${category.id}`}
+                  className={
+                    category.children?.length ? 'title-label' : 'small-title'
+                  }
                   onClick={() => {
                     setExpanded(false);
                   }}
