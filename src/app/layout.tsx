@@ -21,7 +21,7 @@ export default async ({ children }: { children: ReactNode }) => {
   return (
     <html lang='ro'>
       <body className={inter.className}>
-        <NavBar categories={categories} articleNames={articles} />
+        <NavBar categories={categories} articleNames={articles as {title: string, id: number, parentTitle: string | undefined}[]} />
         <main
           id={'main'}
           className='h-[100svh] overflow-y-auto overflow-x-hidden'
