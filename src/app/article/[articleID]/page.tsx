@@ -7,23 +7,20 @@ import { getArticleId } from '@/lib/api/article';
 import { Article as ArticleModel } from '@/lib/models';
 
 export default async ({ params }: { params: { articleID: string } }) => {
-	const article = (await getArticleId(
-		+params.articleID
-	)) as any as ArticleModel;
+  const article = (await getArticleId(
+    +params.articleID
+  )) as any as ArticleModel;
 
-	if (article) {
-		// console.log(article.children[0]);
-	}
-	if (article.children!.length === 0) {
-		return <Article article={article} />;
-	}
+  if (article.children.length === 0) {
+    return <Article article={article} />;
+  }
 
-	return (
-		<>
-			<Landing article={article} />
-			<Description article={article} />
-			<Directories article={article} />
-			<Articles article={article} />
-		</>
-	);
+  return (
+    <>
+      <Landing article={article} />
+      <Description article={article} />
+      <Directories article={article} />
+      <Articles article={article} />
+    </>
+  );
 };

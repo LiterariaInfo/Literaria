@@ -1,27 +1,20 @@
 import React from 'react';
 import '@/ui/fontawesome/css/fa.css';
-import {
-  getArticleCount,
-  getMovieReviewsCount,
-  getUniqueAuthorsCount
-} from '@/lib/api/article';
+import { getArticleCount } from '@/lib/api/article';
 import { getGalleryPhotosCount } from '@/lib/api/photos';
 
 export default async () => {
-  const [articlesCount, authorsCount, photosCount, reviewsCount] =
-    await Promise.all([
-      getArticleCount(),
-      getUniqueAuthorsCount(),
-      getGalleryPhotosCount(),
-      getMovieReviewsCount()
-    ]);
+  const [articlesCount, photosCount] = await Promise.all([
+    getArticleCount(),
+    getGalleryPhotosCount()
+  ]);
 
   return (
-    <div className='flex min-h-[calc(100dvh-4rem)] flex-col pt-[5rem] px-8'>
+    <div className='flex min-h-[calc(100dvh-4rem)] flex-col px-8 pt-[5rem]'>
       <h2 className={'main-title py-4'}>Despre noi</h2>
       <section>
         <div className={'flex mobile:flex-col'}>
-          <div className={'mobile:w-full tablet:w-1/2 laptop:w-2/3 w-3/4'}>
+          <div className={'w-3/4 laptop:w-2/3 tablet:w-1/2 mobile:w-full'}>
             <h2 className={'small-title py-4'}>Mândră de elevii mei!</h2>
             <p className={'py-2'}>
               Literatura este un domeniu ce necesită interpretare și
@@ -62,7 +55,7 @@ export default async () => {
           </div>
           <div
             className={
-              'px-20 mobile:max-w-[200px] mobile:px-0 mobile:w-full tablet:w-1/2 laptop:w-1/3 w-1/4'
+              'w-1/4 px-20 laptop:w-1/3 tablet:w-1/2 mobile:w-full mobile:max-w-[200px] mobile:px-0'
             }
           >
             <img
@@ -77,26 +70,26 @@ export default async () => {
         <h2 className={'small-title py-4'}>Echipa noastră</h2>
         <div
           className={
-            'flex pt-8 items-center justify-around mobile:flex-col mobile:gap-12'
+            'flex items-center justify-around pt-8 mobile:flex-col mobile:gap-12'
           }
         >
-          <div className={'flex flex-col justify-center items-center'}>
+          <div className={'flex flex-col items-center justify-center'}>
             <i
-              className={'fa fa-solid fa-chalkboard-teacher text-6xl pb-3'}
+              className={'fa fa-solid fa-chalkboard-teacher pb-3 text-6xl'}
             ></i>
             <p className={'py-1 font-semibold'}>Profesor coordonator</p>
             <p>Iancău Raluca</p>
           </div>
-          <div className={'w-0.5 h-[80px] bg-black mobile:hidden'}></div>
-          <div className={'flex flex-col justify-center items-center'}>
-            <i className={'fa fa-solid fa-code text-6xl pb-3'}></i>
+          <div className={'h-[80px] w-0.5 bg-black mobile:hidden'}></div>
+          <div className={'flex flex-col items-center justify-center'}>
+            <i className={'fa fa-solid fa-code pb-3 text-6xl'}></i>
             <p className={'py-1 font-semibold'}>Dezvoltarea site-ului</p>
             <p>Cazacu Matei</p>
             <p>Simedrea Alexandru</p>
           </div>
-          <div className={'w-0.5 h-[80px] bg-black mobile:hidden'}></div>
-          <div className={'flex flex-col justify-center items-center'}>
-            <i className={'fa fa-solid fa-pen-paintbrush text-6xl pb-3'}></i>
+          <div className={'h-[80px] w-0.5 bg-black mobile:hidden'}></div>
+          <div className={'flex flex-col items-center justify-center'}>
+            <i className={'fa fa-solid fa-pen-paintbrush pb-3 text-6xl'}></i>
             <p className={'py-1 font-semibold'}>Design</p>
             <p>Simedrea Alexandru</p>
           </div>
@@ -106,26 +99,32 @@ export default async () => {
         <h2 className={'small-title py-4'}>Statistici</h2>
         <div
           className={
-            'flex pt-8 items-center justify-around mobile:flex-col mobile:gap-12'
+            'flex items-center justify-around pt-8 mobile:flex-col mobile:gap-12'
           }
         >
-          <div className={'flex flex-col justify-center items-center'}>
-            <p className={'py-1 font-semibold text-4xl'}>{articlesCount}</p>
+          <div className={'flex flex-col items-center justify-center'}>
+            <p className={'py-1 text-4xl font-semibold'}>
+              {articlesCount.articles}
+            </p>
             <p>articole</p>
           </div>
-          <div className={'w-0.5 h-[80px] bg-black mobile:hidden'}></div>
-          <div className={'flex flex-col justify-center items-center'}>
-            <p className={'py-1 font-semibold text-4xl'}>{authorsCount}</p>
+          <div className={'h-[80px] w-0.5 bg-black mobile:hidden'}></div>
+          <div className={'flex flex-col items-center justify-center'}>
+            <p className={'py-1 text-4xl font-semibold'}>
+              {articlesCount.authors}
+            </p>
             <p>autori articole</p>
           </div>
-          <div className={'w-0.5 h-[80px] bg-black mobile:hidden'}></div>
-          <div className={'flex flex-col justify-center items-center'}>
-            <p className={'py-1 font-semibold text-4xl'}>{photosCount || 0}</p>
+          <div className={'h-[80px] w-0.5 bg-black mobile:hidden'}></div>
+          <div className={'flex flex-col items-center justify-center'}>
+            <p className={'py-1 text-4xl font-semibold'}>{photosCount || 0}</p>
             <p>desene si picturi</p>
           </div>
-          <div className={'w-0.5 h-[80px] bg-black mobile:hidden'}></div>
-          <div className={'flex flex-col justify-center items-center'}>
-            <p className={'py-1 font-semibold text-4xl'}>{reviewsCount}</p>
+          <div className={'h-[80px] w-0.5 bg-black mobile:hidden'}></div>
+          <div className={'flex flex-col items-center justify-center'}>
+            <p className={'py-1 text-4xl font-semibold'}>
+              {articlesCount.reviews as number}
+            </p>
             <p>recenzii de film</p>
           </div>
         </div>

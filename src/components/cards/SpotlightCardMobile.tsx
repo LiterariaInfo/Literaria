@@ -19,7 +19,7 @@ export default ({
 			<h1 className='text-white line-clamp-2 text-ellipsis font-semibold'>{title}</h1>
 			<div className='flex flex-col'>
 				<label className='text-white title-label'>
-					{dateFormatter(createdAt)}
+					{dateFormatter(new Date(createdAt))}
 				</label>
 				<label className='text-white title-label'>{author}</label>
 			</div>
