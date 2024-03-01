@@ -6,7 +6,7 @@ config();
 export default {
   driver: 'pg',
   schema: './drizzle/schema.ts',
-  out: './drizzle.ts',
+  out: './drizzle',
   dbCredentials: {
     connectionString: process.env.DATABASE_URL!
   },

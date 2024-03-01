@@ -1,105 +1,9 @@
 {
-  "id": "00000000-0000-0000-0000-000000000000",
-  "prevId": "",
+  "id": "5261cbae-7a2a-4cb0-ad5d-36afcc578605",
+  "prevId": "00000000-0000-0000-0000-000000000000",
   "version": "5",
   "dialect": "pg",
   "tables": {
-    "_prisma_migrations": {
-      "name": "_prisma_migrations",
-      "schema": "",
-      "columns": {
-        "id": {
-          "name": "id",
-          "type": "varchar(36)",
-          "primaryKey": true,
-          "notNull": true
-        },
-        "checksum": {
-          "name": "checksum",
-          "type": "varchar(64)",
-          "primaryKey": false,
-          "notNull": true
-        },
-        "finished_at": {
-          "name": "finished_at",
-          "type": "timestamp with time zone",
-          "primaryKey": false,
-          "notNull": false
-        },
-        "migration_name": {
-          "name": "migration_name",
-          "type": "varchar(255)",
-          "primaryKey": false,
-          "notNull": true
-        },
-        "logs": {
-          "name": "logs",
-          "type": "text",
-          "primaryKey": false,
-          "notNull": false
-        },
-        "rolled_back_at": {
-          "name": "rolled_back_at",
-          "type": "timestamp with time zone",
-          "primaryKey": false,
-          "notNull": false
-        },
-        "started_at": {
-          "name": "started_at",
-          "type": "timestamp with time zone",
-          "primaryKey": false,
-          "notNull": true,
-          "default": "now()"
-        },
-        "applied_steps_count": {
-          "name": "applied_steps_count",
-          "type": "integer",
-          "primaryKey": false,
-          "notNull": true,
-          "default": 0
-        }
-      },
-      "indexes": {},
-      "foreignKeys": {},
-      "compositePrimaryKeys": {},
-      "uniqueConstraints": {}
-    },
-    "User": {
-      "name": "User",
-      "schema": "",
-      "columns": {
-        "id": {
-          "name": "id",
-          "type": "serial",
-          "primaryKey": true,
-          "notNull": true
-        },
-        "user": {
-          "name": "user",
-          "type": "text",
-          "primaryKey": false,
-          "notNull": true
-        },
-        "password": {
-          "name": "password",
-          "type": "text",
-          "primaryKey": false,
-          "notNull": true
-        }
-      },
-      "indexes": {
-        "User_user_key": {
-          "name": "User_user_key",
-          "columns": [
-            "user"
-          ],
-          "isUnique": true
-        }
-      },
-      "foreignKeys": {},
-      "compositePrimaryKeys": {},
-      "uniqueConstraints": {}
-    },
     "Article": {
       "name": "Article",
       "schema": "",
@@ -115,7 +19,7 @@
           "type": "timestamp(3)",
           "primaryKey": false,
           "notNull": true,
-          "default": "CURRENT_TIMESTAMP"
+          "default": "now()"
         },
         "title": {
           "name": "title",
@@ -144,11 +48,10 @@
       },
       "indexes": {},
       "foreignKeys": {
-        "Article_parentID_fkey": {
-          "name": "Article_parentID_fkey",
+        "foreign": {
+          "name": "foreign",
           "tableFrom": "Article",
           "tableTo": "Article",
-          "schemaTo": "public",
           "columnsFrom": [
             "parentID"
           ],
@@ -185,21 +88,12 @@
           "notNull": true
         }
       },
-      "indexes": {
-        "ArticleContent_articleID_key": {
-          "name": "ArticleContent_articleID_key",
-          "columns": [
-            "articleID"
-          ],
-          "isUnique": true
-        }
-      },
+      "indexes": {},
       "foreignKeys": {
-        "ArticleContent_articleID_fkey": {
-          "name": "ArticleContent_articleID_fkey",
+        "ArticleContent_articleID_Article_id_fk": {
+          "name": "ArticleContent_articleID_Article_id_fk",
           "tableFrom": "ArticleContent",
           "tableTo": "Article",
-          "schemaTo": "public",
           "columnsFrom": [
             "articleID"
           ],
@@ -230,21 +124,12 @@
           "notNull": true
         }
       },
-      "indexes": {
-        "RecommendedArticle_articleID_key": {
-          "name": "RecommendedArticle_articleID_key",
-          "columns": [
-            "articleID"
-          ],
-          "isUnique": true
-        }
-      },
+      "indexes": {},
       "foreignKeys": {
-        "RecommendedArticle_articleID_fkey": {
-          "name": "RecommendedArticle_articleID_fkey",
+        "RecommendedArticle_articleID_Article_id_fk": {
+          "name": "RecommendedArticle_articleID_Article_id_fk",
           "tableFrom": "RecommendedArticle",
           "tableTo": "Article",
-          "schemaTo": "public",
           "columnsFrom": [
             "articleID"
           ],
@@ -257,68 +142,49 @@
       },
       "compositePrimaryKeys": {},
       "uniqueConstraints": {}
-    }
-  },
-  "enums": {
-    "key_status": {
-      "name": "key_status",
-      "values": {
-        "expired": "expired",
-        "invalid": "invalid",
-        "valid": "valid",
-        "default": "default"
-      }
     },
-    "key_type": {
-      "name": "key_type",
-      "values": {
-        "stream_xchacha20": "stream_xchacha20",
-        "secretstream": "secretstream",
-        "secretbox": "secretbox",
-        "kdf": "kdf",
-        "generichash": "generichash",
-        "shorthash": "shorthash",
-        "auth": "auth",
-        "hmacsha256": "hmacsha256",
-        "hmacsha512": "hmacsha512",
-        "aead-det": "aead-det",
-        "aead-ietf": "aead-ietf"
-      }
-    },
-    "aal_level": {
-      "name": "aal_level",
-      "values": {
-        "aal3": "aal3",
-        "aal2": "aal2",
-        "aal1": "aal1"
-      }
-    },
-    "factor_type": {
-      "name": "factor_type",
-      "values": {
-        "webauthn": "webauthn",
-        "totp": "totp"
-      }
-    },
-    "factor_status": {
-      "name": "factor_status",
-      "values": {
-        "verified": "verified",
-        "unverified": "unverified"
-      }
-    },
-    "code_challenge_method": {
-      "name": "code_challenge_method",
-      "values": {
-        "plain": "plain",
-        "s256": "s256"
+    "User": {
+      "name": "User",
+      "schema": "",
+      "columns": {
+        "id": {
+          "name": "id",
+          "type": "serial",
+          "primaryKey": true,
+          "notNull": true
+        },
+        "user": {
+          "name": "user",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "password": {
+          "name": "password",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {},
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {
+        "User_user_unique": {
+          "name": "User_user_unique",
+          "nullsNotDistinct": false,
+          "columns": [
+            "user"
+          ]
+        }
       }
     }
   },
+  "enums": {},
   "schemas": {},
   "_meta": {
+    "columns": {},
     "schemas": {},
-    "tables": {},
-    "columns": {}
+    "tables": {}
   }
 }

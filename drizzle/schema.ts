@@ -55,7 +55,10 @@ export const articleRelations = relations(article, ({ one, many }) => ({
     fields: [article.parentId],
     references: [article.id]
   }),
-  recommended: one(recommendedArticle)
+  recommended: one(recommendedArticle, {
+    fields: [article.id],
+    references: [recommendedArticle.id]
+  })
 }));
 
 export const articleContent = pgTable('ArticleContent', {
@@ -68,14 +71,6 @@ export const articleContent = pgTable('ArticleContent', {
       onUpdate: 'cascade'
     })
 });
-
-export const articleContentRelations = relations(articleContent, ({ one }) => ({
-  article: one(article, {
-    fields: [articleContent.articleId],
-    references: [article.id],
-    relationName: 'content'
-  })
-}));
 
 export const recommendedArticle = pgTable('RecommendedArticle', {
   id: serial('id').primaryKey(),
