@@ -21,15 +21,15 @@ export default async () => {
         />
       </div>
       <div className='box-border hidden w-full grow flex-col gap-3 overflow-hidden px-4 py-0 mobile:flex'>
-        <LargeArticleCard className='!h-0 grow' article={articles[0] as any} />
+        <LargeArticleCard className='!h-0 grow' article={articles[0].Article as any} />
         <div className='flex max-h-[150px] gap-3'>
           <SpotlightCardMobile
             className='w-0 grow'
-            article={articles[1] as any}
+            article={articles[1].Article as any}
           />
           <SpotlightCardMobile
             className='w-0 grow'
-            article={articles[2] as any}
+            article={articles[2].Article as any}
           />
         </div>
       </div>
