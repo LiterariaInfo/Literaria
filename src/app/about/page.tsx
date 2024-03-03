@@ -137,6 +137,12 @@ export default async () => {
           Tudor, Butu Radu, Pintea Ștefan, Tomele Denis
         </p>
       </section>
+      <section className={'pt-20'}>
+        <h2 className={'small-title py-4'}>ISSN</h2>
+        <p>Literaria (Brașov)</p>
+        <p>ISSN 3044 - 800X</p>
+        <p>ISSN-L 3044 - 800X</p>
+      </section>
       <section className={'py-20'}>
         <h2 className={'small-title py-4'}>Contact</h2>
         <div className={'flex items-center gap-2 pb-1.5'}>
