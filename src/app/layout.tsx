@@ -6,6 +6,7 @@ import NavBar from '@/components/navbar/NavBar';
 import { getArticleNames, getCategories } from '@/lib/api/article';
 import Script from 'next/script';
 import { Analytics } from '@vercel/analytics/react';
+import { SpeedInsights } from '@vercel/speed-insights/next';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -44,6 +45,7 @@ export default async ({ children }: { children: ReactNode }) => {
           crossOrigin='anonymous'
         ></Script>
         <Analytics />
+        <SpeedInsights />
       </body>
     </html>
   );
