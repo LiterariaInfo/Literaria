@@ -13,7 +13,10 @@ const inter = Inter({ subsets: ['latin'] });
 export const metadata: Metadata = {
   title: 'Literaria',
   description: 'Un site despre literatură',
-  keywords: ['literature', 'painting', 'film', 'literatură', 'desen']
+  keywords: ['literature', 'painting', 'film', 'literatură', 'desen'],
+  other: {
+    'google-adsense-account': 'ca-pub-1931536699775420'
+  }
 };
 
 export default async ({ children }: { children: ReactNode }) => {
