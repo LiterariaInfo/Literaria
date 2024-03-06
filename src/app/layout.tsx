@@ -25,6 +25,13 @@ export default async ({ children }: { children: ReactNode }) => {
 
   return (
     <html lang='ro'>
+      <head>
+        <Script
+          async
+          src='https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1931536699775420'
+          crossOrigin='anonymous'
+        ></Script>
+      </head>
       <body className={inter.className}>
         <NavBar
           categories={categories}
@@ -42,11 +49,6 @@ export default async ({ children }: { children: ReactNode }) => {
         >
           {children}
         </main>
-        <Script
-          async
-          src='https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1931536699775420'
-          crossOrigin='anonymous'
-        ></Script>
         <Analytics />
         <SpeedInsights />
       </body>
