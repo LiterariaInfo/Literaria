@@ -31,6 +31,19 @@ export default async ({ children }: { children: ReactNode }) => {
           src='https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1931536699775420'
           crossOrigin='anonymous'
         ></Script>
+        <Script
+          async
+          src='https://www.googletagmanager.com/gtag/js?id=G-41RQK3JR9R'
+        ></Script>
+        <Script id='google-analytics'>
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+    
+            gtag('config', 'G-41RQK3JR9R');
+          `}
+        </Script>
       </head>
       <body className={inter.className}>
         <NavBar
