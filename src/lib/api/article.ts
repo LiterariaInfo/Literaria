@@ -1,5 +1,5 @@
 import { article, recommendedArticle } from '../../../drizzle/schema';
-import { count, countDistinct, eq, isNull, sql } from 'drizzle-orm';
+import { count, countDistinct, desc, eq, isNull, sql } from 'drizzle-orm';
 import { db } from '@/lib/api/drizzle';
 import { alias } from 'drizzle-orm/pg-core';
 
@@ -33,7 +33,7 @@ const getArticleId = (id: number) => {
 };
 
 const getLatest = () => {
-  return db.select().from(article).limit(10).orderBy(article.createdAt);
+  return db.select().from(article).limit(10).orderBy(desc(article.createdAt));
 };
 
 const getRecommended = () => {
