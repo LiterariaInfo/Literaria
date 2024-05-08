@@ -140,26 +140,26 @@ export default () => {
   return (
     <div className='flex min-h-[calc(100dvh-4rem)] flex-col px-8 pt-[5rem]'>
       {/*<button onClick={() => updateFileMetadata()}>mod</button>*/}
-      <input
-        type='file'
-        onChange={(event) => {
-          setGalleryFile(
-            event.target.files ? event.target.files[0] : undefined
-          );
-        }}
-      />
-      <button
-        onClick={() => {
-          createImage({
-            file: galleryFile as File,
-            filesLen: rawFiles?.length || 0,
-            title: 'Alte tablouri',
-            description: 'Aventurile lui Tom Sawyer'
-          });
-        }}
-      >
-        upload
-      </button>
+      {/*<input*/}
+      {/*  type='file'*/}
+      {/*  onChange={(event) => {*/}
+      {/*    setGalleryFile(*/}
+      {/*      event.target.files ? event.target.files[0] : undefined*/}
+      {/*    );*/}
+      {/*  }}*/}
+      {/*/>*/}
+      {/*<button*/}
+      {/*  onClick={() => {*/}
+      {/*    createImage({*/}
+      {/*      file: galleryFile as File,*/}
+      {/*      filesLen: rawFiles?.length || 0,*/}
+      {/*      title: 'Alte tablouri',*/}
+      {/*      description: 'Aventurile lui Tom Sawyer'*/}
+      {/*    });*/}
+      {/*  }}*/}
+      {/*>*/}
+      {/*  upload*/}
+      {/*</button>*/}
       <h2 className={'main-title py-4'}>Galerie</h2>
       {files?.map((group, index) => (
         <>
