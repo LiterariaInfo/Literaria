@@ -160,6 +160,7 @@ export default () => {
       {/*>*/}
       {/*  upload*/}
       {/*</button>*/}
+      {/*test*/}
       <h2 className={'main-title py-4'}>Galerie</h2>
       {files?.map((group, index) => (
         <>
