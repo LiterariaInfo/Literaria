@@ -28,7 +28,7 @@ const SearchBar = ({
 
   const inputAnimate = {
     width: isExtended ? 300 : 0,
-    fontSize: isExtended ? '1rem' : 0,
+    // fontSize: isExtended ? '1rem' : 0,
     padding: isExtended ? '0 0 0 1rem' : 0
   };
 
