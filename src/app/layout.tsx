@@ -28,9 +28,16 @@ export default async ({ children }: { children: ReactNode }) => {
       <head>
         <Script
           async
+          src='https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2555769076822619'
+          crossOrigin='anonymous'
+        ></Script>
+        {/*
+        <Script
+          async
           src='https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1931536699775420'
           crossOrigin='anonymous'
         ></Script>
+        */}
         <Script
           async
           src='https://www.googletagmanager.com/gtag/js?id=G-41RQK3JR9R'
