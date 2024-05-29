@@ -26,12 +26,12 @@ export default async ({ children }: { children: ReactNode }) => {
   return (
     <html lang='ro'>
       <head>
-        <Script
-          async
-          src='https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2555769076822619'
-          crossOrigin='anonymous'
-        ></Script>
-        <Script async={true} data-cfasync={'false'} src="//pl23427871.highcpmgate.com/d473607904fb2e0f363661d71b81ba82/invoke.js"></Script>
+        {/*<Script*/}
+        {/*  async*/}
+        {/*  src='https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2555769076822619'*/}
+        {/*  crossOrigin='anonymous'*/}
+        {/*></Script>*/}
+        {/*<Script async={true} data-cfasync={'false'} src="//pl23427871.highcpmgate.com/d473607904fb2e0f363661d71b81ba82/invoke.js"></Script>*/}
         {/*
         <Script
           async

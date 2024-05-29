@@ -21,22 +21,22 @@ export default ({ article }: { article: Article }) => {
           __html: (article.content as any)?.content ?? ''
         }}
       ></article>
-      <Script type='text/javascript'>
-        {`
-				atOptions = {
-				'key' : '2b078f153e0ea4f34ca2422912da7aa2',
-				'format' : 'iframe',
-				'height' : 60,
-				'width' : 468,
-				'params' : {}
-			};
-			`}
-      </Script>
-      <Script
-        type='text/javascript'
-        src='//www.topcreativeformat.com/2b078f153e0ea4f34ca2422912da7aa2/invoke.js'
-      ></Script>
-      <div id='container-d473607904fb2e0f363661d71b81ba82'></div>
+      {/*<Script type='text/javascript'>*/}
+      {/*  {`*/}
+			{/*	atOptions = {*/}
+			{/*	'key' : '2b078f153e0ea4f34ca2422912da7aa2',*/}
+			{/*	'format' : 'iframe',*/}
+			{/*	'height' : 60,*/}
+			{/*	'width' : 468,*/}
+			{/*	'params' : {}*/}
+			{/*};*/}
+			{/*`}*/}
+      {/*</Script>*/}
+      {/*<Script*/}
+      {/*  type='text/javascript'*/}
+      {/*  src='//www.topcreativeformat.com/2b078f153e0ea4f34ca2422912da7aa2/invoke.js'*/}
+      {/*></Script>*/}
+      {/*<div id='container-d473607904fb2e0f363661d71b81ba82'></div>*/}
     </section>
   );
 };
