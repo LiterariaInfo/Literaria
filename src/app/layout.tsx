@@ -39,6 +39,7 @@ export default async ({ children }: { children: ReactNode }) => {
           crossOrigin='anonymous'
         ></Script>
         */}
+        <meta name="ddosattack-target-verify" content="9ba0b59eb6de2a7236d39b7a443124cb403ec1ab8472c431fa9cc6979e81b029" />
         <Script
           async
           src='https://www.googletagmanager.com/gtag/js?id=G-41RQK3JR9R'
