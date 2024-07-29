@@ -19,9 +19,6 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       lastModified: new Date()
     },
     {
-      url: 'https://literaria.info/about'
-    },
-    {
       url: 'https://literaria.info',
       priority: 1
     }
