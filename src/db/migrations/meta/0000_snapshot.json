@@ -1,10 +1,8 @@
 {
-  "id": "5261cbae-7a2a-4cb0-ad5d-36afcc578605",
-  "prevId": "00000000-0000-0000-0000-000000000000",
-  "version": "5",
-  "dialect": "pg",
+  "version": "7",
+  "dialect": "postgresql",
   "tables": {
-    "Article": {
+    "public.Article": {
       "name": "Article",
       "schema": "",
       "columns": {
@@ -51,21 +49,21 @@
         "foreign": {
           "name": "foreign",
           "tableFrom": "Article",
-          "tableTo": "Article",
           "columnsFrom": [
             "parentID"
           ],
+          "tableTo": "Article",
           "columnsTo": [
             "id"
           ],
-          "onDelete": "set null",
-          "onUpdate": "cascade"
+          "onUpdate": "cascade",
+          "onDelete": "set null"
         }
       },
       "compositePrimaryKeys": {},
       "uniqueConstraints": {}
     },
-    "ArticleContent": {
+    "public.ArticleContent": {
       "name": "ArticleContent",
       "schema": "",
       "columns": {
@@ -93,21 +91,21 @@
         "ArticleContent_articleID_Article_id_fk": {
           "name": "ArticleContent_articleID_Article_id_fk",
           "tableFrom": "ArticleContent",
-          "tableTo": "Article",
           "columnsFrom": [
             "articleID"
           ],
+          "tableTo": "Article",
           "columnsTo": [
             "id"
           ],
-          "onDelete": "restrict",
-          "onUpdate": "cascade"
+          "onUpdate": "cascade",
+          "onDelete": "restrict"
         }
       },
       "compositePrimaryKeys": {},
       "uniqueConstraints": {}
     },
-    "RecommendedArticle": {
+    "public.RecommendedArticle": {
       "name": "RecommendedArticle",
       "schema": "",
       "columns": {
@@ -129,21 +127,21 @@
         "RecommendedArticle_articleID_Article_id_fk": {
           "name": "RecommendedArticle_articleID_Article_id_fk",
           "tableFrom": "RecommendedArticle",
-          "tableTo": "Article",
           "columnsFrom": [
             "articleID"
           ],
+          "tableTo": "Article",
           "columnsTo": [
             "id"
           ],
-          "onDelete": "restrict",
-          "onUpdate": "cascade"
+          "onUpdate": "cascade",
+          "onDelete": "restrict"
         }
       },
       "compositePrimaryKeys": {},
       "uniqueConstraints": {}
     },
-    "User": {
+    "public.User": {
       "name": "User",
       "schema": "",
       "columns": {
@@ -172,10 +170,10 @@
       "uniqueConstraints": {
         "User_user_unique": {
           "name": "User_user_unique",
-          "nullsNotDistinct": false,
           "columns": [
             "user"
-          ]
+          ],
+          "nullsNotDistinct": false
         }
       }
     }
@@ -183,8 +181,11 @@
   "enums": {},
   "schemas": {},
   "_meta": {
-    "columns": {},
     "schemas": {},
-    "tables": {}
-  }
+    "tables": {},
+    "columns": {}
+  },
+  "id": "5261cbae-7a2a-4cb0-ad5d-36afcc578605",
+  "prevId": "00000000-0000-0000-0000-000000000000",
+  "sequences": {}
 }

@@ -3,7 +3,6 @@ import { Dispatch, SetStateAction, useRef, useState } from 'react';
 import { ArticleModel } from '@/components/navbar/NavBar';
 import Fuse, { FuseResult } from 'fuse.js';
 import Link from 'next/link';
-import '@/ui/fontawesome/css/fa.css';
 
 const width0 = { width: 0 };
 
@@ -56,7 +55,7 @@ const SearchBar = ({
     <>
       <motion.div
         layout
-        className={`relative flex rounded-[10rem] border border-solid ${isExtended ? '' : 'mobile:border-none'} justify-end outline-none mobile:hidden ${className}`}
+        className={`relative flex rounded-[10rem] border border-solid ${isExtended ? '' : 'mobile:border-none'} mobile:hidden justify-end outline-none ${className}`}
         onMouseEnter={handleMouseEnter}
         onMouseLeave={handleMouseLeave}
       >

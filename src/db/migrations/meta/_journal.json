@@ -8,6 +8,13 @@
       "when": 1709299964709,
       "tag": "0000_soft_zeigeist",
       "breakpoints": true
+    },
+    {
+      "idx": 1,
+      "version": "7",
+      "when": 1725699020066,
+      "tag": "0001_fixed_rattler",
+      "breakpoints": true
     }
   ]
 }

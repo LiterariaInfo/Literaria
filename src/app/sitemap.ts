@@ -1,17 +1,17 @@
 import { MetadataRoute } from 'next';
-import { db } from '@/lib/api/drizzle';
-import { article } from '../../drizzle/schema';
+import { db } from '@/db/db';
+import { articles } from '@/db/schema/articles';
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
-  const articles = await db
+  const apiArticles = await db
     .select({
-      id: article.id
+      id: articles.id
     })
-    .from(article);
+    .from(articles);
 
   return [
-    ...articles.map((art) => ({
-      url: `https://literaria.com/article/${art.id}`,
+    ...apiArticles.map((article) => ({
+      url: `https://literaria.com/article/${article.id}`,
       lastModified: new Date()
     })),
     {

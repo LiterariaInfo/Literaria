@@ -9,8 +9,6 @@ import NavBarCategories from '@/components/navbar/components/NavBarCategories';
 import SearchBar from '@/components/navbar/components/SearchBar';
 import NavBarListExpanded from '@/components/navbar/components/NavBarListExpanded';
 import BackgroundEffect from '@/components/navbar/components/BackgroundEffect';
-import Image from 'next/image';
-import menu from '../../../public/icons/menu.svg';
 
 const navBarTransition = {
   bounce: 0,
@@ -90,14 +88,7 @@ const NavBar = ({
               articles={articleNames}
             />
             {!isExtended ? (
-              <Image
-                onClick={() => {
-                  setExpanded(!expanded);
-                }}
-                className='hidden h-4 w-auto rounded-none mobile:block '
-                src={menu}
-                alt='Top right arrow'
-              />
+              <i className='fa fa-bars text-2xl hidden mobile:block' />
             ) : (
               ''
             )}
